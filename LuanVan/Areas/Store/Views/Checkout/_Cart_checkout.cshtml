@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LuanVan.Models.GioHang>
+
+
+<div class="checkout-sidebar-price-table mt-30">
+    <h5 class="title">@_localization.Getkey("Invoice_information")</h5>
+    <div class="sub-total-price">
+        @{
+            long sum = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <div class="total-price">
+                <p class="value">@item.SanPham.TenSanPham</p>
+                <p class="price">@_localization.Getkey("Quantity"): @item.SoLuongDat <br /> <span class="amount">@_localization.Getkey("Price"): @String.Format("{0:### ### ### ### VNĐ}", item.SanPham.GiaBan) </span></p>
+            </div>
+            sum += (long)item.SoLuongDat * (long)item.SanPham.GiaBan;
+        }
+        <div class="total-price">
+            <p class="value">@_localization.Getkey("Total_order"):</p>
+            <p class="price" id="totalPrice">@String.Format("{0:### ### ### ### VNĐ}", sum)</p>
+        </div>
+        <div class="total-price shipping">
+            <p class="value">@_localization.Getkey("Delivery_charges"):</p>
+            <p class="price">@_localization.Getkey("Free")</p>
+        </div>
+        <div class="total-price discount">
+            <p class="value">@_localization.Getkey("Promotion"):</p>
+            <p class="price" id="discountValue">0 %</p>
+        </div>
+        <div class="total-price discount">
+            <p class="value">@_localization.Getkey("Promotion_amount"):</p>
+            <p class="price" id="discountMoneyValue">0 VND</p>
+        </div>
+    </div>
+    <div class="total-payable">
+        <div class="payable-price">
+            <p class="value">@_localization.Getkey("Total"):</p>
+            <p class="price" id="totalPriceDiscount"><span>@String.Format("{0:### ### ### ### VNĐ}", sum) </span></p>
+        </div>
+    </div>
+    @*<div class="price-table-btn button">
+    <a href="javascript:void(0)" class="btn btn-alt">Thanh toán</a>
+    </div>*@
+</div>

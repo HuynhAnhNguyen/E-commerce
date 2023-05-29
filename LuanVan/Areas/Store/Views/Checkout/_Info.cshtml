@@ -1,0 +1,106 @@
+﻿@model LuanVan.Areas.Store.Models.HoaDonModel
+
+
+<form class="form" method="post" action="Receipt" id="info">
+    <section class="checkout-steps-form-content collapse show">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="single-form form-default">
+                    <label>@_localization.Getkey("Lastname") <span class="text-danger">*</span></label>
+                    <div class="form-input form">
+                        <input type="text" name="HoLot" id="HoLot" placeholder="@_localization.Getkey("Lastname")" value="@Model?.Holot" required="required" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form form-default">
+                    <label>@_localization.Getkey("Firstname") <span class="text-danger">*</span></label>
+                    <div class="form-input form">
+                        <input type="text" name="Ten" id="Ten" placeholder="@_localization.Getkey("Firstname")" value="@Model?.Ten" required="required" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form form-default">
+                    <label>@_localization.Getkey("Email") <span class="text-danger">*</span></label>
+                    <div class="form-input form">
+                        <input type="text" name="Email" id="Email" placeholder="@_localization.Getkey("Email")" value="@Model?.Email" required="required" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form form-default">
+                    <label>@_localization.Getkey("Phonenumber") <span class="text-danger">*</span></label>
+                    <div class="form-input form">
+                        <input type="text" name="SoDienThoai" id="SoDienThoai" placeholder="@_localization.Getkey("Phonenumber")" value="@Model?.SoDienThoai" required="required" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12 d-none">
+                <div class="form-group">
+                    <label>Giỏ hàng</label>
+                    @{
+                        string vl = Context.Request.Query["listgh"].ToString();
+                        if (Model != null && Model.GioHangs != "") 
+                            vl = Model.GioHangs;
+                    }
+                    <input type="text" id="GioHangs" name="GioHangs" placeholder="@_localization.Getkey("Cart")" value="@vl">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12 d-none">
+                <div class="form-group">
+                    <label>@_localization.Getkey("Pay")</label>
+                    <input id="payment_method" value="vnpay" type="text" name="ThanhToan" >
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <br />
+                <a href="/Identity/Account/Register" class="text-primary text-decoration-none">@_localization.Getkey("Register")</a>
+            </div>
+        </div>
+    </section>
+</form>
+
+<script>
+    var emailInput = document.getElementById("Email");
+    var emailAddress = emailInput.value;
+
+    if (emailAddress === '') {
+        emailInput.addEventListener("input", function () {
+            var emailNewAddress = emailInput.value;
+            $.ajax({
+                url: "/Store/Checkout/GetEmailAddress",
+                type: "POST",
+                data: { email: emailNewAddress },
+                success: function (response) {
+                    //console.log("Thành công.");
+                    // Xử lý response ở đây nếu cần
+                },
+                error: function (error) {
+                    //console.log("Lỗi.");
+                    // Xử lý error ở đây nếu cần
+                }
+            });
+        });
+        
+    }else{
+        $.ajax({
+        url: "/Store/Checkout/GetEmailAddress",
+        type: "POST",
+        data: { email: emailAddress },
+        success: function (response) {
+            //console.log("Thành công.");
+            // Xử lý response ở đây nếu cần
+        },
+        error: function (error) {
+            //console.log("Lỗi.");
+            // Xử lý error ở đây nếu cần
+        }
+    });
+    }
+
+    
+
+</script>

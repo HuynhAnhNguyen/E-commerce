@@ -1,0 +1,107 @@
+﻿@model IPagedList<LuanVan.Models.SanPham>
+@*@using LuanVan.Models;*@
+@{
+    ViewData["Title"] = @_localization.Getkey("Search_product");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Search_product")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a href="/Store/Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("Home")</a>
+                    </li>
+                    <li>@_localization.Getkey("Search_product")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if ((int)ViewData["soluong"] > 0)
+{
+<section class="product-grids section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="product-grids-head">
+                    <div class="section-title">
+                        <h2>@_localization.Getkey("Results_for"): @ViewData["key"]</h2>
+                    </div>
+
+
+                    <script>
+                        $('.form-control').change((e) => {
+                            //console.log(e.currentTarget.value);
+                            //console.log(e.currentTarget.id);
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Store/Product/SortName',
+                                data: { maloai: e.currentTarget.id, value: e.currentTarget.value }
+                            }).done((data) => {
+                                $('#myTabContent').html(data);
+                                //console.log(data)
+                            })
+
+                        })
+                    </script>
+
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Start Single Tab -->
+                        <partial name="_Product_Filters_SanPhamTheoKey" model="Model" />
+                        <!--/ End Single Tab -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
+else
+{
+    <section class="product-grids section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <div class="product-grids-head">
+                        <div class="section-title">
+                            <h2>@_localization.Getkey("Results_for"): @ViewData["key"]</h2>
+                        </div>
+                        <div class="text-center">
+                            <div>
+                                <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@{
+    List<LuanVan.Models.SanPham> list_sphot = ViewData["hot_items"] as List<LuanVan.Models.SanPham>;
+}
+
+<partial name="_Hot_Items" model="list_sphot.Take(4)" />
+
+@{
+    List<LuanVan.Models.SanPham> list_sptop12 = ViewData["top12products"] as List<LuanVan.Models.SanPham>;
+}
+
+<partial name="_SellingProducts" model="list_sptop12.Take(4)" />
+
+@{
+    List<LuanVan.Models.SanPham> list_spdiscount = ViewData["discount_items"] as List<LuanVan.Models.SanPham>;
+}
+
+<partial name="_Discount_Product" model="list_spdiscount.Take(4)" />

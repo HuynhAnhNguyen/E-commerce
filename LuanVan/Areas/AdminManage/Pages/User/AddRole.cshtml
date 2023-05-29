@@ -1,0 +1,149 @@
+﻿@page
+@model AddRoleModel
+@{
+    ViewData["Title"] = @_localization.Getkey("AddRoleForUser");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+
+
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("AddRoleForUser")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="AdminManage"><i class="lni lni-list"></i> @_localization.Getkey("ListUser")</a>
+                    </li>
+                    <li>@_localization.Getkey("AddRoleForUser")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <form class="card login-form" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>@_localization.Getkey("AddRoleForUser")</h3>
+                            <p>
+                                @_localization.Getkey("AddRoleForUser") <strong>@Model.user.UserName </strong>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @*Các role gán cho user*@
+                                @*<div class="form-floating">*@
+
+                                    @*@Html.ListBoxFor(m=> m.RoleNames, Model.allRoles, new{
+                                    id= "id-select-roles",
+                                    @class= "form-control"
+                                    })
+                                    @*<input asp-for="RoleNames" class="form-control" type="" />*@
+                                    @*<label asp-for="RoleNames" class="form-label">Các role gán cho user <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="RoleNames" class="text-danger"></span>*@
+                                   
+                                <label asp-for="RoleNames">@_localization.Getkey("RolesAddForUser")  <span class="text-danger">*</span></label>
+                                <select asp-for="RoleNames" multiple class="form-select form-control" aria-label="multiple select example">
+                                    @foreach (var role in Model.allRoles)
+                                    {
+                                        <option value="@role">@role</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="RoleNames" class="text-danger p-2"></span>
+                                
+                            </div>
+                            <div class="button">
+                                <button class="btn" type="submit">@_localization.Getkey("UpdateStatusAccount")</button>
+                                <hr />
+                                <a class="btn btn-primary" asp-page="./Index">@_localization.Getkey("BackTo")</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @*<div class="card-body">
+                        <div class="title">
+                            <h3>Các claim của user có được từ role</h3>
+                            <p>
+                                Các claim của user có được từ role
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @if (Model.claimsInRole.Count > 0)
+                                {
+                                    <ul>
+                                        @foreach (var claim in Model.claimsInRole)
+                                        {
+                                            <li>@claim.ClaimType : @claim.ClaimValue</li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                <ul><strong>Không có claim</strong></ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>Các claim riêng của user</h3>
+                            <p class="button">
+                                <a class="btn btn-secondary" asp-page="./EditUserRoleClaim" asp-page-handler="AddClaim" asp-route-userid="@Model.user.Id">Thêm claim riêng chỉ thuộc về user</a>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @if (Model.claimsInUserClaim.Count > 0)
+                                {
+                                    <ul>
+                                        @foreach (var claim in Model.claimsInUserClaim)
+                                        {
+                                            <li>
+                                                <a asp-page="./EditUserRoleClaim" asp-page-handler="EditClaim" asp-route-claimid="@claim.Id">@claim.ClaimType : @claim.ClaimValue</a>
+
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <ul><strong>Không có claim riêng</strong></ul>
+                                }
+                            </div>
+
+                        </div>
+                    </div>*@
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,214 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("DSPhuongThucTT");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/Payment/Index", new { p = p })
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("PTTTName")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>@_localization.Getkey("PTTTName")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="mb-2">
+    <a class="btn btn-outline-primary" asp-page="./Create"><i class="lni lni-plus"></i> @_localization.Getkey("ThemPhuongThucTT")</a>
+</div>
+@if(Model.soLuongPays.Count()> 0)
+{
+    <br />
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" id="exportPaymentExcelBtn"><i class="fa-regular fa-file-excel"></i></a>
+        <a class="btn btn-outline-primary" id="exportPaymentPdfBtn"><i class="fa-regular fa-file-pdf"></i></a>
+    </div>
+    <br />
+    <form method="get" asp-page="./Index">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" name="Search" placeholder="@_localization.Getkey("SearchPTTTName")" />
+            <button type="submit" class="btn btn-outline-primary"><i class="lni lni-search-alt"></i> @_localization.Getkey("SearchBtn")</button>
+        </div>
+    </form>
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th>@_localization.Getkey("STT")</th>
+            <th>@_localization.Getkey("MaPTTT")</th>
+            <th>@_localization.Getkey("TenPTTT") </th>
+            <th>@_localization.Getkey("TacVu")</th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var pay in Model.pays)
+        {
+            <tr>
+                <td>
+                    @stt
+                    @{
+                        stt++;
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-paymentid="@pay.MaPttt">@pay.MaPttt</a>
+                </td>
+                <td>@pay.TenPttt</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-paymentid="@pay.MaPttt" class="btn btn-outline-success"><i class="lni lni-pencil"></i></a>
+                    <a class="btn btn-outline-danger DeleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@pay.MaPttt"><i class="lni lni-trash-can"></i></a>
+
+                    <div class="modal" id="confirmDeleteModal-@pay.MaPttt" tabindex="-1" aria-labelledby="confirmDeleteLabel-@pay.MaPttt" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteLabel-@pay.MaPttt">@_localization.Getkey("XacNhanXoaPTTT")</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @_localization.Getkey("XoaNSXContent") <strong>@pay.TenPttt</strong>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                                    <form method="post" asp-page="./Delete" asp-route-paymentid="@pay.MaPttt">
+                                        <button type="submit" class="btn btn-danger">@_localization.Getkey("Xoa")</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="modal" id="confirmExportPaymentExcelModal" tabindex="-1" aria-labelledby="confirmExportPaymentExcelLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportPaymentExcelLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("PaymentExcel")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportPaymentExcel">
+                        <button type="submit" class="btn btn-primary" id="confirmExportExcelBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmExportPaymentPdfModal" tabindex="-1" aria-labelledby="confirmExportPaymentPdfLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportPaymentPdfLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("PaymentPdf")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportPaymentPdf">
+                        <button type="submit" class="btn btn-primary" id="confirmExportPdfBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on('click', '#exportPaymentExcelBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportPaymentExcelModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportExcelBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportPaymentExcelModal').modal('hide');
+                alert("Xuất file excel thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '#exportPaymentPdfBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportPaymentPdfModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportPdfBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportPaymentPdfModal').modal('hide');
+                alert("Xuất file pdf thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.DeleteBtn', function () {
+            // Lấy ra ID của modal từ data-bs-target
+            var targetModalId = $(this).data('bs-target');
+
+            // Hiển thị modal
+            $(targetModalId).modal('show');
+
+            // Xác nhận xóa khi người dùng click vào nút Xóa trong modal
+            $(targetModalId).find('form').submit(function () {
+                // Ẩn modal sau khi xác nhận xóa
+                $(targetModalId).modal('hide');
+            });
+        });
+    </script>
+}
+
+

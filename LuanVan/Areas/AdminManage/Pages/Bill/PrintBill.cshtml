@@ -1,0 +1,45 @@
+﻿@page
+@model PrintBillModel
+@{
+    ViewData["Title"] = @_localization.Getkey("CapNhatTTHD");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+
+
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Bill")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="AdminManage"><i class="lni lni-list"></i> @_localization.Getkey("DSHD")</a>
+                    </li>
+                    <li>@_localization.Getkey("CapNhatTTHD")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

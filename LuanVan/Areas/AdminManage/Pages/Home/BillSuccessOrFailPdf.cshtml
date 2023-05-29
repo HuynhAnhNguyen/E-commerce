@@ -1,0 +1,81 @@
+﻿@page
+@model BillSuccessOrFailPdfModel
+@{
+    ViewData["Title"] = @_localization.Getkey("Home");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">sfs</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>In hoa don Pdf</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="mb-2">
+    <a class="btn btn-outline-primary active" asp-page="../Home/Index">Trang chủ</a>
+    <a class="btn btn-outline-primary" asp-page="../User/Index">Danh sách user</a>
+    <a class="btn btn-outline-primary" asp-page="../Role/Index">Danh sách role</a>
+    <a class="btn btn-outline-primary" asp-page="../Producer/Index">Nhà sản xuất</a>
+    <a class="btn btn-outline-primary" asp-page="../Product/Index">Sản phẩm</a>
+    <a class="btn btn-outline-primary" asp-page="../ProductType/Index">Loại sản phẩm</a>
+    <a class="btn btn-outline-primary" asp-page="../Color/Index">Màu sắc</a>
+    <a class="btn btn-outline-primary" asp-page="../Promotion/Index">Khuyến mãi</a>
+    <a class="btn btn-outline-primary" asp-page="../Bill/Index">Hóa đơn</a>
+    <a class="btn btn-outline-primary" asp-page="../Payment/Index">Phương thức thanh toán</a>
+</div>*@
+@*
+<br />
+<div class="mb-2">
+    <a class="btn btn-outline-primary" href="/Admin/Report/ExportUserExcel"><i class="lni lni-printer"></i> Xuất file excel doanh thu</a>
+    <a class="btn btn-outline-primary" href="/Admin/Report/ExportUserPdf"><i class="lni lni-printer"></i> Xuất file pdf doanh thu</a>
+</div>
+<br />*@
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <form class="card login-form" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>Xac nhan in hoa don</h3>
+                            <p>
+                                Xac nhan in hoa don PDF
+                            </p>
+                        </div>
+                        <div class="button">
+                            <button class="btn" type="submit">IN</button>
+                            <hr />
+                            <a class="btn btn-primary" asp-page="./Index">@_localization.Getkey("BackTo")</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}

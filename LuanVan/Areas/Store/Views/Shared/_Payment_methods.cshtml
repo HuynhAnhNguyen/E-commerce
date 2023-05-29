@@ -1,0 +1,97 @@
+﻿@{
+    var items = ViewData["pay-method"] as List<LuanVan.Models.ThanhToan>;
+}
+<div class="checkout-sidebar-price-table mt-30">
+    <h5 class="title">@_localization.Getkey("Method_pay")</h5>
+    <div class="sub-total-price">
+        @foreach (var item in items)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment" id="@item.MaPttt" checked>
+                <label class="form-check-label" for="@item.MaPttt">
+                    @item.TenPttt
+                </label>
+            </div>
+        }
+    </div>
+    <br />
+    <div class="button">
+        <button class="btn" onclick="checkout_wallet()" id="confirm_checkout">@_localization.Getkey("Pay")</button>
+    </div>
+    <script>
+        $('input[name="payment"]').click((e) => {
+            $('#payment_method').val(e.target.id)
+        })
+        function checkout_wallet() {
+            var hotlot = $('#HoLot').val();
+            var ten = $('#Ten').val();
+            var email = $('#Email').val();
+            var sdt = $('#SoDienThoai').val();
+            var listgh = $('#GioHangs').val();
+            var payment = $('#payment_method').val();
+
+            // Lấy thẻ có id là totalPriceDiscount ( Giá sau khi trừ khuyến mãi)
+            var totalPriceDiscountElement = $("#totalPriceDiscount");
+            // Tổng giá tiền
+            var totalPrice = parseInt(totalPriceDiscountElement.text().replace(/[^\d]/g, ""));
+
+            var discountCode = $('#myDiscount').val();
+
+            if (!discountCode) {
+                discountCode = null;
+            }
+
+            var hoLotInput = document.getElementById("HoLot");
+            var tenInput = document.getElementById("Ten");
+            var emailInput = document.getElementById("Email");
+            var soDienThoaiInput = document.getElementById("SoDienThoai");
+
+            if (hoLotInput.value == "") {
+                alert("Vui lòng nhập họ lót.");
+                return false;
+            }
+            if (tenInput.value == "") {
+                alert("Vui lòng nhập tên.");
+                return false;
+            }
+            if (emailInput.value == "") {
+                alert("Vui lòng nhập địa chỉ email.");
+                return false;
+            }
+            if (soDienThoaiInput.value == "") {
+                alert("Vui lòng nhập số điện thoại.");
+                return false;
+            }
+
+            if (!validatePhoneNumber(soDienThoaiInput.value)) {
+                alert("Số điện thoại không hợp lệ.");
+                return false;
+            }
+
+            // Hàm kiểm tra định dạng số điện thoại
+            function validatePhoneNumber(phoneNumber) {
+                const phoneRegex = /^\d{10,}$/; // Kiểm tra số điện thoại có ít nhất 10 chữ số
+                return phoneRegex.test(phoneNumber);
+            }
+
+            $.ajax({
+                'type': 'POST',
+                'url': '/Store/Checkout/Payment',
+                'data': {
+                    'listgh': listgh,
+                    'payment': payment,
+                    'discountCode': discountCode,
+                    'totalPrice': totalPrice,
+                }
+            }).done(data => {
+
+                //if (JSON.parse(data).payment != undefined) {
+                //    var url = "/Store/Checkout/Receipt?Holot=" + hotlot + "&Ten=" + ten + "&Email=" + email + "&SoDienThoai=" + sdt + "&Thanhtoan=" + payment + "&GioHangs=" + listgh
+                //    window.location.replace(url);
+                //} else {
+                window.location.replace(data)
+                //}
+            })
+        }
+    </script>
+</div>

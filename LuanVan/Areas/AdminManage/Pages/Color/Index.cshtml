@@ -1,0 +1,216 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("DSMauSac");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/Color/Index", new { p = p })
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Color")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>@_localization.Getkey("Color")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="mb-2">
+    <a class="btn btn-outline-primary" asp-page="./Create"><i class="lni lni-plus"></i> @_localization.Getkey("AddNewColor")</a>
+</div>
+@if(Model.soLuongMauSac.Count()> 0)
+{
+    <br />
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" id="exportColorExcelBtn"><i class="fa-regular fa-file-excel"></i></a>
+        <a class="btn btn-outline-primary" id="exportColorPdfBtn"><i class="fa-regular fa-file-pdf"></i></a>
+    </div>
+    <br />
+    <form method="get" asp-page="./Index">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" name="Search" placeholder="@_localization.Getkey("SearchColorName")" />
+            <button type="submit" class="btn btn-outline-primary"><i class="lni lni-search-alt"></i> @_localization.Getkey("SearchBtn")</button>
+        </div>
+    </form>
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th colspan="2">@_localization.Getkey("STT")</th>
+            <th colspan="3">@_localization.Getkey("MaMau")</th>
+            <th colspan="8">@_localization.Getkey("TenMau") </th>
+            <th colspan="2">@_localization.Getkey("TacVu")</th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var color in Model.colors)
+        {
+            <tr>
+                <td colspan="2">
+                    @stt
+                    @{
+                        stt++;
+                    }
+                </td>
+                <td colspan="3">@color.MaMau</td>
+                <td colspan="8">
+                    <a asp-page="./Edit" asp-route-colorid="@color.MaMau">@color.TenMau</a>
+                </td>
+                <td colspan="2">
+                    <a asp-page="./Edit" asp-route-colorid="@color.MaMau" class="btn btn-outline-success"><i class="lni lni-pencil"></i></a>
+                    <a class="btn btn-outline-danger DeleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@color.MaMau"><i class="lni lni-trash-can"></i></a>
+
+                    <div class="modal" id="confirmDeleteModal-@color.MaMau" tabindex="-1" aria-labelledby="confirmDeleteLabel-@color.MaMau" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteLabel-@color.MaMau">@_localization.Getkey("XoaMSContent")</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @_localization.Getkey("XoaNSXContent") <strong>@color.TenMau</strong>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                                    <form method="post" asp-page="./Delete" asp-route-colorid="@color.MaMau">
+                                        <button type="submit" class="btn btn-danger">@_localization.Getkey("Xoa")</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="modal" id="confirmExportColorExcelModal" tabindex="-1" aria-labelledby="confirmExportColorExcelLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportColorExcelLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("ColorExcel")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportColorExcel">
+                        <button type="submit" class="btn btn-primary" id="confirmExportExcelBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmExportColorPdfModal" tabindex="-1" aria-labelledby="confirmExportColorPdfLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportColorPdfLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("ColorPdf")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportColorPdf">
+                        <button type="submit" class="btn btn-primary" id="confirmExportPdfBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on('click', '#exportColorExcelBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportColorExcelModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportExcelBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportColorExcelModal').modal('hide');
+                alert("Xuất file excel thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '#exportColorPdfBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportColorPdfModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportPdfBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportColorPdfModal').modal('hide');
+                alert("Xuất file pdf thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.DeleteBtn', function () {
+            // Lấy ra ID của modal từ data-bs-target
+            var targetModalId = $(this).data('bs-target');
+
+            // Hiển thị modal
+            $(targetModalId).modal('show');
+
+            // Xác nhận xóa khi người dùng click vào nút Xóa trong modal
+            $(targetModalId).find('form').submit(function () {
+                // Ẩn modal sau khi xác nhận xóa
+                $(targetModalId).modal('hide');
+            });
+        });
+    </script>
+}
+

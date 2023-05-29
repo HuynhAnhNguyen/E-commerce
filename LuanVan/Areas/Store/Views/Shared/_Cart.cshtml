@@ -1,0 +1,70 @@
+﻿@model List<LuanVan.Models.GioHang>
+@if (User.Identity != null)
+{
+
+	@if (Model?.Count() > 0)
+	{
+		@*<div class="sinlge-bar shopping">
+			<a href="/Store/Cart/MyItems" class="single-icon">
+				<i class="fas fa-shopping-cart"></i>
+				<span class="total-count">@Model.Count()</span>
+			</a>
+		</div>*@
+
+        <div class="navbar-cart">
+            <div class="wishlist">
+            </div>
+            <div class="cart-items">
+                <a href="/Store/Cart/MyItems" class="main-btn">
+                    <i class="lni lni-cart"></i>
+                    <span class="total-items">@Model.Count()</span>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            $('.remove').click((e) => {
+                var magh = e.currentTarget.dataset.magh
+                $.ajax({
+                    type: 'POST',
+                    url: '/Store/Cart/RemoveItems',
+                    data: { magh: magh }
+                }).done((data) => {
+                    @*console.log("magh: " + magh);*@
+                    @*console.log("data " + data);*@
+                    $('#cart_container').html(data);
+                })
+            })
+        </script>
+	}
+	else
+	{
+		<div class="wishlist">
+        </div>
+        <div class="cart-items">
+            <a href="" class="main-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <div class="shopping-item">
+                <div class="d-flex">
+                    <div class="mx-auto">@_localization.Getkey("Cart_null")</div>
+                </div>
+            </div>
+        </div>
+	}
+}
+else
+{
+        <div class="wishlist">
+        </div>
+        <div class="cart-items">
+            <a href="" class="main-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <div class="shopping-item">
+                <div class="d-flex">
+                <div class="mx-auto">@_localization.Getkey("Use_cart")</div>
+                </div>
+            </div>
+        </div>
+}

@@ -1,0 +1,435 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = @_localization.Getkey("Register");
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Register")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home" asp-area="Store"><i class="lni lni-home"></i> @_localization.Getkey("Home")</a>
+                    </li>
+                    <li>@_localization.Getkey("Register")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <div class="card login-form">
+
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>@_localization.Getkey("RegisterTitle")</h3>
+                            <p>
+                                @_localization.Getkey("RegisterContent")
+                            </p>
+                        </div>
+                        <div class="social-login">
+                            <div class="row">
+                                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                    @foreach (var provider in Model.ExternalLogins!)
+                                    {
+                                        <div class="col-lg-12 col-md-12 col-12">
+                                            @if (provider.Name.Equals("Facebook"))
+                                            {
+                                                <div class="row">
+                                                    <button type="submit" class="btn facebook-btn" name="provider" value="@provider.Name" title=" @_localization.Getkey("Continue_with") @provider.DisplayName account"><i class="lni lni-facebook-filled"></i>@_localization.Getkey("Continue_with") @provider.DisplayName</button>
+                                                </div>
+                                                <br />
+                                            }
+                                            else if (provider.Name.Equals("Google"))
+                                            {
+                                                <div class="row">
+                                                    <button type="submit" class="btn google-btn" name="provider" value="@provider.Name" title=" @_localization.Getkey("Continue_with") @provider.DisplayName account"><i class="lni lni-google"></i> @_localization.Getkey("Continue_with") @provider.DisplayName</button>
+                                                </div>
+                                                <br />
+                                            }
+                                            else
+                                            {
+                                                <div class="row">
+                                                    <button type="submit" class="btn twitter-btn" name="provider" value="@provider.Name" title=" @_localization.Getkey("Continue_with") @provider.DisplayName account"><i class="lni lni-microsoft"></i> @_localization.Getkey("Continue_with") @provider.DisplayName</button>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                        <div class="alt-option">
+                            <span>@_localization.Getkey("Or")</span>
+                        </div>
+                        <form method="post">
+
+                            <div class="card-body">
+                                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        @*Họ*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.HoKhachHang" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.HoKhachHang">@_localization.Getkey("Lastname") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.HoKhachHang" class="text-danger p-2"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @*Tên*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.TenKhachHang" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.TenKhachHang">@_localization.Getkey("Firstname") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.TenKhachHang" class="text-danger p-2"></span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        @*Username*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Username" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.Username">@_localization.Getkey("Username") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.Username" class="text-danger p-2"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        @*Ngày sinh*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.NgaySinh" class="form-control" type="date" aria-required="true" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                            <label asp-for="Input.NgaySinh">@_localization.Getkey("Dateofbirth") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.NgaySinh" class="text-danger p-2"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @*Giới tính*@
+                                        <div class="form-floating">
+
+                                            <select id="GioiTinh" asp-for="Input.GioiTinh" class="form-control">
+                                                <option value="Nam" selected>@_localization.Getkey("Male")</option>
+                                                <option value="Nữ">@_localization.Getkey("Female")</option>
+                                            </select>
+                                            <label asp-for="Input.GioiTinh">@_localization.Getkey("Gender") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.GioiTinh" class="text-danger p-2"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @*Số điện thoại*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.PhoneNumber">@_localization.Getkey("Phonenumber") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.PhoneNumber" class="text-danger p-2"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @*Email*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Email" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.Email">@_localization.Getkey("Email") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.Email" class="text-danger p-2"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        @*Địa chỉ*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.DiaChi" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.DiaChi">@_localization.Getkey("Address") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.DiaChi" class="text-danger p-2"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @*Mật khẩu*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Password" type="password" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.Password">@_localization.Getkey("Password") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.Password" class="text-danger p-2"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        @*Mật khẩu*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.ConfirmPassword" type="password" class="form-control" aria-required="true" />
+                                            <label asp-for="Input.ConfirmPassword">@_localization.Getkey("Password_confirm") <span class="text-danger">*</span></label>
+                                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger p-2"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        @*Token ReCaptcha*@
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Token" class="form-control" hidden />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="button">
+                                        <button class="btn" type="submit">@_localization.Getkey("Register")</button>
+                                    </div>
+                                    <p class="outer-link">
+                                        @_localization.Getkey("Have_an_account")<a href="/Identity/Account/Login">@_localization.Getkey("LoginNow")</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Le5mEwlAAAAAMnlVXoBKTq7tpwELoJ26v_ZagOD"></script>
+<script>
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6Le5mEwlAAAAAMnlVXoBKTq7tpwELoJ26v_ZagOD', { action: 'homepage' }).then(function (token) {
+            console.log(token);
+            $('#Input_Token').val(token);
+            //document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+@*<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+@*<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <form class="card login-form row" method="post">
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>Đăng ký tài khoản ngay</h3>
+                            <p>
+                                Đăng ký tài khoản để có những trải nghiệm tuyệt vời tại Ishop
+                            </p>
+                        </div>
+                        @*<div class="social-login">
+                        <div class="row">
+                        <div class="col-lg-4 col-md-4 col-12">
+                        <a class="btn facebook-btn" href="#">
+                        <i class="lni lni-facebook-filled"></i> @_localization.Getkey("Continue_with") Facebook
+                        </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                        <a class="btn twitter-btn" href="#">
+                        <i class="lni lni-twitter-original"></i> @_localization.Getkey("Continue_with") Twitter
+                        </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                        <a class="btn google-btn" asp-controller="Login" asp-action="SignInWithGoogle">
+                        <i class="lni lni-google"></i> @_localization.Getkey("Continue_with") Google
+                        </a>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="alt-option">
+                        <span>Hoặc</span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @*Họ
+                                <div class="form-floating">
+                                    <input asp-for="Input.HoKhachHang" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.HoKhachHang">Họ lót <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.HoKhachHang" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                @*Tên
+                                <div class="form-floating">
+                                    <input asp-for="Input.TenKhachHang" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.TenKhachHang">Tên <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TenKhachHang" class="text-danger p-2"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Username
+                                <div class="form-floating">
+                                    <input asp-for="Input.Username" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.Username">Username <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.Username" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Ngày sinh
+                                <div class="form-floating">
+                                    <input asp-for="Input.NgaySinh" class="form-control" type="date" aria-required="true" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    <label asp-for="Input.NgaySinh">Ngày sinh  <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.NgaySinh" class="text-danger p-2"></span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                @*Giới tính
+                                <div class="form-floating">
+                                    <select id="GioiTinh" asp-for="Input.GioiTinh" class="form-control">
+                                        <option value="Nam" selected>Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                    </select>
+                                    <label for="GioiTinh">Giới tính <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.GioiTinh" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                @*Số điện thoại
+                                <div class="form-floating">
+                                    <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.PhoneNumber">Số điện thoại <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.PhoneNumber" class="text-danger p-2"></span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                @*Email
+                                <div class="form-floating">
+                                    <input asp-for="Input.Email" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.Email">Email <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.Email" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Địa chỉ
+                                <div class="form-floating">
+                                    <input asp-for="Input.DiaChi" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.DiaChi">Địa chỉ <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.DiaChi" class="text-danger p-2"></span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                @*Mật khẩu
+                                <div class="form-floating">
+                                    <input asp-for="Input.Password" type="password" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.Password">Mật khẩu <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.Password" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Mật khẩu
+                                <div class="form-floating">
+                                    <input asp-for="Input.ConfirmPassword" type="password" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.ConfirmPassword">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="button">
+                                <button class="btn" type="submit">Đăng ký</button>
+                            </div>
+                            <p class="outer-link">
+                                Bạn đã có tài khoản? <a href="/Identity/Account/Login">Đăng nhập ngay</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>*@

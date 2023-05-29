@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LuanVan.Models.GioHang>
+@{
+    ViewData["Title"] = @_localization.Getkey("Cart");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Cart")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a href="/Store/Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("Home")</a>
+                    </li>
+                    <li>@_localization.Getkey("Cart")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shopping-cart section">
+    <div class="container" id="Cart_full_container">
+        @await Html.PartialAsync("_Cart_Full", Model)
+    </div>
+
+    <script>
+        function remove_gh(target) {
+            $.ajax({
+                type: 'POST',
+                url: '/Store/Cart/RemoveCartItem',
+                data: { magh: target.dataset.magh }
+            }).done((data) => {
+                $('#Cart_full_container').html(data)
+                //console.log(data)
+                $.ajax({
+                    type: 'POST',
+                    url: '/Store/Cart/get_cart'
+                }).done((data) => {
+                    $('#cart_container').html(data);
+                })
+            })
+        }
+
+
+    </script>
+</div>
+

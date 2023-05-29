@@ -1,0 +1,202 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("DSHD");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/Bill/Index", new { p = p })
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Bill")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>@_localization.Getkey("Bill")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if(Model.soLuongHD.Count()> 0)
+{
+    <br />
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" asp-area="AdminManage" asp-page="/Bill/ExportHoaDonExcelFromTo"><i class="fa-regular fa-file-excel"></i></a>
+        <a class="btn btn-outline-primary" asp-area="AdminManage" asp-page="/Bill/ExportHoaDonPdfFromTo"><i class="fa-regular fa-file-pdf"></i></a>
+    </div>
+    <br />
+    <form method="get" asp-page="./Index">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" name="Search" placeholder="@_localization.Getkey("SearchBill")" />
+            <button type="submit" class="btn btn-outline-primary"><i class="lni lni-search-alt"></i> @_localization.Getkey("SearchBtn")</button>
+        </div>
+    </form>
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th>@_localization.Getkey("STT")</th>
+            <th>@_localization.Getkey("MaHD")</th>
+            <th>@_localization.Getkey("NgayXuat") </th>
+            <th>@_localization.Getkey("TongGT")</th>
+            <th>@_localization.Getkey("Discount")</th>
+            <th>@_localization.Getkey("DSHDTTTT")</th>
+            <th>@_localization.Getkey("DSHDTTDH")</th>
+            <th>@_localization.Getkey("TacVu")</th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var bill in Model.bills)
+        {
+            <tr>
+                <td>
+                    @stt
+                    @{
+                        stt++;
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon">@bill.MaHoaDon</a>
+                </td>
+                <td>@bill.NgayXuatHd</td>
+                <td>@String.Format("{0: ### ### ### ### VNĐ}", @bill.TongGiaTri)</td>
+
+                @if (bill.MaKm == null)
+                {
+                    <td> - </td>
+                }
+                else
+                {
+                    <td>@bill.MaKm</td>
+                }
+
+                <td>
+                    @switch (bill.TrangThaiThanhToan)
+                    {
+                        case -1:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-danger">@_localization.Getkey("Pay_error")</a>
+                            break;
+                        case 0:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-primary">@_localization.Getkey("Waiting_for_refund")</a>
+                            break;
+                        case 1:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-success">@_localization.Getkey("Pay_success")</a>
+                            break;
+                        default:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-secondary">@_localization.Getkey("ChoThanhToan")</a>
+                            break;
+                    }
+                </td>
+
+                <td>
+                    @switch (bill.TrangThaiDonHang)
+                    {
+                        case -1:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-danger">@_localization.Getkey("Cancel_bill")</a>
+                            break;
+                        case 0:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-primary">@_localization.Getkey("Waiting_for_delivery")</a>
+                            break;
+                        case 1:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-secondary">@_localization.Getkey("Delivery_in_progress")</a>
+                            break;
+                        default:
+                            <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn-outline-success">@_localization.Getkey("Delivery_successful")</a>
+                            break;
+                    }
+
+                </td>
+
+                <td>
+                    <a asp-page="./Detail" asp-route-billid="@bill.MaHoaDon" class="btn btn-outline-primary"><i class="lni lni-more"></i></a>
+                    <a asp-page="./Edit" asp-route-billid="@bill.MaHoaDon" class="btn btn-outline-success"><i class="lni lni-pencil"></i></a>
+                    <a class="btn btn-outline-danger DeleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@bill.MaHoaDon"><i class="lni lni-trash-can"></i></a>
+
+                    <div class="modal" id="confirmDeleteModal-@bill.MaHoaDon" tabindex="-1" aria-labelledby="confirmDeleteLabel-@bill.MaHoaDon" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteLabel-@bill.MaHoaDon">@_localization.Getkey("XacNhanXoaHD")</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @_localization.Getkey("XoaNSXContent") <strong>@bill.MaHoaDon</strong>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                                    <form method="post" asp-page="./Delete" asp-route-billid="@bill.MaHoaDon">
+                                        <button type="submit" class="btn btn-danger">@_localization.Getkey("Xoa")</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="form-inline" style="display: inline;" asp-page="./PrintBill" asp-route-billid="@bill.MaHoaDon">
+                        <button type="submit" class="btn btn-outline-secondary"><i class="lni lni-printer"></i></button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+}
+
+        @*Đang chờ lấy hàng
+        Đang giao hàng
+        Đã giao hàng
+        Đã hủy*@
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on('click', '.DeleteBtn', function () {
+            // Lấy ra ID của modal từ data-bs-target
+            var targetModalId = $(this).data('bs-target');
+
+            // Hiển thị modal
+            $(targetModalId).modal('show');
+
+            // Xác nhận xóa khi người dùng click vào nút Xóa trong modal
+            $(targetModalId).find('form').submit(function () {
+                // Ẩn modal sau khi xác nhận xóa
+                $(targetModalId).modal('hide');
+            });
+        });
+    </script>
+}

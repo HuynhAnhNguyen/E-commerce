@@ -1,0 +1,209 @@
+﻿@page
+@model EditModel
+@{
+    ViewData["Title"] = @_localization.Getkey("CapNhatSP");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("SanPham")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="AdminManage"><i class="lni lni-list"></i> @_localization.Getkey("DSSP")</a>
+                    </li>
+                    <li>@_localization.Getkey("CapNhatSP")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <form class="card login-form" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>@_localization.Getkey("CapNhatSP")</h3>
+                            <p>
+                                @_localization.Getkey("CapNhatSPContent")
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @*Mã sản phẩm*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.MaSanPham" class="form-control"  disabled/>
+                                    <label asp-for="Input.MaSanPham">@_localization.Getkey("MaSP") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaSanPham" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                @*Tên sản phẩm*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.TenSanPham" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.TenSanPham">@_localization.Getkey("TenSP") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TenSanPham" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Đơn vị tính*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.TenDvt" class="form-control" aria-required="true" />
+                                    <label asp-for="Input.TenDvt">@_localization.Getkey("DVT") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TenDvt" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Nhà sản xuất*@
+                                <div class="form-floating">
+                                    <select asp-for="Input.MaNsx" class="form-control">
+                                        <option>- @_localization.Getkey("ChonNSX") -</option>
+                                        @foreach (var nhaSanXuat in Model.nhaSanXuats)
+                                        {
+                                            <option value="@nhaSanXuat.MaNsx">@nhaSanXuat.TenNsx</option>
+                                        }
+                                    </select>
+                                    <label asp-for="Input.MaNsx">@_localization.Getkey("NSX") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaNsx" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Loại sản phẩm*@
+                                <div class="form-floating">
+                                    <select asp-for="Input.MaLoaiSp" class="form-control">
+                                        <option>- @_localization.Getkey("ChonLSP") -</option>
+                                        @foreach (var loaiSP in Model.loaiSanPhams)
+                                        {
+                                            <option value="@loaiSP.MaLoaiSp">@loaiSP.TenLoaiSp</option>
+                                        }
+                                    </select>
+                                    <label asp-for="Input.MaLoaiSp">@_localization.Getkey("Category") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaLoaiSp" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Màu sắc*@
+                                <div class="form-floating">
+                                    <select asp-for="Input.MaMau" class="form-control">
+                                        <option>- @_localization.Getkey("ChonMauSac") -</option>
+                                        @foreach (var mauSac in Model.mauSacs)
+                                        {
+                                            <option value="@mauSac.MaMau">@mauSac.TenMau</option>
+                                        }
+                                    </select>
+                                    <label asp-for="Input.MaMau">@_localization.Getkey("Color") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaMau" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                @*Giá bán*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.GiaBan" class="form-control" aria-required="true" type="number" min="100000" />
+                                    <label asp-for="Input.GiaBan">@_localization.Getkey("GiaBan") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.GiaBan" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Số lượng tồn*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.SoLuongTon" class="form-control" aria-required="true" type="number" min="0" />
+                                    <label asp-for="Input.SoLuongTon">@_localization.Getkey("SoLuongTon") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.SoLuongTon" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Trạng thái*@
+                                <div class="form-floating">
+                                    <select asp-for="Input.TrangThai" class="form-control">
+                                        <option>- @_localization.Getkey("ChonTrangThaiSP") -</option>
+                                        <option value="-1">@_localization.Getkey("KKD")</option>
+                                        <option value="0">@_localization.Getkey("HH")</option>
+                                        <option value="1">@_localization.Getkey("KM")</option>
+                                        <option value="2">@_localization.Getkey("HOT")</option>
+                                    </select>
+                                    <label asp-for="Input.TrangThai">@_localization.Getkey("TrangThaiSP") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TrangThai" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Hình ảnh*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.HinhAnh" class="form-control" aria-required="true" type="file" name="file" id="input" />
+                                    <label asp-for="Input.HinhAnh">@_localization.Getkey("HinhAnh") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.HinhAnh" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <label>@_localization.Getkey("XemTruoc")</label>
+                            <div class="col-sm-12" style="display: flex; justify-content: center;">
+                                <div class="form-floating">
+                                    @*Review hình ảnh*@
+                                    <img id="img" src="~/images/product/choose_img.png" height="100" />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Mô tả*@
+                                <div class="form-floating">
+                                    <textarea asp-for="Input.MoTa" class="form-control" aria-required="true"></textarea>
+                                    <label asp-for="Input.MoTa">@_localization.Getkey("MoTa") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MoTa" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="button">
+                                <button class="btn" type="submit">@_localization.Getkey("UpdateStatusAccount")</button>
+                                <hr />
+                                <a class="btn btn-primary" asp-page="./Index">@_localization.Getkey("BackTo")</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        let img = document.getElementById('img');
+        let input = document.getElementById('input');
+
+        input.onchange = (e) => {
+            if (input.files[0])
+                img.src = URL.createObjectURL(input.files[0]);
+        };
+
+    </script>
+}
+

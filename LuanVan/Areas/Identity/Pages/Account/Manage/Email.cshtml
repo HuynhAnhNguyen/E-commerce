@@ -1,0 +1,52 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = @_localization.Getkey("EmailManage");
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+@*<h3>@ViewData["Title"]</h3>*@
+<partial name="_StatusMessage" for="StatusMessage" />
+<form id="email-form" method="post">
+    <div class="row">
+
+        <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+
+        <div class="col-sm-12">
+            @if (Model.IsEmailConfirmed)
+            {
+                <div class="form-floating mb-3 input-group">
+                    <input asp-for="Email" class="form-control" placeholder="@_localization.Getkey("Email")" disabled />
+                    <div class="input-group-append">
+                        <span class="h-100 input-group-text text-success font-weight-bold">✓</span>
+                    </div>
+                    <label asp-for="Email">@_localization.Getkey("Email") <span class="text-danger">*</span></label>
+                </div>
+            }
+            else
+            {
+                <div class="form-floating mb-3">
+                    <input asp-for="Email" class="form-control" placeholder="@_localization.Getkey("Email")" disabled />
+                    <label asp-for="Email">@_localization.Getkey("Email") <span class="text-danger">*</span></label>
+                    <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">@_localization.Getkey("SendVerificationEmail")</button>
+                </div>
+            }
+        </div>
+
+
+    </div>
+    @*<div asp-validation-summary="All" class="text-danger" role="alert"></div>*@
+    <div class="col-sm-12">
+
+        <div class="form-floating mb-3">
+            <input asp-for="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" placeholder="@_localization.Getkey("NewEmail")" />
+            <label asp-for="Input.NewEmail">@_localization.Getkey("NewEmail") <span class="text-danger">*</span></label>
+            <span asp-validation-for="Input.NewEmail" class="text-danger p-2"></span>
+        </div>
+    </div>
+    <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="w-100 btn btn-lg btn-primary">@_localization.Getkey("ChangeEmail")</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

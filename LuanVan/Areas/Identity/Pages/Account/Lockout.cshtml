@@ -1,0 +1,52 @@
+﻿@page
+@model LockoutModel
+@{
+    ViewData["Title"] = @_localization.Getkey("LockoutTitle");
+}
+
+
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("LockoutTitle")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home" asp-area="Store"><i class="lni lni-home"></i> @_localization.Getkey("Home")</a>
+                    </li>
+                    <li>@_localization.Getkey("LockoutTitle")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <div class="form-control">
+                    <div class="card-body">
+                        <div class="title">
+                            <h3 class="text-danger">@_localization.Getkey("LockoutContent1")</h3>
+                            <p class="text-danger">
+                                @_localization.Getkey("LockoutContent2")
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<header>
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+    <p class="text-danger">This account has been locked out, please try again later.</p>
+</header>*@

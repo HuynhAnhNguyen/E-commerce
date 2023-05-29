@@ -1,0 +1,77 @@
+﻿@model LuanVan.Models.KhachHang
+
+@{
+    ViewData["Title"] = @_localization.Getkey("Info_account") +" "+ Model.HoKhachHang + " " + Model.TenKhachHang;
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Info_account")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a href="/Store/Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("Home")</a>
+                    </li>
+                    <li>@_localization.Getkey("Info_account")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <div class="register-form">
+                    <div class="title">
+                        <div class="section-title p-0">
+                            <h2>@_localization.Getkey("Info_account")</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table class="table v-middle table-hover">
+                            <tr>
+                                <th>@_localization.Getkey("Lastname_firstname")</th>
+                                <td>@Model?.HoKhachHang @Model?.TenKhachHang</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Dateofbirth")</th>
+                                <td>@Model?.NgaySinh.ToString("dd-MM-yyyy")</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Gender")</th>
+                                <td>@Model?.GioiTinh</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Phonenumber")</th>
+                                <td>@Model?.PhoneNumber</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Email")</th>
+                                <td>@Model?.Email</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Address")</th>
+                                <td>@Model?.DiaChi</td>
+                            </tr>
+                        </table>
+                        <div class="d-flex" style="color: white;">
+                            <div class="btn mx-auto me-1 btn-light"><a href="/Store/Home/Index">@_localization.Getkey("Back_home")</a></div>
+                            <div class="btn mx-auto me-1 btn-light"><a asp-area="Identity" asp-page="/Account/Manage/Index">@_localization.Getkey("Update_information")</a></div>
+                            <div class="btn mx-auto ms-1 btn-light"><a href="/Store/Receipt/List">@_localization.Getkey("Payment_history")</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

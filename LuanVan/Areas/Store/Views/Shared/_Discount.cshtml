@@ -1,0 +1,85 @@
+﻿<div class="checkout-sidebar-coupon">
+    <p>@_localization.Getkey("Apply_discount")</p>
+    <form id="myForm">
+        <div class="single-form form-default">
+            <div class="form-input form">
+                <input id="myDiscount" type="text" placeholder="@_localization.Getkey("Enter_code")" />
+            </div>
+            <div class="button">
+                <button id="applycodebill" class="btn" onclick="checkDiscount()">@_localization.Getkey("Apply")</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function checkDiscount() {
+            var discountInput = document.getElementById("myDiscount");
+
+            if (discountInput.value == "") {
+                alert("Vui lòng nhập mã giảm giá.");
+                event.preventDefault(); // prevent the form from submitting via the browser
+                return false;
+            }
+
+            var discountCode = document.getElementById("myDiscount").value;
+            event.preventDefault(); // prevent the form from submitting via the browser
+            $.ajax({
+                url: "/Store/Checkout/CheckDiscount",
+                type: "POST",
+                data: { discountCode: discountCode },
+                success: function (response) {
+                    if (response.success) {
+                        alert("Áp dụng mã giảm giá thành công.");
+
+                        $("#myDiscount").prop("disabled", true);
+                        $("#applycodebill").prop("disabled", true);
+                        
+                        // Lấy thẻ có id là discountValue (Khuyến mãi)
+                        var discountValueElement = $("#discountValue");
+                        // Gán lại giá trị cho thẻ discount value là response.discount %
+                        discountValueElement.text(response.discount + " %");
+                        
+                        // Lấy thẻ có id là totalPrice (Giá tổng đơn hàng)
+                        var totalPriceElement = $("#totalPrice");
+                        //console.log("Giá tổng đơn hàng " +totalPriceElement);
+
+                        // Lấy thẻ có id là totalPriceDiscount ( Giá sau khi trừ khuyến mãi)
+                        var totalPriceDiscountElement = $("#totalPriceDiscount");
+                        //console.log("Giá sau khi trừ khuyến mãi " + totalPriceDiscountElement);
+
+                        // Chuyển đổi giá trị khuyến mãi sang số thực
+                        var discount = parseFloat(discountValueElement.text()) / 100;
+                        //console.log("Giá trị khuyến mãi sang số thực "+discount);
+
+                        // Tổng giá tiền
+                        var totalPrice = parseInt(totalPriceElement.text().replace(/VNĐ/g, '').replace(/\s/g, ''));
+                        //console.log("Tổng giá tiền "+totalPrice);
+
+                        // Lấy thẻ có id là discountMoneyValue ( Giá tiền khuyến mãi)
+                        var discountMoneyValueElement = $("#discountMoneyValue");
+                        
+                        var discountPrice= totalPrice * discount;
+                        //console.log("Giá tiền khuyến mãi " + discountPrice);
+                        discountMoneyValueElement.text(discountPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+
+                        // Tổng tiền sau khi trừ khuyến mãi
+                        var discountedPrice = totalPrice - discountPrice;
+                        //console.log("Tổng tiền sau khi trừ khuyến mãi "+discountedPrice);
+
+                        // Cập nhật giá tiền mới vào phần tử HTML
+                        totalPriceDiscountElement.text(discountedPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+
+                    } else {
+                        alert(response.message);
+                        var discountValueElement = $("#discountValue");
+                        discountValueElement.text(0 + " %");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi kết nối đến server.");
+                }
+            });
+        }
+
+    </script>
+</div>

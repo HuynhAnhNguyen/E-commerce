@@ -1,0 +1,220 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("DiscountListTitle");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/Promotion/Index", new { p = p })
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title"> @_localization.Getkey("Discount")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li> @_localization.Getkey("Discount")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="mb-2">
+    <a class="btn btn-outline-primary" asp-page="./Create"><i class="lni lni-plus"></i> @_localization.Getkey("AddNewDiscount")</a>
+</div>
+@if(Model.soLuongKM.Count()> 0)
+{
+    <br />
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" id="exportDiscountExcelBtn"><i class="fa-regular fa-file-excel"></i></a>
+        <a class="btn btn-outline-primary" id="exportDiscountPdfBtn"><i class="fa-regular fa-file-pdf"></i></a>
+    </div>
+    <br />
+    <form method="get" asp-page="./Index">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" name="Search" placeholder="@_localization.Getkey("SearchDiscountName")" />
+            <button type="submit" class="btn btn-outline-primary"><i class="lni lni-search-alt"></i> @_localization.Getkey("SearchBtn")</button>
+        </div>
+    </form>
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th>@_localization.Getkey("STT")</th>
+            <th>@_localization.Getkey("MaKM")</th>
+            <th>@_localization.Getkey("DiscountName")</th>
+            <th>@_localization.Getkey("GiaTriKM")</th>
+            <th>@_localization.Getkey("DateStart")</th>
+            <th>@_localization.Getkey("DateEnd")</th>
+            <th>@_localization.Getkey("SoLuongConLai")</th>
+            <th>@_localization.Getkey("TacVu")</th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var khuyenMai in Model.khuyenMais)
+        {
+            <tr>
+                <td>
+                    @stt
+                    @{
+                        stt++;
+                    }
+                </td>
+                <td>@khuyenMai.MaKm</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-promotionid="@khuyenMai.MaKm">@khuyenMai.TenKhuyenMai</a>
+                </td>
+                <td>@khuyenMai.GiaTriKm.ToString("N2")</td>
+                <td>@khuyenMai.NgayBatDau</td>
+                <td>@khuyenMai.NgayKetThuc</td>
+                <td>@khuyenMai.SoLuongConLai</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-promotionid="@khuyenMai.MaKm" class="btn btn-outline-success"><i class="lni lni-pencil"></i></a>
+                    <a class="btn btn-outline-danger DeleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@khuyenMai.MaKm"><i class="lni lni-trash-can"></i></a>
+
+                    <div class="modal" id="confirmDeleteModal-@khuyenMai.MaKm" tabindex="-1" aria-labelledby="confirmDeleteLabel-@khuyenMai.MaKm" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteLabel-@khuyenMai.MaKm">@_localization.Getkey("DeleteDiscountConfirm1")</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @_localization.Getkey("DeleteDiscountConfirm2") <strong>@khuyenMai.TenKhuyenMai</strong>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                                    <form method="post" asp-page="./Delete" asp-route-promotionid="@khuyenMai.MaKm">
+                                        <button type="submit" class="btn btn-danger">@_localization.Getkey("Xoa")</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="modal" id="confirmExportDiscountExcelModal" tabindex="-1" aria-labelledby="confirmExportDiscountExcelLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportDiscountExcelLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("DiscountExcel")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportDiscountExcel">
+                        <button type="submit" class="btn btn-primary" id="confirmExportExcelBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmExportDiscountPdfModal" tabindex="-1" aria-labelledby="confirmExportDiscountPdfLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportDiscountPdfLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("DiscountPdf")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportDiscountPdf">
+                        <button type="submit" class="btn btn-primary" id="confirmExportPdfBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on('click', '#exportDiscountExcelBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportDiscountExcelModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportExcelBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportDiscountExcelModal').modal('hide');
+                alert("Xuất file excel thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '#exportDiscountPdfBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportDiscountPdfModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportPdfBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportDiscountPdfModal').modal('hide');
+                alert("Xuất file pdf thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.DeleteBtn', function () {
+            // Lấy ra ID của modal từ data-bs-target
+            var targetModalId = $(this).data('bs-target');
+
+            // Hiển thị modal
+            $(targetModalId).modal('show');
+
+            // Xác nhận xóa khi người dùng click vào nút Xóa trong modal
+            $(targetModalId).find('form').submit(function () {
+                // Ẩn modal sau khi xác nhận xóa
+                $(targetModalId).modal('hide');
+            });
+        });
+    </script>
+}

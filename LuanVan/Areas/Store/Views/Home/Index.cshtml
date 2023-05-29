@@ -1,0 +1,96 @@
+﻿@model IPagedList<LuanVan.Models.SanPham>
+@using LuanVan.Models
+@using X.PagedList;
+@{
+    ViewData["Title"] = @_localization.Getkey("Home");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+@await Html.PartialAsync("_Banner")
+
+<section class="trending-product section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>@_localization.Getkey("Featured_Products")</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="product-info">
+                    <div class="nav-main">
+                        <!-- Tab Nav -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item nav-center">
+                                <a class="nav-link active" id="" onclick="get_prd_by_cat(event.currentTarget);">
+                                    @_localization.Getkey("All_products")
+                                </a>
+                            </li>
+                            @foreach (var loaiSP in ViewBag.Loai)
+                            {
+                                <li class="nav-item nav-center">
+                                    <a class="nav-link cursor" id="@loaiSP.MaLoaiSp" onclick="get_prd_by_cat(event.currentTarget);">
+                                        @loaiSP.TenLoaiSp
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                        <!--/ End Tab Nav -->
+                    </div>
+
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Start Single Tab -->
+                        <partial name="_Product_Filters_SanPhamTheoLoai" model="Model" />
+                        <!--/ End Single Tab -->
+                    </div>
+
+                    <script>
+                        function get_prd_by_cat(e) {
+                            $('.nav-link').each((index, value) => {
+                                if (value.id == e.id) {
+                                    e.classList.add("active")
+                                } else {
+                                    value.classList.remove("active")
+                                }
+                            })
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Store/Product/Get_by_cate',
+                                data: { maloai: e.id }
+                            }).done((data) => {
+                                //console.log(e.id);
+                                $('#myTabContent').html(data);
+
+                            })
+                        }
+
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@{
+    List<LuanVan.Models.SanPham> list_sphot = ViewData["hot_items"] as List<LuanVan.Models.SanPham>;
+}
+
+<partial name="_Hot_Items" model="list_sphot" />
+
+@{
+    List<LuanVan.Models.SanPham> list_sptop12 = ViewData["top12products"] as List<LuanVan.Models.SanPham>;
+}
+
+<partial name="_SellingProducts" model="list_sptop12" />
+
+@{
+    List<LuanVan.Models.SanPham> list_spdiscount = ViewData["discount_items"] as List<LuanVan.Models.SanPham>;
+}
+
+<partial name="_Discount_Product" model="list_spdiscount" />
+

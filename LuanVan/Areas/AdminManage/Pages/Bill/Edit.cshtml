@@ -1,0 +1,151 @@
+﻿@page
+@model EditModel
+@{
+    ViewData["Title"] = @_localization.Getkey("CapNhatTTHD");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+
+
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Bill")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="AdminManage"><i class="lni lni-list"></i> @_localization.Getkey("DSHD")</a>
+                    </li>
+                    <li>@_localization.Getkey("CapNhatTTHD")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <form class="card login-form" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>@_localization.Getkey("CapNhatTTHD")</h3>
+                            <p>
+                                @_localization.Getkey("CapNhatTTHDContent")
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @*Mã hóa đơn*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.MaHD" class="form-control" disabled/>
+                                    <label asp-for="Input.MaHD">@_localization.Getkey("MaHD") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaHD" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Ngày xuất hóa đơn*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.NgayXuatHD" class="form-control" disabled />
+                                    <label asp-for="Input.NgayXuatHD">@_localization.Getkey("NgayXuat") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.NgayXuatHD" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Mã khách hàng*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.KhachHangID" class="form-control" disabled />
+                                    <label asp-for="Input.KhachHangID">@_localization.Getkey("MaKH") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.KhachHangID" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Tổng giá trị*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.TongGiaTri" class="form-control" disabled />
+                                    <label asp-for="Input.TongGiaTri">@_localization.Getkey("TongGT") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TongGiaTri" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Mã khuyến mãi*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.MaKM" class="form-control" disabled />
+                                    <label asp-for="Input.MaKM">@_localization.Getkey("DiscountCode") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaKM" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Mã PTTT*@
+                                <div class="form-floating">
+                                    <input asp-for="Input.MaPTTT" class="form-control" disabled />
+                                    <label asp-for="Input.MaPTTT">@_localization.Getkey("PTTTCode") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.MaPTTT" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Trạng thái thanh toán*@
+                                <div class="form-floating">
+                                    <select asp-for="Input.TrangThaiThanhToan" class="form-control" aria-required="true">
+                                        <option value="-1">@_localization.Getkey("Pay_error")</option>
+                                        <option value="0">@_localization.Getkey("Waiting_for_refund")</option>
+                                        <option value="1">@_localization.Getkey("Pay_success")</option>
+                                        <option value="2">@_localization.Getkey("ChoThanhToan")</option>
+                                    </select>
+                                    <label asp-for="Input.TrangThaiThanhToan">@_localization.Getkey("DSHDTTTT") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TrangThaiThanhToan" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                @*Trạng thái đơn hàng*@
+                                <div class="form-floating">
+                                    <select asp-for="Input.TrangThaiDonHang" class="form-control" aria-required="true">
+                                        <option value="-1">@_localization.Getkey("Cancel_bill")</option>
+                                        <option value="0">@_localization.Getkey("Waiting_for_delivery")</option>
+                                        <option value="1">@_localization.Getkey("Delivery_in_progress")</option>
+                                        <option value="2">@_localization.Getkey("Delivery_successful")</option>
+                                    </select>
+                                    <label asp-for="Input.TrangThaiDonHang">@_localization.Getkey("DSHDTTDH") <span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Input.TrangThaiDonHang" class="text-danger p-2"></span>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button class="btn" type="submit">@_localization.Getkey("CapNhat")</button>
+                                <hr />
+                                <a class="btn btn-primary" asp-page="./Index">@_localization.Getkey("BackTo")</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

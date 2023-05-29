@@ -1,0 +1,70 @@
+﻿@page
+@model LuanVan.Areas.ManageRole.Pages.Role.DeleteModel
+@{
+    ViewData["Title"] = "Danh sách các Role (Vai trò)";
+}
+
+@*<h2>@ViewData["Title"]</h2>*@
+
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">Xóa role (vai trò)</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home" asp-area="Store"><i class="lni lni-home"></i> Trang chủ</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="ManageRole"><i class="lni lni-list"></i> Danh sách role</a>
+                    </li>
+                    <li>Xóa role (vai trò)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+
+
+                <form class="card login-form" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>Xóa role</h3>
+                            <p>
+                                Xóa role (vai trò): @Model.role.Name
+                            </p>
+                        </div>
+                        <div class="form-floating">
+                            Bạn có chắc chắn xóa <strong>@Model.role.Name</strong>
+                        </div>
+
+
+                        <div class="button">
+                            <button class="btn" type="submit">Xóa</button>
+                            <hr />
+                            <a class="btn btn-primary" asp-page="./Index">Danh sách các role</a>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

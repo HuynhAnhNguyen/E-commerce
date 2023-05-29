@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LuanVan.Models.GioHang>
+@using LuanVan.Areas.Store.Models;
+
+@{
+    ViewData["Title"] = @_localization.Getkey("Bill");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>@ViewBag.Message</h2>
+
+<section class="checkout-wrapper section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <div class="card">
+                    <div class="card-body p-2">
+                        @{
+                            HoaDonModel hoadon = ViewData["info"] as HoaDonModel;
+                        }
+                        <table class="table v-middle table-hover">
+                            <tr>
+                                <th>@_localization.Getkey("Code_bill")</th>
+                                <td>@hoadon.MaHoaDon</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Customer_info")</th>
+                                <td>@hoadon.Holot @hoadon.Ten</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Phonenumber")</th>
+                                <td>@hoadon.SoDienThoai</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Invoice_issue_date")</th>
+                                <td>@DateTime.Now</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 mar-top-12">
+                <partial name="_Cart_checkout" model="Model" />
+                @*<div class="order-details p-0 m-0">
+
+                </div>*@
+            </div>
+
+
+
+        </div>
+    </div>
+</section>

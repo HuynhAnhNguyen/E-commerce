@@ -1,0 +1,168 @@
+﻿@model IEnumerable<LuanVan.Models.GioHang>
+@using LuanVan.Models;
+@if (Model.Count() > 0)
+{
+	<div class="cart-list-head">
+		<div class="cart-list-title">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-12"></div>
+				<div class="col-lg-3 col-md-3 col-12">
+					<p>@_localization.Getkey("Product_name")</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-12">
+					<p>@_localization.Getkey("Quantity")</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-12">
+					<p>@_localization.Getkey("Price")</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-12">
+					<p>@_localization.Getkey("Total")</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-12">
+					<p>@_localization.Getkey("Delete")</p>
+				</div>
+			</div>
+		</div>
+
+
+		@{
+			long sum = 0;
+		}
+		@foreach (var item in Model)
+		{
+			<div class="cart-single-list">
+				<div class="row align-items-center">
+					<div class="col-lg-1 col-md-1 col-12">
+						<a href="/Store/Product/Detail?MaSp=@item.MaSanPham"><img src="@ViewData["path"]@item.SanPham?.HinhAnh" alt="#" /></a>
+					</div>
+					<div class="col-lg-3 col-md-3 col-12">
+						<h5 class="product-name">
+							<a href="/Store/Product/Detail?MaSp=@item.MaSanPham">@item.SanPham?.TenSanPham</a>
+						</h5>
+						<p class="product-des">
+							<span><em>@_localization.Getkey("ProductType"):</em> <a style="color: #555555" href="/Store/Product/List_product?maloai=@item.SanPham?.MaLoaiSp">@item.SanPham?.LoaiSp?.TenLoaiSp</a></span>
+							@*<span><em>@_localization.Getkey("Color"):</em> @item.SanPham?.MauSac?.TenMau</span>*@
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-12">
+						<div class="count-input">
+							<input type="number" class="form-control" id="@item.MaGioHang" data-gia="@item.SanPham?.GiaBan" data-min="1" data-max="@item.SanPham?.SoLuongTon" value="@item.SoLuongDat">
+
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-12">
+						<p>@String.Format("{0:### ### ### ###}", item.SanPham?.GiaBan)</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-12">
+						@{
+							long t = (long)item.SoLuongDat * (long)item.SanPham?.GiaBan;
+						}
+						@{
+							string id = item.MaGioHang + "t";
+						}
+						<p id="@id">
+							@String.Format("{0:### ### ### ###}",t)
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-12">
+						<div class="form-check">
+							@{
+								string check_id = "ch" + item.MaGioHang;
+							}
+							<span for="@check_id">
+								@_localization.Getkey("Check")
+							</span>
+							<input class="checkout" title=" Chọn" type="checkbox" id="@check_id" value="" data-id="@item.MaGioHang">
+							<a href="#" title="@_localization.Getkey("Delete")" class="text-danger text-decaration-none" data-magh="@item.MaGioHang" onclick="remove_gh(event.target)">@_localization.Getkey("Delete")</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			sum += (long)item.SoLuongDat * (long)item.SanPham?.GiaBan;
+		}
+		
+	</div>
+	<div class="col-12 d-flex">
+		<div class="btn btn-success mx-auto m-2" onclick="window.location.href = '/';">@_localization.Getkey("Continue_shopping")</div>
+		<div class="btn btn-success mx-auto m-2" id="checkout">@_localization.Getkey("Pay")</div>
+	</div>
+	
+	<script>
+		function add_amount(e) {
+			$.ajax({
+				type: 'POST',
+				url: '/Store/Cart/Increase',
+				data: { magh: e.id, sluong: e.value }
+			}).done((data) => {
+				console.log(data)
+			})
+		}
+
+		$('.form-control').change((e) => {
+			const enteredQuantity = parseInt(e.currentTarget.value);
+			const minQuantity = parseInt(e.currentTarget.dataset.min);
+			const maxQuantity = parseInt(e.currentTarget.dataset.max);
+			if (enteredQuantity <= 0) {
+				alert("Số lượng phải lớn hơn 0.");
+				e.currentTarget.value = minQuantity;
+			} else if (enteredQuantity > maxQuantity) {
+				alert("Số lượng sản phẩm trong giỏ hàng vượt quá số lượng sản phẩm còn hàng.");
+				e.currentTarget.value = maxQuantity;
+			}
+
+			@*if (e.currentTarget.dataset.min > e.currentTarget.value) {
+				alert("Số lượng không hợp lệ");
+				e.currentTarget.value = 1;
+				return;
+			}
+
+			if (e.currentTarget.dataset.max < e.currentTarget.value) {
+				alert("Số lượng sản phẩm trong giỏ hàng vượt quá số lượng sản phẩm còn hàng.");
+				e.currentTarget.value = 1;
+				return;
+			}*@
+			$.ajax({
+				type: 'POST',
+				url: '/Store/Cart/Increase',
+				data: { magh: e.currentTarget.id, soluong: e.currentTarget.value }
+			})
+			@*console.log("magh: " + e.currentTarget.id);
+			console.log("soluong: " + e.currentTarget.value);*@
+			var gia = e.currentTarget.dataset.gia
+			var sl = e.currentTarget.value
+			var id = '#' + e.currentTarget.id + 't'
+			$(id).html(sl * gia)
+		})
+
+		$('#checkout').click((e) => {
+			var arr = [];
+			$('.checkout').each(function () {
+				if ($(this).is(':checked') == true) {
+					arr.push($(this).attr('data-id'));
+				}
+			})
+			console.log(JSON.stringify(arr));
+			var url = "/Store/Checkout/Confirm?listgh=" + JSON.stringify(arr);
+			console.log(arr.length);
+			if (arr.length == 0) {
+				Swal.fire({
+					title: "Thông báo",
+					text: "Vui lòng chọn sản phẩm để tiến hành thanh toán!",
+					icon: 'warning',
+				})
+			} else {
+				window.location.href = url;
+			}
+
+		})
+	</script>
+}
+else
+{
+	<div class="d-flex">
+		<div class="mx-auto m-3">
+			@_localization.Getkey("Cart_empty")
+		</div>
+	</div>
+}
+

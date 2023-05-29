@@ -1,0 +1,95 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("Profile");
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<form id="profile-form" method="post">
+    <div class="row">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input asp-for="Input.HoKhachHang" class="form-control" />
+                <label asp-for="Input.HoKhachHang">@_localization.Getkey("Lastname") <span class="text-danger">*</span></label>
+                <span asp-validation-for="Input.HoKhachHang" class="text-danger p-2"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input asp-for="Input.TenKhachHang" class="form-control" />
+                <label asp-for="Input.TenKhachHang">@_localization.Getkey("Firstname") <span class="text-danger">*</span></label>
+                <span asp-validation-for="Input.TenKhachHang" class="text-danger p-2"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input asp-for="Input.NgaySinh" class="form-control" type="date" />
+                <label asp-for="Input.NgaySinh">@_localization.Getkey("Dateofbirth") <span class="text-danger">*</span></label>
+                <span asp-validation-for="Input.NgaySinh" class="text-danger p-2"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <select id="GioiTinh" asp-for="Input.GioiTinh" class="form-control">
+                    <option value="Nam" selected>@_localization.Getkey("Male")</option>
+                    <option value="Nữ">@_localization.Getkey("Female")</option>
+                </select>
+                <label for="GioiTinh">@_localization.Getkey("Gender") <span class="text-danger">*</span></label>
+                <span asp-validation-for="Input.GioiTinh" class="text-danger p-2"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber">@_localization.Getkey("Phonenumber") <span class="text-danger">*</span></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger p-2"></span>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-floating">
+                <textarea asp-for="Input.DiaChi" class="form-control"> </textarea>
+                <label asp-for="Input.DiaChi">@_localization.Getkey("Address") <span class="text-danger">*</span></label>
+                <span asp-validation-for="Input.DiaChi" class="text-danger p-2"></span>
+            </div>
+        </div>
+
+
+    </div>
+    <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">@_localization.Getkey("SaveInfo")</button>
+</form>
+
+@*<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

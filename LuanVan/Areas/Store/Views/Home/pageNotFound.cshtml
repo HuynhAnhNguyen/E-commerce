@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "404";
+    //Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<div class="error-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="error-content">
+                    <h1>404</h1>
+                    <h2>@_localization.Getkey("404")</h2>
+                    <p>
+                        @_localization.Getkey("404Content")
+                    </p>
+                    <div class="button">
+                        <a href="/Store/Home/Index" class="btn">@_localization.Getkey("Back_home")</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

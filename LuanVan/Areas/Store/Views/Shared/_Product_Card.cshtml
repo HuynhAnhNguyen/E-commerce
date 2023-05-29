@@ -1,0 +1,21 @@
+﻿@model LuanVan.Models.SanPham
+<div class="single-product" id="@Model.MaSanPham">
+    <div class="product-image">
+    <a href="/Store/Product/Detail?MaSp=@Model.MaSanPham">
+        <img src="~/images/product/@Model.HinhAnh" />
+    </a>
+        @await Html.PartialAsync("_Product_Option", Model.MaSanPham)
+    </div>
+
+    <div class="product-info">
+        <span class="category"><a href="/Store/Product/List_product?maloai=@Model.MaLoaiSp">@Model.LoaiSp?.TenLoaiSp</a></span>
+        <h4 class="title">
+            <a href="/Store/Product/Detail?MaSp=@Model.MaSanPham">@Model.TenSanPham</a>
+        </h4>
+        <div class="price">
+            <span>@String.Format("{0: ### ### ### ### VNĐ}", Model.GiaBan)</span>
+        </div>
+    </div>
+</div>
+
+

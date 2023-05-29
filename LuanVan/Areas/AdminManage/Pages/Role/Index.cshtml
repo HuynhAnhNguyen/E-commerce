@@ -1,0 +1,216 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("ListRole");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/Role/Index", new { p = p })
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("ListRole")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>@_localization.Getkey("ListRole")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="mb-2">
+    <a class="btn btn-outline-primary" asp-page="./Create"><i class="lni lni-plus"></i> @_localization.Getkey("AddRole")</a>
+</div>
+@if(Model.soLuongRole.Count()> 0)
+{
+    <br />
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" id="exportRoleExcelBtn"><i class="fa-regular fa-file-excel"></i></a>
+        <a class="btn btn-outline-primary" id="exportRolePdfBtn"><i class="fa-regular fa-file-pdf"></i></a>
+    </div>
+    <br />
+    <form method="get" asp-page="./Index">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" name="Search" placeholder="@_localization.Getkey("SearchRoleName")" />
+            <button type="submit" class="btn btn-outline-primary"><i class="lni lni-search-alt"></i> @_localization.Getkey("SearchBtn")</button>
+        </div>
+    </form>
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th>@_localization.Getkey("STT")</th>
+            <th>@_localization.Getkey("UserID")</th>
+            <th>@_localization.Getkey("AddRoleName")</th>
+            <th>@_localization.Getkey("TacVu")</th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var role in Model.roles)
+        {
+            <tr>
+                <td>@stt</td>
+                @{
+                    stt++;
+                }
+                <td>@role.Id</td>
+                <td>
+                    <p class="mb-2">@role.Name</p>
+                    <small>
+                        @foreach (var claim in role.Claims)
+                        {
+                            <small>@claim</small> <br />
+                        }
+                    </small>
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-success" asp-page="./Edit" asp-route-roleid="@role.Id"><i class="lni lni-pencil"></i></a>
+                    <a class="btn btn-outline-danger DeleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@role.Id"><i class="lni lni-trash-can"></i></a>
+
+                    <div class="modal" id="confirmDeleteModal-@role.Id" tabindex="-1" aria-labelledby="confirmDeleteLabel-@role.Id" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteLabel-@role.Id">@_localization.Getkey("XacNhanXoa")</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @_localization.Getkey("XacNhanXoaRole") <strong>@role.Name</strong>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                                    <form method="post" asp-page="./Delete" asp-route-roleid="@role.Id">
+                                        <button type="submit" class="btn btn-danger">@_localization.Getkey("Xoa")</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="modal" id="confirmExportRoleExcelModal" tabindex="-1" aria-labelledby="confirmExportRoleExcelLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportRoleExcelLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("RoleExcel")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportRoleExcel">
+                        <button type="submit" class="btn btn-primary" id="confirmExportExcelBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmExportRolePdfModal" tabindex="-1" aria-labelledby="confirmExportRolePdfLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportRolePdfLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("RolePdf")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportRolePdf">
+                        <button type="submit" class="btn btn-primary" id="confirmExportPdfBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on('click', '#exportRoleExcelBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportRoleExcelModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportExcelBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportRoleExcelModal').modal('hide');
+                alert("Xuất file excel thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '#exportRolePdfBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportRolePdfModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportPdfBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportRolePdfModal').modal('hide');
+                alert("Xuất file pdf thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.DeleteBtn', function () {
+            // Lấy ra ID của modal từ data-bs-target
+            var targetModalId = $(this).data('bs-target');
+
+            // Hiển thị modal
+            $(targetModalId).modal('show');
+
+            // Xác nhận xóa khi người dùng click vào nút Xóa trong modal
+            $(targetModalId).find('form').submit(function () {
+                // Ẩn modal sau khi xác nhận xóa
+                $(targetModalId).modal('hide');
+            });
+        });
+    </script>
+}

@@ -1,0 +1,182 @@
+﻿<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="inner-content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-12">
+                        <div class="footer-logo">
+                            <a href="/Store/Home/Index">
+                                <img src="~/images/logo/logo.svg" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-12">
+                        <div class="footer-newsletter">
+                            <h4 class="title">
+                                @_localization.Getkey("ISHOPPING")
+                                
+                                <span>@_localization.Getkey("IntroContent1")</span>
+                            </h4>
+                            <div class="newsletter-form-head">
+                                <form id="historyBill"
+                                      class="newsletter-form">
+                                    <input id="hoaDonID" type="text"
+                                           placeholder="@_localization.Getkey("Search_your_bill")" />
+                                    <div class="button">
+                                        <button class="btn" onclick="checkHistoryBill()">
+                                            @_localization.Getkey("Search_bill")
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <script>
+                                    function checkHistoryBill() {
+                                        var historyBillInput = document.getElementById("hoaDonID");
+
+                                        if (historyBillInput.value == "") {
+                                            alert("Vui lòng nhập mã hóa đơn.");
+                                            event.preventDefault(); // prevent the form from submitting via the browser
+                                            return false;
+                                        }
+
+                                        var billCode = document.getElementById("hoaDonID").value;
+                                        //alert(billCode);
+                                        event.preventDefault(); // prevent the form from submitting via the browser
+                                        $.ajax({
+                                            url: "/Store/Receipt/CheckBill",
+                                            type: "POST",
+                                            data: { billCode: billCode },
+                                            success: function (response) {
+                                                if (response.success) {
+                                                    alert("Tìm thấy hóa đơn với mã " + billCode);
+                                                    window.location.href = '/Store/Receipt/Detail?mahd=' + billCode;
+                                                
+                                                } else {
+                                                    alert(response.message);
+                                                }
+                                            },
+                                            error: function () {
+                                                alert("Lỗi kết nối đến server.");
+                                            }
+                                        });
+                                    }
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-middle">
+        <div class="container">
+            <div class="bottom-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-footer f-contact">
+                            <h3>@_localization.Getkey("Contact_with_us")</h3>
+                            <p class="phone" style="color:white;">
+                                <i class="fa-solid fa-phone"></i> <a href="tel:0388544031" style="color:white" class="link-hover">+84 388544031</a>
+                            </p>
+
+                            <p class="mail" style="color:white;">
+                                <i class="fa-regular fa-envelope-open"></i>
+                                <a href="mailto: nguyenhuynhanh6121@gmail.com" style="color:white" class="link-hover">
+                                    <span class="__cf_email__"
+                                          data-cfemail="6e1d1b1e1e011c1a2e1d06011e091c070a1d400d0103">nguyenhuynhanh6121@gmail.com</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-footer f-link">
+                            <h3>@_localization.Getkey("Info_website")</h3>
+                            <ul>
+                                <li><a href="/Store/Home/pageNotFound">@_localization.Getkey("Intro")</a></li>
+                                <li><a href="/Store/Home/pageNotFound">@_localization.Getkey("Asked_questions")</a></li>
+                                <li><a href="/Store/Home/pageNotFound">@_localization.Getkey("Rules")</a></li>
+                                <li><a href="/Store/Home/pageNotFound">@_localization.Getkey("Contact")</a></li>
+                                <li><a href="/Store/Home/pageNotFound">@_localization.Getkey("Help")</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-footer f-link">
+                            <h3>@_localization.Getkey("Customer_service")</h3>
+                            <ul>
+                                <li>
+                                    <a href="/Store/Home/pageNotFound">@_localization.Getkey("Method_pay")</a>
+                                </li>
+                                <li>
+                                    <a href="/Store/Home/pageNotFound">@_localization.Getkey("Refund")</a>
+                                </li>
+                                <li>
+                                    <a href="/Store/Home/pageNotFound">@_localization.Getkey("Exchange")</a>
+                                </li>
+                                <li>
+                                    <a href="/Store/Home/pageNotFound">@_localization.Getkey("Transport")</a>
+                                </li>
+                                <li>
+                                    <a href="/Store/Home/pageNotFound">@_localization.Getkey("Warranty_Policy")</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="inner-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-12">
+                        <div class="payment-gateway">
+                            <span>@_localization.Getkey("Accept_payment"):</span>
+                            <img src="~/images/payment/card.png"
+                                 alt="Credit card " />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="copyright">
+                            <p>
+                                Copyright &#169; <a href="https://github.com/HuynhAnhNguyen">Nguyen Huynh Anh B1910186</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <ul class="socila">
+                            <li>
+                                <span>@_localization.Getkey("Follow_us"):</span>
+                            </li>
+                            <li>
+                                <a href="/Store/Home/pageNotFound">
+                                    <i class="lni lni-facebook-filled"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Store/Home/pageNotFound">
+                                    <i class="lni lni-twitter-original"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Store/Home/pageNotFound">
+                                    <i class="lni lni-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Store/Home/pageNotFound">
+                                    <i class="lni lni-google"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

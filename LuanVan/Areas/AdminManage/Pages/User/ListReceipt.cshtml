@@ -1,0 +1,154 @@
+﻿@page
+@model ListReceiptModel
+@{
+    ViewData["Title"] = @_localization.Getkey("ListReceiptUser") + " " + User.Identity.Name;
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/User/ListReceipt", new { id = Model.KhachHangId, p = p })
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("ListReceipt")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="AdminManage"><i class="lni lni-list"></i> @_localization.Getkey("ListUser")</a>
+                    </li>
+                    <li>@_localization.Getkey("ListReceipt")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="mb-2">
+    <a class="btn btn-outline-primary" asp-page="../Home/Index">Trang chủ</a>
+    <a class="btn btn-outline-primary" asp-page="../User/Index">Danh sách user</a>
+    <a class="btn btn-outline-primary" asp-page="../Role/Index">Danh sách role</a>
+    <a class="btn btn-outline-primary" asp-page="../Producer/Index">Nhà sản xuất</a>
+    <a class="btn btn-outline-primary" asp-page="../Product/Index">Sản phẩm</a>
+    <a class="btn btn-outline-primary" asp-page="../ProductType/Index">Loại sản phẩm</a>
+    <a class="btn btn-outline-primary" asp-page="../Color/Index">Màu sắc</a>
+    <a class="btn btn-outline-primary" asp-page="../Promotion/Index">Khuyến mãi</a>
+    <a class="btn btn-outline-primary active" asp-page="../Bill/Index">Hóa đơn</a>
+    <a class="btn btn-outline-primary" asp-page="../Payment/Index">Phương thức thanh toán</a>
+</div>*@
+
+@if (Model.soLuongHDById.Count() > 0)
+{
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th>@_localization.Getkey("STT")</th>
+            <th>@_localization.Getkey("BillCode")</th>
+            <th>@_localization.Getkey("NgayXuatHD") </th>
+            <th>@_localization.Getkey("TongGT")</th>
+            <th>@_localization.Getkey("KhuyenMai")</th>
+            <th>@_localization.Getkey("TTTT")</th>
+            <th>@_localization.Getkey("TTDH")</th>
+            <th>@_localization.Getkey("TacVu")</th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var bill in Model.bills)
+        {
+            <tr>
+                <td>
+                    @stt
+                    @{
+                        stt++;
+                    }
+                </td>
+                <td>
+                    <a asp-page="../Bill/Edit" asp-route-billid="@bill.MaHoaDon">@bill.MaHoaDon</a>
+                </td>
+                <td>@bill.NgayXuatHd</td>
+                <td>@String.Format("{0: ### ### ### ### VNĐ}", @bill.TongGiaTri)</td>
+                @if (bill.MaKm == null)
+                {
+                    <td> - </td>
+                }
+                else
+                {
+                    <td>@bill.MaKm</td>
+                }
+                @if (bill.TrangThaiThanhToan == -1)
+                {
+                    <td>@_localization.Getkey("Pay_error")</td>
+                }
+                else @if (bill.TrangThaiThanhToan == 0)
+                {
+                    <td>@_localization.Getkey("Waiting_for_refund")</td>
+                }
+                else @if (bill.TrangThaiThanhToan == 1)
+                {
+                    <td>@_localization.Getkey("Pay_success")</td>
+                }
+                else 
+                {
+                    <td>@_localization.Getkey("ChoThanhToan")</td>
+                }
+
+                @if (bill.TrangThaiDonHang == -1)
+                {
+                    <td>@_localization.Getkey("Cancel_bill")</td>
+                }
+                else @if (bill.TrangThaiDonHang == 0)
+                {
+                    <td>@_localization.Getkey("Waiting_for_delivery")</td>
+                }
+                else @if (bill.TrangThaiDonHang == 1)
+                {
+                    <td>@_localization.Getkey("Delivery_in_progress")</td>
+                }
+                else
+                {
+                    <td>@_localization.Getkey("Delivery_successful")</td>
+                }
+
+                <td>
+                    <a asp-page="../Bill/Detail" asp-route-billid="@bill.MaHoaDon" class="btn btn-outline-primary"><i class="lni lni-more"></i></a>
+                    <a asp-page="../Bill/Edit" asp-route-billid="@bill.MaHoaDon" class="btn btn-outline-success"><i class="lni lni-pencil"></i></a>
+                    <a asp-page="../Bill/Delete" asp-route-billid="@bill.MaHoaDon" class="btn btn-outline-danger"><i class="lni lni-trash-can"></i></a>
+                    <form class="form-inline" style="display: inline;" asp-page="../Bill/PrintBill" asp-route-billid="@bill.MaHoaDon">
+                        <button type="submit" class="btn btn-outline-secondary"><i class="lni lni-printer"></i></button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+}

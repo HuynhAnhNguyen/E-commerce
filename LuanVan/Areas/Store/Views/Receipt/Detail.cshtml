@@ -1,0 +1,194 @@
+﻿@model LuanVan.Models.HoaDon
+@using LuanVan.Models
+@{
+    ViewData["Title"] = @_localization.Getkey("Bill_info");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+<div class="product-area section pt-4">
+    <div class="container col-7">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title p-0">
+                    <h2>@_localization.Getkey("Bill_info")</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-2">
+                        @{
+                            HoaDon hoadon = ViewData["hoadon"] as HoaDon;
+                            List<ChiTietHd> chiTietHds = ViewData["chiTietHoaDons"] as List<ChiTietHd>;
+
+                            var sanPhams = ViewData["sanPhams"] as IEnumerable<SanPham>;
+                            var gioHangs = ViewData["gioHangs"] as IEnumerable<GioHang>;
+                            var loaiSanPhams = ViewData["loaiSanPhams"] as IEnumerable<LoaiSanPham>;
+
+                            var maGG = ViewData["ApDungKM"];
+                            var phanTramGG = ViewData["PhanTramGiamGia"];
+                            var soTienGG = ViewData["SoTienGiamGia"];
+                        }
+
+                        <table class="table v-middle table-hover">
+                            <tr>
+                                <th>@_localization.Getkey("Code_bill")</th>
+                                <td>@hoadon?.MaHoaDon</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Invoice_issue_date")</th>
+                                <td>@hoadon?.NgayXuatHd</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("MaGiamGia")</th>
+                                <td>@maGG</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("PhanTramGiaGia")</th>
+                                <td>@phanTramGG %</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("SoTienGiamGia")</th>
+                                <td>@soTienGG</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("PhaiThanhToan")</th>
+                                <td>@String.Format("{0: ### ### ### ### VNĐ}", @hoadon?.TongGiaTri)</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Payments")</th>
+                                <td>@ViewData["hinhthuctt"]</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Payment_status")</th>
+                                <td>@ViewData["trangThaiThanhToan"]</td>
+                            </tr>
+                            <tr>
+                                <th>@_localization.Getkey("Order_Status")</th>
+                                <td>@ViewData["trangThaiDonHang"]</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div></div>
+            <div class="col-12">
+                <div class="card p-1">
+                    <div class="card-body p-2">
+                        <table class="table v-middle table-hover">
+                            <thead>
+                                <tr>
+                                    <th>@_localization.Getkey("Image")</th>
+                                    <th>@_localization.Getkey("Product_name")</th>
+                                    <th>@_localization.Getkey("Product_Type")</th>
+                                    <th>@_localization.Getkey("Quantity")</th>
+                                    <th>@_localization.Getkey("Price")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @for (int i=0; i< chiTietHds.Count(); i++)
+                                {
+                                    var sanPham = sanPhams.ElementAt(i);
+                                    var gioHang = gioHangs.ElementAt(i);
+                                    var loaiSanPham = loaiSanPhams.ElementAt(i);
+                                    <tr>
+                                        <td>
+                                            <img width="130px" height="130px" src="@ViewData["path"]@sanPham.HinhAnh" />
+                                        </td>
+                                        <td>
+                                            @sanPham.TenSanPham
+                                        </td>
+                                        <td>
+                                            @loaiSanPham.TenLoaiSp
+                                        </td>
+                                        <td>
+                                            @gioHang.SoLuongDat
+                                        </td>
+                                        <td>
+                                            @String.Format("{0: ### ### ### ### VNĐ}", @sanPham.GiaBan)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="d-flex">
+                            <div class="btn mx-auto btn-light"><a href="/Store/Home/Index">@_localization.Getkey("Back_home")</a></div>
+                            @*@if (hoadon.TrangThaiDonHang != -1 && hoadon.TrangThaiThanhToan==1 )
+                            {
+                                <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Bill/PrintBill" asp-route-billid="@hoadon?.MaHoaDon">
+                                    <button type="submit" class="btn btn-outline-primary"><i class="lni lni-printer"></i></button>
+                                </form>
+                                
+                            }
+                            &nbsp*@
+                            @if (hoadon.TrangThaiDonHang != -1 && hoadon.TrangThaiDonHang != 2 && hoadon.TrangThaiThanhToan != -1 && hoadon.TrangThaiThanhToan != 0)
+                            {
+                                <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Bill/PrintBill" asp-route-billid="@hoadon?.MaHoaDon">
+                                    <button type="submit" class="btn btn-outline-secondary"><i class="lni lni-printer"></i></button>
+                                </form>
+                                <em>&nbsp;</em>
+                                <a class="btn btn-outline-danger cancelBill" data-id="@hoadon?.MaHoaDon"><i class="lni lni-close"></i></a>
+                            }
+                        </div>
+                    </div>
+                    <span>@_localization.Getkey("Note1")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">@_localization.Getkey("TitleConfirmCancelBill")</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @_localization.Getkey("ConfirmCancelBill")
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                <button type="button" class="btn btn-primary" id="confirmDeleteBtn">@_localization.Getkey("Yes")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).on('click', '.cancelBill', function () {
+        var billId = $(this).data('id');
+
+        // Hiển thị modal khi người dùng click vào nút xóa
+        $('#confirmDeleteModal').modal('show');
+
+        // Xác nhận xóa hóa đơn khi người dùng click vào nút OK trong modal
+        $('#confirmDeleteBtn').click(function () {
+            $.ajax({
+                url: '/Store/Receipt/CancelBill',
+                type: 'POST',
+                data: { maHoaDon: billId },
+                success: function (response) {
+                    alert("Hủy đơn hàng thành công.")
+                    //console.log("Thành công.");
+                    // Xử lý response ở đây nếu cần
+                    location.reload(); // Reload lại trang web
+                },
+                error: function (error) {
+                    alert("Không thể hủy đơn hàng.")
+                    //console.log("Lỗi.");
+                    // Xử lý error ở đây nếu cần
+                    location.reload();
+                }
+            });
+            // Ẩn modal sau khi xác nhận xóa hóa đơn
+            $('#confirmDeleteModal').modal('hide');
+        });
+    });
+</script>

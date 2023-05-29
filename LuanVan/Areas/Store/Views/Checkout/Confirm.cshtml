@@ -1,0 +1,118 @@
+﻿@model IEnumerable<LuanVan.Models.GioHang>
+@using LuanVan.Areas.Store.Models
+@{
+    ViewData["Title"] = @_localization.Getkey("Order_confirmation");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+    
+}
+@{
+    var items = ViewData["pay-method"] as List<LuanVan.Models.ThanhToan>;
+}
+
+<section class="checkout-wrapper section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="checkout-steps-form-style-1">
+                    <ul id="accordionExample">
+                        <li>
+                            <h6 class="title">
+                                @_localization.Getkey("Personal_information")
+                                
+                            </h6>
+                            @{
+                                HoaDonModel hd = (HoaDonModel)ViewData["info"];
+                            }
+                            <partial name="_Info" model="hd" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="checkout-sidebar">
+                    <partial name="_Discount" />
+
+                    <partial name="_Cart_checkout" model="Model" />
+
+                    <partial name="_Payment_methods" />
+
+                    @*<div class="checkout-sidebar-price-table mt-30">
+                        <h5 class="title">Phương thức thanh toán</h5>
+                        <div class="sub-total-price">
+                            @foreach (var item in items)
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="@item.MaPttt" checked>
+                                    <label class="form-check-label" for="@item.MaPttt">
+                                        @item.TenPttt
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        <br />
+                        <div class="button">
+                            <button class="btn" type="submit" onclick="checkout_wallet()" id="confirm_checkout">Thanh toán</button>
+                        </div>
+
+                        <script>
+                            $('input[name="payment"]').click((e) => {
+                                $('#payment_method').val(e.target.id)
+                            })
+                            function checkout_wallet() {
+                                var hotlot = $('#HoLot').val();
+                                var ten = $('#Ten').val();
+                                var email = $('#Email').val();
+                                var sdt = $('#SoDienThoai').val();
+                                var listgh = $('#GioHangs').val();
+                                var payment = $('#payment_method').val();
+
+                                console.log(listgh);
+                                console.log(payment);
+
+                                var hoLotInput = document.getElementById("HoLot");
+                                var tenInput = document.getElementById("Ten");
+                                var emailInput = document.getElementById("Email");
+                                var soDienThoaiInput = document.getElementById("SoDienThoai");
+
+                                if (hoLotInput.value == "") {
+                                    alert("Vui lòng nhập họ lót.");
+                                    return false;
+                                }  
+                                if (tenInput.value == "") {
+                                    alert("Vui lòng nhập tên.");
+                                    return false;
+                                } 
+                                if (emailInput.value == "") {
+                                    alert("Vui lòng nhập địa chỉ email.");
+                                    return false;
+                                } 
+                                if (soDienThoaiInput.value == "") {
+                                    alert("Vui lòng nhập số điện thoại.");
+                                    return false;
+                                }
+
+                                $.ajax({
+                                    'type': 'POST',
+                                    'url': '/Store/CheckOut/Payment',
+                                    'data': {
+                                        'listgh': listgh,
+                                        'payment': payment,
+                                    }
+                                }).done(data => {
+
+                                    //if (JSON.parse(data).payment != undefined) {
+                                    //    var url = "/Store/Checkout/Receipt?Holot=" + hotlot + "&Ten=" + ten + "&Email=" + email + "&SoDienThoai=" + sdt + "&Thanhtoan=" + payment + "&GioHangs=" + listgh
+                                    //    window.location.replace(url);
+                                    //} else {
+                                    window.location.replace(data)
+                                    //}
+                                })
+                            }
+                        </script>
+                    </div>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,251 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("DSSP");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+@{
+    var pagingModel = new LuanVan.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPage,
+                generateUrl = (int? p) => Url.Page("/Product/Index", new{p=p})
+            };
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("SanPham")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>@_localization.Getkey("SanPham")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="mb-2">
+    <a class="btn btn-outline-primary" asp-page="./Create"><i class="lni lni-plus"></i> @_localization.Getkey("ThemSanPham")</a>
+</div>
+@if(Model.soLuongSanPham.Count()> 0)
+{
+    <br />
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" id="exportProductExcelBtn"><i class="fa-regular fa-file-excel"></i></a>
+        <a class="btn btn-outline-primary" id="exportProductPdfBtn"><i class="fa-regular fa-file-pdf"></i></a>
+    </div>
+    <br />
+    <form method="get" asp-page="./Index">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" name="Search" placeholder="@_localization.Getkey("SearchProductName")" />
+            <button type="submit" class="btn btn-outline-primary"><i class="lni lni-search-alt"></i> @_localization.Getkey("SearchBtn")</button>
+        </div>
+    </form>
+    <br />
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @_localization.Getkey("STT")
+            </th>
+            <th>
+                @_localization.Getkey("TenSP")
+            </th>
+            <th>
+                @_localization.Getkey("HinhAnh")
+            </th>
+            <th>
+                @_localization.Getkey("GiaBan")
+            </th>
+            <th>
+                @_localization.Getkey("SoLuongTon")
+            </th>
+            <th>
+                @_localization.Getkey("TrangThaiSP")
+            </th>
+            <th>
+                @_localization.Getkey("TacVu")
+            </th>
+        </tr>
+        @{
+            var stt = 1;
+        }
+        @foreach (var product in Model.products)
+        {
+            <tr>
+                <td>
+                    @stt
+                    @{
+                        stt++;
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-productid="@product.MaSanPham">@product.TenSanPham</a>
+                </td>
+                <td>
+                    <img height="150px" width="150px" src="@Model.path/@product.HinhAnh" />
+                </td>
+                <td>
+                    @String.Format("{0:### ### ### ### VND}", product.GiaBan)
+                </td>
+                <td>
+                    @product.SoLuongTon
+                </td>
+                @if (product.TrangThai.Equals(-1))
+                {
+                    <td>@_localization.Getkey("KKD")</td>
+                }
+                else if (product.TrangThai.Equals(0))
+                {
+                    <td>@_localization.Getkey("HH")</td>
+                }
+                else if (product.TrangThai.Equals(1))
+                {
+                    <td>@_localization.Getkey("KM")</td>
+                }else
+                {
+                    <td>@_localization.Getkey("HOT")</td>
+                }
+                <td>
+                    <a asp-page="./Detail" asp-route-productid="@product.MaSanPham" class="btn btn-outline-info"><i class="lni lni-more"></i></a>
+                    <a asp-page="./Edit" asp-route-productid="@product.MaSanPham" class="btn btn-outline-success"><i class="lni lni-pencil"></i></a>
+                    <a class="btn btn-outline-danger DeleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-@product.MaSanPham"><i class="lni lni-trash-can"></i></a>
+
+                    <div class="modal" id="confirmDeleteModal-@product.MaSanPham" tabindex="-1" aria-labelledby="confirmDeleteLabel-@product.MaSanPham" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmDeleteLabel-@product.MaSanPham">@_localization.Getkey("XacNhanXoaSP")</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @_localization.Getkey("XacNhanXoaLSP1") <strong>@product.TenSanPham</strong>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                                    <form method="post" asp-page="./Delete" asp-route-productid="@product.MaSanPham">
+                                        <button type="submit" class="btn btn-danger">@_localization.Getkey("Xoa")</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="modal" id="confirmExportProductExcelModal" tabindex="-1" aria-labelledby="confirmExportProductExcelLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportProductExcelLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("ProductExcel")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportProductExcel">
+                        <button type="submit" class="btn btn-primary" id="confirmExportExcelBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmExportProductPdfModal" tabindex="-1" aria-labelledby="confirmExportProductPdfLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExportProductPdfLabel">@_localization.Getkey("ConfirmPrintBill")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @_localization.Getkey("ProductPdf")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@_localization.Getkey("Cancel")</button>
+                    <form method="post" asp-page="./ExportProductPdf">
+                        <button type="submit" class="btn btn-primary" id="confirmExportPdfBtn">@_localization.Getkey("PrintBill")</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <partial name="_Paging" model="pagingModel" />
+}
+else
+{
+    <div class="text-center">
+        <div>
+            <div style="font-size: 20px; color: black"><br>--- @_localization.Getkey("List_empty") ---</div>
+        </div>
+
+    </div>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on('click', '#exportProductExcelBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportProductExcelModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportExcelBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportProductExcelModal').modal('hide');
+                alert("Xuất file excel thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '#exportProductPdfBtn', function () {
+            // Hiển thị modal khi người dùng click vào nút export excel
+            $('#confirmExportProductPdfModal').modal('show');
+
+            // Xác nhận export excel khi người dùng click vào nút Export trong modal
+            $('#confirmExportPdfBtn').click(function () {
+
+                // Ẩn modal sau khi xác nhận export excel
+                $('#confirmExportProductPdfModal').modal('hide');
+                alert("Xuất file pdf thành công.");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.DeleteBtn', function () {
+            // Lấy ra ID của modal từ data-bs-target
+            var targetModalId = $(this).data('bs-target');
+
+            // Hiển thị modal
+            $(targetModalId).modal('show');
+
+            // Xác nhận xóa khi người dùng click vào nút Xóa trong modal
+            $(targetModalId).find('form').submit(function () {
+                // Ẩn modal sau khi xác nhận xóa
+                $(targetModalId).modal('hide');
+            });
+        });
+    </script>
+}

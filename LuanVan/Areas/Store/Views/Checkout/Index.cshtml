@@ -1,0 +1,136 @@
+﻿@model IEnumerable<LuanVan.Models.GioHang>
+@{
+    ViewData["Title"] = @_localization.Getkey("Cart");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+@{
+    var items = ViewData["pay-method"] as List<LuanVan.Models.ThanhToan>;
+}
+
+<section class="checkout-wrapper section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="checkout-steps-form-style-1">
+                    <ul id="accordionExample">
+                        <li>
+                            <h6 class="title">
+                                @_localization.Getkey("Personal_information")
+                            </h6>
+                            <form class="form" method="post" >
+                                <section class="checkout-steps-form-content collapse show">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-form form-default">
+                                                <label>@_localization.Getkey("Lastname") <span class="text-danger">*</span></label>
+                                                <div class="form-input form">
+                                                    <input type="text" name="HoLot" id="HoLot" placeholder="@_localization.Getkey("Lastname")" required="required" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form form-default">
+                                                <label>@_localization.Getkey("Firstname") <span class="text-danger">*</span></label>
+                                                <div class="form-input form">
+                                                    <input type="text" name="Ten" id="Ten" placeholder="@_localization.Getkey("Firstname")" required="required" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form form-default">
+                                                <label>@_localization.Getkey("Email") <span class="text-danger">*</span></label>
+                                                <div class="form-input form">
+                                                    <input type="text" name="Email" id="Email" placeholder="@_localization.Getkey("Email")" required="required" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form form-default">
+                                                <label>@_localization.Getkey("Phonenumber") <span class="text-danger">*</span></label>
+                                                <div class="form-input form">
+                                                    <input type="text" name="SoDienThoai" id="SoDienThoai" placeholder="@_localization.Getkey("Phonenumber")" required="required" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <br />
+                                            <a href="/Identity/Account/Register" class="text-primary text-decoration-none">@_localization.Getkey("Register")</a>
+                                        </div>
+                                    </div>
+                                </section>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="checkout-sidebar">
+                    @*<partial name="_Discount" />*@
+                    <div class="checkout-sidebar-price-table mt-30">
+                        <h5 class="title">@_localization.Getkey("Invoice_information")</h5>
+                        <div class="sub-total-price">
+                            @{
+                                long sum = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <div class="total-price">
+                                    <p class="value">@item.SanPham.TenSanPham</p>
+                                    <p class="price">@_localization.Getkey("Quantity"): @item.SoLuongDat <br /> <span class="amount">@_localization.Getkey("Price"): @String.Format("{0:### ### ### ### VNĐ}", item.SanPham.GiaBan) </span></p>
+                                </div>
+                                sum += (long)item.SoLuongDat * (long)item.SanPham.GiaBan;
+                            }
+                            <div class="total-price">
+                                <p class="value">@_localization.Getkey("Total_order"):</p>
+                                <p class="price">@String.Format("{0:### ### ### ### VNĐ}", sum)</p>
+                            </div>
+                            <div class="total-price shipping">
+                                <p class="value">@_localization.Getkey("Delivery_charges"):</p>
+                                <p class="price">@_localization.Getkey("Free")</p>
+                            </div>
+                            <div class="total-price discount">
+                                <p class="value">@_localization.Getkey("Promotion"):</p>
+                                <p class="price" id="discountValue">0 %</p>
+                            </div>
+                            <div class="total-price discount">
+                                <p class="value">@_localization.Getkey("Promotion_amount"):</p>
+                                <p class="price" id="discountMoneyValue">0 VND</p>
+                            </div>
+                        </div>
+                        <div class="total-payable">
+                            <div class="payable-price">
+                                <p class="value">@_localization.Getkey("Total"):</p>
+                                <p class="price" id="totalPriceDiscount"><span>@String.Format("{0:### ### ### ### VNĐ}", sum) </span></p>
+                            </div>
+                        </div>
+                        @*<div class="price-table-btn button">
+                        <a href="javascript:void(0)" class="btn btn-alt">Thanh toán</a>
+                        </div>*@
+                    </div>
+
+                    @*<partial name="_Payment_methods" />*@
+
+                    <div class="checkout-sidebar-price-table mt-30">
+                        <h5 class="title">@_localization.Getkey("Payment_methods")</h5>
+                        <div class="sub-total-price">
+                            @foreach (var item in items)
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="@item.MaPttt" checked>
+                                    <label class="form-check-label" for="@item.MaPttt">
+                                        @item.TenPttt
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        <br />
+                        <div class="button">
+                            <button class="btn" type="submit">@_localization.Getkey("Pay")</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

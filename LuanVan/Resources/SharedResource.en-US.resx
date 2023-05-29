@@ -1,0 +1,2288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="404" xml:space="preserve">
+    <value>The requested page was not found!</value>
+    <comment>/Store/Home/404</comment>
+  </data>
+  <data name="404Content" xml:space="preserve">
+    <value>The page you are looking for does not exist. It may have been moved or deleted.</value>
+    <comment>/Store/Home/404</comment>
+  </data>
+  <data name="About_the_website" xml:space="preserve">
+    <value>About the website</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="Accept_payment" xml:space="preserve">
+    <value>Accept payment</value>
+  </data>
+  <data name="AccessDeniedContent1" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="AccessDeniedContent2" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="AccessDeniedContent3" xml:space="preserve">
+    <value>Your account does not have access to this resource. Please try again later.</value>
+  </data>
+  <data name="AccessDeniedTitle" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="AccountLockout" xml:space="preserve">
+    <value>Account is locked</value>
+  </data>
+  <data name="AccountNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="AddDiscountContent1" xml:space="preserve">
+    <value>Add new discount</value>
+  </data>
+  <data name="AddDiscountTitle" xml:space="preserve">
+    <value>Add new discount</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Add new</value>
+  </data>
+  <data name="AddNewCategory" xml:space="preserve">
+    <value>Add new category</value>
+  </data>
+  <data name="AddNewColor" xml:space="preserve">
+    <value>Add new color</value>
+  </data>
+  <data name="AddNewDiscount" xml:space="preserve">
+    <value>Add new discount</value>
+  </data>
+  <data name="AddNewPTTT" xml:space="preserve">
+    <value>Add new payment</value>
+  </data>
+  <data name="AddNewPTTTContent" xml:space="preserve">
+    <value>Add new payment methods to diversify payment methods for customers</value>
+  </data>
+  <data name="AddNewSP" xml:space="preserve">
+    <value>Add new product</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+    <comment>/Store/Account/Info </comment>
+  </data>
+  <data name="AddRole" xml:space="preserve">
+    <value>Add role</value>
+  </data>
+  <data name="AddRoleForUser" xml:space="preserve">
+    <value>Assign roles to users</value>
+  </data>
+  <data name="AddRoleName" xml:space="preserve">
+    <value>Role name</value>
+  </data>
+  <data name="AddRoleTitle" xml:space="preserve">
+    <value>Add new role</value>
+  </data>
+  <data name="Add_to_cart" xml:space="preserve">
+    <value>Add to cart</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Add_to_cart_request" xml:space="preserve">
+    <value>You need to login to use the shopping cart!</value>
+  </data>
+  <data name="Add_to_cart_success" xml:space="preserve">
+    <value>Add to cart successfully!</value>
+  </data>
+  <data name="AdminPage" xml:space="preserve">
+    <value>Admin Page</value>
+  </data>
+  <data name="AgeUser" xml:space="preserve">
+    <value>Customer age</value>
+  </data>
+  <data name="AlertCancelBillError" xml:space="preserve">
+    <value>Orders cannot be canceled.</value>
+  </data>
+  <data name="AlertCancelBillSuccess" xml:space="preserve">
+    <value>Canceled order successfully.</value>
+  </data>
+  <data name="All_products" xml:space="preserve">
+    <value>All</value>
+    <comment>/Store/Home/Index</comment>
+  </data>
+  <data name="All_product_type" xml:space="preserve">
+    <value>Category</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Alphabetically_A_Z" xml:space="preserve">
+    <value>Alphabetically from A to Z</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Alphabetically_Z_A" xml:space="preserve">
+    <value>Alphabetically from Z to A</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Apply_discount" xml:space="preserve">
+    <value>Apply discount code now</value>
+  </data>
+  <data name="AreaAdmin" xml:space="preserve">
+    <value>Admin Area</value>
+  </data>
+  <data name="Asked_questions" xml:space="preserve">
+    <value>Frequently asked questions</value>
+  </data>
+  <data name="BackTo" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BackToShop" xml:space="preserve">
+    <value>Back to shop</value>
+  </data>
+  <data name="Back_home" xml:space="preserve">
+    <value>Back to home</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="BamVaoDay" xml:space="preserve">
+    <value>click here</value>
+  </data>
+  <data name="Bill" xml:space="preserve">
+    <value>Bill</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="BillCode" xml:space="preserve">
+    <value>Code bill</value>
+  </data>
+  <data name="BillList" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="BillSuccessOrFail" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="Bill_info" xml:space="preserve">
+    <value>Bill details</value>
+    <comment>/Store/Receipt/Detail</comment>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Buy_now" xml:space="preserve">
+    <value>Buy now</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Cancel_bill" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Cancel_Login" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CannotDeleteColor" xml:space="preserve">
+    <value>Color cannot be removed</value>
+  </data>
+  <data name="CannotDeleteKM" xml:space="preserve">
+    <value>Discount cannot be deleted</value>
+  </data>
+  <data name="CannotDeleteLSP" xml:space="preserve">
+    <value>Category cannot be deleted</value>
+  </data>
+  <data name="CannotDeleteNSX" xml:space="preserve">
+    <value>Producer cannot be deleted</value>
+  </data>
+  <data name="CannotDeleteProduct" xml:space="preserve">
+    <value>Product cannot be deleted</value>
+  </data>
+  <data name="CannotDeletePTTT" xml:space="preserve">
+    <value>Payment method cannot be deleted</value>
+  </data>
+  <data name="CapNhat" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="CapNhatMauSac" xml:space="preserve">
+    <value>Color update</value>
+  </data>
+  <data name="CapNhatMKThanhCong" xml:space="preserve">
+    <value>Password update successful</value>
+  </data>
+  <data name="CapNhatMSContent" xml:space="preserve">
+    <value>Color name incorrect? Change now</value>
+  </data>
+  <data name="CapNhatPTTT" xml:space="preserve">
+    <value>Payment method update</value>
+  </data>
+  <data name="CapNhatPTTTContent" xml:space="preserve">
+    <value>Incorrect payment method information? Change now</value>
+  </data>
+  <data name="CapNhatSP" xml:space="preserve">
+    <value>Update product</value>
+  </data>
+  <data name="CapNhatSPContent" xml:space="preserve">
+    <value>Product information incorrect? Update now</value>
+  </data>
+  <data name="CapNhatTT" xml:space="preserve">
+    <value>Successfully updated account status at</value>
+  </data>
+  <data name="CapNhatTT2" xml:space="preserve">
+    <value>Updated account status successfully</value>
+  </data>
+  <data name="CapNhatTTHD" xml:space="preserve">
+    <value>Update bill status</value>
+  </data>
+  <data name="CapNhatTTHDContent" xml:space="preserve">
+    <value>Invalid bill status? Change now.</value>
+  </data>
+  <data name="CapNhatTTNSX" xml:space="preserve">
+    <value>Update producer </value>
+  </data>
+  <data name="CapNhatTTNSXContent" xml:space="preserve">
+    <value>Producer information incorrect? Change now</value>
+  </data>
+  <data name="CapNhatXacThuc" xml:space="preserve">
+    <value>Account confirmed successfully at</value>
+  </data>
+  <data name="CapNhatXacThuc2" xml:space="preserve">
+    <value>Account confirmed successfully</value>
+  </data>
+  <data name="Cart" xml:space="preserve">
+    <value>Cart</value>
+    <comment>/Store/Cart/MyItems</comment>
+  </data>
+  <data name="Cart_empty" xml:space="preserve">
+    <value>Cart is empty</value>
+  </data>
+  <data name="Cart_null" xml:space="preserve">
+    <value>Cart is empty</value>
+    <comment>/Store/View/Shared/_Cart</comment>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ChangeEmail" xml:space="preserve">
+    <value>Change email address</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change the password</value>
+  </data>
+  <data name="ChangeStatusAccount" xml:space="preserve">
+    <value>Change account status</value>
+  </data>
+  <data name="ChaoMungKhachHangMoi" xml:space="preserve">
+    <value>Welcome new customers of the website</value>
+  </data>
+  <data name="ChaoMungKHMoiContent" xml:space="preserve">
+    <value>You have successfully registered an account on our website.&lt;br&gt;We would like to send you a discount code: CHAOMUNGBANMOI with a discount value of 3% of the total order value.&lt;br&gt; This promotion is valid. from 14/02/2023 to 01/08/2023.&lt;br&gt;Wish you have a great experience at Ishopping.</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="ChonLSP" xml:space="preserve">
+    <value>Choose category</value>
+  </data>
+  <data name="ChonMauSac" xml:space="preserve">
+    <value>Choose color</value>
+  </data>
+  <data name="ChonNSX" xml:space="preserve">
+    <value>Choose producer</value>
+  </data>
+  <data name="ChonTGExcel" xml:space="preserve">
+    <value>Choose time to export bill list in excel format</value>
+  </data>
+  <data name="ChonTGPdf" xml:space="preserve">
+    <value>Choose time to export bill list in pdf format</value>
+  </data>
+  <data name="ChonTrangThaiSP" xml:space="preserve">
+    <value>Choose product status</value>
+  </data>
+  <data name="ChoThanhToan" xml:space="preserve">
+    <value>Waiting for payment</value>
+  </data>
+  <data name="ChuaDatMK" xml:space="preserve">
+    <value>No password has been set for the account. Set password before changing password</value>
+  </data>
+  <data name="ChuaXacNhan" xml:space="preserve">
+    <value>Unconfimred</value>
+  </data>
+  <data name="CodeKhongHopLe" xml:space="preserve">
+    <value>Invalid code</value>
+  </data>
+  <data name="Code_bill" xml:space="preserve">
+    <value>Bill code</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="Code_bill_not_exits" xml:space="preserve">
+    <value>Bill code does not exist.</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="ColorExcel" xml:space="preserve">
+    <value>Confirm export of color list in excel format</value>
+  </data>
+  <data name="ColorList" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ColorNotChange" xml:space="preserve">
+    <value>Color name unchanged</value>
+  </data>
+  <data name="ColorPdf" xml:space="preserve">
+    <value>Confirm export of color list in pdf format</value>
+  </data>
+  <data name="ConfirmAccount" xml:space="preserve">
+    <value>Confirm account</value>
+  </data>
+  <data name="ConfirmCancelBill" xml:space="preserve">
+    <value>Are you sure you want to cancel this order?</value>
+  </data>
+  <data name="ConfirmEmailChangeContent1" xml:space="preserve">
+    <value>Confirm change of email address</value>
+  </data>
+  <data name="ConfirmEmailChangeContent2" xml:space="preserve">
+    <value>Your account has been successfully verified.</value>
+  </data>
+  <data name="ConfirmEmailChangeTitle" xml:space="preserve">
+    <value>Confirm email changes</value>
+  </data>
+  <data name="ConfirmEmailContent1" xml:space="preserve">
+    <value>Your account has been successfully verified.</value>
+  </data>
+  <data name="ConfirmEmailContent2" xml:space="preserve">
+    <value>Log in now</value>
+  </data>
+  <data name="ConfirmEmailTitle" xml:space="preserve">
+    <value>Verify email address</value>
+  </data>
+  <data name="ConfirmPasswordChange" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="ConfirmPrintBill" xml:space="preserve">
+    <value>Confirm file export</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Contact_us" xml:space="preserve">
+    <value>Contact us</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Contact_with_us" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Continue_shopping" xml:space="preserve">
+    <value>Continue shopping</value>
+  </data>
+  <data name="Continue_with" xml:space="preserve">
+    <value>Continue with</value>
+  </data>
+  <data name="CreateRole" xml:space="preserve">
+    <value>Add new role</value>
+  </data>
+  <data name="CTHD" xml:space="preserve">
+    <value>Bill detail</value>
+  </data>
+  <data name="CTSP" xml:space="preserve">
+    <value>Product detail</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="Customer_info" xml:space="preserve">
+    <value>Full name</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="Customer_service" xml:space="preserve">
+    <value>Customer service</value>
+  </data>
+  <data name="DaDangKyTaiKhoan" xml:space="preserve">
+    <value>You have registered an account, please</value>
+  </data>
+  <data name="DaDangNhapBang" xml:space="preserve">
+    <value>logged in with the provider</value>
+  </data>
+  <data name="DaDatMatKhau" xml:space="preserve">
+    <value>A password has been set for this account. Only the password can be changed</value>
+  </data>
+  <data name="DaGuiLaiEmail" xml:space="preserve">
+    <value>Resend confirmation email</value>
+  </data>
+  <data name="DaGuiMailDen" xml:space="preserve">
+    <value>Email sent to</value>
+  </data>
+  <data name="DaGuiMailXacNhan" xml:space="preserve">
+    <value>Confirmation email sent. Please check your email</value>
+  </data>
+  <data name="DangKyThanhCong" xml:space="preserve">
+    <value>Successful account registration</value>
+  </data>
+  <data name="DangNhapBenNgoaiDaThemVao" xml:space="preserve">
+    <value>External login has been added.</value>
+  </data>
+  <data name="DangNhapThanhCong" xml:space="preserve">
+    <value>Logged in successfully</value>
+  </data>
+  <data name="DanhMuc" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="DateEnd" xml:space="preserve">
+    <value>Discount end date</value>
+    <comment>new</comment>
+  </data>
+  <data name="Dateofbirth" xml:space="preserve">
+    <value>Date of birth</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="DateStart" xml:space="preserve">
+    <value>Discount start date</value>
+    <comment>new</comment>
+  </data>
+  <data name="Date_of_payment" xml:space="preserve">
+    <value>Date of payment</value>
+  </data>
+  <data name="DatLaiMatKhau" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
+  <data name="DatMatKhauThanhCong" xml:space="preserve">
+    <value>Set password for account successfully</value>
+  </data>
+  <data name="DaTonTai" xml:space="preserve">
+    <value>already exist</value>
+  </data>
+  <data name="DaXacNhan" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="DaXoaKM" xml:space="preserve">
+    <value>Discount removed</value>
+  </data>
+  <data name="DaXoaLSP" xml:space="preserve">
+    <value>Product type removed</value>
+  </data>
+  <data name="DaXoaMau" xml:space="preserve">
+    <value>Color removed</value>
+  </data>
+  <data name="DaXoaNSX" xml:space="preserve">
+    <value>Producer removed</value>
+  </data>
+  <data name="DaXoaPTTT" xml:space="preserve">
+    <value>Payment method removed</value>
+  </data>
+  <data name="DaXoaSP" xml:space="preserve">
+    <value>Product removed</value>
+  </data>
+  <data name="DeDatLaiMatKhau" xml:space="preserve">
+    <value>To reset the password. Please</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>/Store/View/Shared/_Cart_Full</comment>
+  </data>
+  <data name="DeleteBillSuccess" xml:space="preserve">
+    <value>Bill removed</value>
+  </data>
+  <data name="DeleteCategory" xml:space="preserve">
+    <value>Category delete</value>
+  </data>
+  <data name="DeleteData" xml:space="preserve">
+    <value>Data delete</value>
+  </data>
+  <data name="DeleteDiscountConfirm1" xml:space="preserve">
+    <value>Confirm deletion of discount</value>
+  </data>
+  <data name="DeleteDiscountConfirm2" xml:space="preserve">
+    <value>Are you sure delete</value>
+  </data>
+  <data name="DeleteDiscountContent1" xml:space="preserve">
+    <value>Discount delete</value>
+  </data>
+  <data name="DeleteDiscountTitle" xml:space="preserve">
+    <value>Discount delete</value>
+  </data>
+  <data name="DeletePersonalData" xml:space="preserve">
+    <value>Data personal delete</value>
+  </data>
+  <data name="DeletePersonalDataConfirm" xml:space="preserve">
+    <value>Clear data and close my account</value>
+  </data>
+  <data name="DeletePersonalDataTitle" xml:space="preserve">
+    <value>Deleting this data will permanently delete your account and this data cannot be recovered.</value>
+  </data>
+  <data name="DeleteRole" xml:space="preserve">
+    <value>Delete role</value>
+  </data>
+  <data name="DeleteRoleConfirm" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteRoles" xml:space="preserve">
+    <value>Delete role</value>
+  </data>
+  <data name="DeleteSP" xml:space="preserve">
+    <value>Delete product</value>
+  </data>
+  <data name="Delivery_charges" xml:space="preserve">
+    <value>Delivery charges</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Delivery_in_progress" xml:space="preserve">
+    <value>Delivery in progress</value>
+  </data>
+  <data name="Delivery_successful" xml:space="preserve">
+    <value>Delivery successful</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="DeXacNhanEmail" xml:space="preserve">
+    <value>To confirm email address. Please</value>
+  </data>
+  <data name="DeXacNhanTK" xml:space="preserve">
+    <value>to confirm the account.</value>
+  </data>
+  <data name="DiaChiEmail" xml:space="preserve">
+    <value>nguyenhuynhanh6121@gmail.com</value>
+  </data>
+  <data name="DiaChiShop" xml:space="preserve">
+    <value>Campus II, 3/2 Street, Ninh Kieu District, Can Tho City, Viet Nam</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="DiscountCode" xml:space="preserve">
+    <value>Discount code</value>
+  </data>
+  <data name="DiscountExcel" xml:space="preserve">
+    <value>Confirm export of discount list in excel format</value>
+  </data>
+  <data name="DiscountList" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="DiscountListTitle" xml:space="preserve">
+    <value>Discount list</value>
+  </data>
+  <data name="DiscountName" xml:space="preserve">
+    <value>Discount name</value>
+  </data>
+  <data name="DiscountPdf" xml:space="preserve">
+    <value>Confirm export of discount list in pdf format</value>
+  </data>
+  <data name="Discount_Error" xml:space="preserve">
+    <value>Error connecting to server.</value>
+  </data>
+  <data name="Discount_has_expired" xml:space="preserve">
+    <value>The discount code has expired.</value>
+  </data>
+  <data name="Discount_not_exist" xml:space="preserve">
+    <value>Discount code does not exist.</value>
+  </data>
+  <data name="Discount_request" xml:space="preserve">
+    <value>Please enter the discount code.</value>
+  </data>
+  <data name="Discount_Success" xml:space="preserve">
+    <value>Successfully applied discount code.</value>
+  </data>
+  <data name="DoiEmaiMoi" xml:space="preserve">
+    <value>You are in the process of changing a new email address for your account. Please</value>
+  </data>
+  <data name="DongY" xml:space="preserve">
+    <value>Agree</value>
+  </data>
+  <data name="Dont_have_account" xml:space="preserve">
+    <value>You don't have an account?</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadPersonalData" xml:space="preserve">
+    <value>Download personal data</value>
+  </data>
+  <data name="DSBillSuccessOrFail" xml:space="preserve">
+    <value>List of invoices</value>
+  </data>
+  <data name="DSHD" xml:space="preserve">
+    <value>Bill list</value>
+  </data>
+  <data name="DSHDCTKM" xml:space="preserve">
+    <value>Discount name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDCTKMPDF" xml:space="preserve">
+    <value>Discount name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDKhachHang" xml:space="preserve">
+    <value>Full name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDMaHD" xml:space="preserve">
+    <value>Code bill</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDNgayXuat" xml:space="preserve">
+    <value>Date of invoice</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDPTTT" xml:space="preserve">
+    <value>Payment method name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDPTTTPDF" xml:space="preserve">
+    <value>Payment method</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDStt" xml:space="preserve">
+    <value>STT</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTitle" xml:space="preserve">
+    <value>Bill list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTong" xml:space="preserve">
+    <value>Total value</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTDH" xml:space="preserve">
+    <value>Order status</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTDHPDF" xml:space="preserve">
+    <value>Order status</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTTT" xml:space="preserve">
+    <value>Payment status</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTTTPDF" xml:space="preserve">
+    <value>Payment status</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSKM" xml:space="preserve">
+    <value>Discount list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSLSP" xml:space="preserve">
+    <value>Category list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSLSPMa" xml:space="preserve">
+    <value>Category code</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSLSPName" xml:space="preserve">
+    <value>Category name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSMauSac" xml:space="preserve">
+    <value>Color list</value>
+  </data>
+  <data name="DSMS" xml:space="preserve">
+    <value>Color list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSMSMaMau" xml:space="preserve">
+    <value>Color code</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSMSTenMau" xml:space="preserve">
+    <value>Color name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSNSX" xml:space="preserve">
+    <value>Producer list</value>
+  </data>
+  <data name="DSPhuongThucTT" xml:space="preserve">
+    <value>Payment method list</value>
+  </data>
+  <data name="DSProducer" xml:space="preserve">
+    <value>Producer list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProducerMa" xml:space="preserve">
+    <value>Producer code</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProducerName" xml:space="preserve">
+    <value>Producer name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProduct" xml:space="preserve">
+    <value>Product list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductDVT" xml:space="preserve">
+    <value>Unit name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductGia" xml:space="preserve">
+    <value>Price</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductLSP" xml:space="preserve">
+    <value>Category name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductMa" xml:space="preserve">
+    <value>Product code</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductMS" xml:space="preserve">
+    <value>Color name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductName" xml:space="preserve">
+    <value>Product name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductNSX" xml:space="preserve">
+    <value>Producer name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductTT" xml:space="preserve">
+    <value>Status</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSPTTT" xml:space="preserve">
+    <value>List of payment methods</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSPTTTMa" xml:space="preserve">
+    <value>Payment method code</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSPTTTTen" xml:space="preserve">
+    <value>Payment method name</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSRole" xml:space="preserve">
+    <value>Role list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSSP" xml:space="preserve">
+    <value>Product list</value>
+  </data>
+  <data name="DSUser" xml:space="preserve">
+    <value>User list</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTByDate" xml:space="preserve">
+    <value>Revenue by day</value>
+  </data>
+  <data name="DTByMonth" xml:space="preserve">
+    <value>Revenue by month</value>
+  </data>
+  <data name="DTByQuy" xml:space="preserve">
+    <value>Quarterly revenue</value>
+  </data>
+  <data name="DTByWeek" xml:space="preserve">
+    <value>Revenue by week</value>
+  </data>
+  <data name="DTByYear" xml:space="preserve">
+    <value>Revenue by year</value>
+  </data>
+  <data name="DTTMonth" xml:space="preserve">
+    <value>Revenue by month</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTN" xml:space="preserve">
+    <value>Revenue by day</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTN_Ngay" xml:space="preserve">
+    <value>Date-Month-Year</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTQ" xml:space="preserve">
+    <value>Quarterly revenue</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTT" xml:space="preserve">
+    <value>Revenue by week</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTYear" xml:space="preserve">
+    <value>Revenue by year</value>
+    <comment>new</comment>
+  </data>
+  <data name="DVT" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="EditCategory" xml:space="preserve">
+    <value>Update category information</value>
+  </data>
+  <data name="EditCategoryContent" xml:space="preserve">
+    <value>The category information is incorrect? Change now</value>
+  </data>
+  <data name="EditRoleUser" xml:space="preserve">
+    <value>Update role</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email address</value>
+    <comment>/Store/Account/Info &amp; /Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>Confirm email</value>
+  </data>
+  <data name="EmailKhongDoi" xml:space="preserve">
+    <value>Your email has not changed.</value>
+  </data>
+  <data name="EmailManage" xml:space="preserve">
+    <value>Email management</value>
+  </data>
+  <data name="Email_Username" xml:space="preserve">
+    <value>Email/Username</value>
+  </data>
+  <data name="EndDateHD" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+    <comment>/Store/Home &amp; /Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Enter_code" xml:space="preserve">
+    <value>Enter the code here</value>
+  </data>
+  <data name="ExcelReport" xml:space="preserve">
+    <value>Confirm export of bill list in excel format</value>
+  </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>Exchange, return goods</value>
+  </data>
+  <data name="ExportError" xml:space="preserve">
+    <value>There was an error exporting the file!</value>
+  </data>
+  <data name="ExportSuccess" xml:space="preserve">
+    <value>File export successful!</value>
+  </data>
+  <data name="ExternalLoginContent1" xml:space="preserve">
+    <value>Create or link to an external service</value>
+  </data>
+  <data name="ExternalLoginContent2" xml:space="preserve">
+    <value>Link to account</value>
+  </data>
+  <data name="ExternalLoginContent3" xml:space="preserve">
+    <value>You have successfully authenticated from</value>
+  </data>
+  <data name="ExternalLoginContent4" xml:space="preserve">
+    <value>Please enter your email address to create or link</value>
+  </data>
+  <data name="ExternalLoginContent5" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="ExternalLogins" xml:space="preserve">
+    <value>External application link</value>
+  </data>
+  <data name="ExternalLoginsTitle" xml:space="preserve">
+    <value>Registered external service</value>
+  </data>
+  <data name="ExternalLoginsTitle2" xml:space="preserve">
+    <value>Add another service to login.</value>
+  </data>
+  <data name="ExternalLoginTitle" xml:space="preserve">
+    <value>Link to external service</value>
+  </data>
+  <data name="Featured_Products" xml:space="preserve">
+    <value>Featured products</value>
+    <comment>/Store/Home/Index</comment>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Give us feedback on the errors you encounter!</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Firstname" xml:space="preserve">
+    <value>First name</value>
+    <comment>/Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Follow_us" xml:space="preserve">
+    <value>Follow us on</value>
+  </data>
+  <data name="Footer_Contact" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="ForgotPasswordConfirmationContent1" xml:space="preserve">
+    <value>Verify account</value>
+  </data>
+  <data name="ForgotPasswordConfirmationContent2" xml:space="preserve">
+    <value>Please follow the request in the email sent to you to proceed with password recovery.</value>
+  </data>
+  <data name="ForgotPasswordConfirmationTitle" xml:space="preserve">
+    <value>Confirm forgot password</value>
+  </data>
+  <data name="ForgotPasswordContent1" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
+  <data name="ForgotPasswordContent2" xml:space="preserve">
+    <value>Use registered email to reset password</value>
+  </data>
+  <data name="ForgotPasswordTitle" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>French</value>
+    <comment>/Store/Home &amp; /Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="GiaBan" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="GiaTriKM" xml:space="preserve">
+    <value>Discount value</value>
+    <comment>new</comment>
+  </data>
+  <data name="GuiEmailKhoiPhucMKThanhCong" xml:space="preserve">
+    <value>Email password recovery successful</value>
+  </data>
+  <data name="Have_an_account" xml:space="preserve">
+    <value>Do you already have an account?</value>
+  </data>
+  <data name="HayKTLai" xml:space="preserve">
+    <value>. Please check again.</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HH" xml:space="preserve">
+    <value>Product is out of stock</value>
+    <comment>new</comment>
+  </data>
+  <data name="HinhAnh" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="HOT" xml:space="preserve">
+    <value>Hot products</value>
+    <comment>new</comment>
+  </data>
+  <data name="Hot_products" xml:space="preserve">
+    <value>Hot products</value>
+  </data>
+  <data name="IDRole" xml:space="preserve">
+    <value>ID</value>
+    <comment>new</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Info_account" xml:space="preserve">
+    <value>Account information</value>
+    <comment>/Store/Account/Info </comment>
+  </data>
+  <data name="Info_website" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Intro" xml:space="preserve">
+    <value>Introduce</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="IntroContent1" xml:space="preserve">
+    <value>Perfect choice for online shopping</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="IntroContent2" xml:space="preserve">
+    <value>Website is the topic of graduate thesis of student Nguyen Huynh Anh B1910186</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="Invoice_information" xml:space="preserve">
+    <value>Bill information</value>
+    <comment>/Store/Checkout/_Cart_checkout &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Invoice_issue_date" xml:space="preserve">
+    <value>Date of invoice</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="ISHOPPING" xml:space="preserve">
+    <value>ISHOPPING</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="KAD" xml:space="preserve">
+    <value>Do not apply</value>
+    <comment>new</comment>
+  </data>
+  <data name="KhongThayHoaDon" xml:space="preserve">
+    <value>Invoice with code not found</value>
+    <comment>new-2</comment>
+  </data>
+  <data name="KhongThayMauSac" xml:space="preserve">
+    <value>No color found with code</value>
+  </data>
+  <data name="KhongTheThayDoiEmail" xml:space="preserve">
+    <value>The email address cannot be changed.</value>
+  </data>
+  <data name="KhongTheThayDoiUsername" xml:space="preserve">
+    <value>Unable to change username</value>
+  </data>
+  <data name="KhongTheXacNhanEmail" xml:space="preserve">
+    <value>Can't confirm email address right now</value>
+  </data>
+  <data name="KhongTheXoaTK" xml:space="preserve">
+    <value>Account cannot be deleted right now</value>
+  </data>
+  <data name="KhongTimThay" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="KhongTimThayKM" xml:space="preserve">
+    <value>No promotion found with code</value>
+  </data>
+  <data name="KhongTimThayLoaiSP" xml:space="preserve">
+    <value>No category with code found</value>
+  </data>
+  <data name="KhongTimThayNSX" xml:space="preserve">
+    <value>No producer with code found</value>
+  </data>
+  <data name="KhongTimThayPTTT" xml:space="preserve">
+    <value>Can't find payment method with code</value>
+  </data>
+  <data name="KhongTimThaySP" xml:space="preserve">
+    <value>Can't find product with code</value>
+  </data>
+  <data name="KhongTimThayTaiKhoan" xml:space="preserve">
+    <value>The account with the email address could not be found:</value>
+  </data>
+  <data name="KhongTimThayTK" xml:space="preserve">
+    <value>Account not found with email address</value>
+  </data>
+  <data name="KhongTimThayUser" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="KhuyenMai" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="KHVL" xml:space="preserve">
+    <value>Walk-in guest</value>
+    <comment>new</comment>
+  </data>
+  <data name="KKD" xml:space="preserve">
+    <value>The product is no longer available for sale</value>
+    <comment>new</comment>
+  </data>
+  <data name="KM" xml:space="preserve">
+    <value>Discount products</value>
+    <comment>new</comment>
+  </data>
+  <data name="KMName" xml:space="preserve">
+    <value>Discount name</value>
+    <comment>new</comment>
+  </data>
+  <data name="Lastname" xml:space="preserve">
+    <value>Last name</value>
+    <comment>/Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Lastname_firstname" xml:space="preserve">
+    <value>Full name</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Category list</value>
+  </data>
+  <data name="ListReceipt" xml:space="preserve">
+    <value>Payment history</value>
+  </data>
+  <data name="ListReceiptUser" xml:space="preserve">
+    <value>List of customer bill</value>
+  </data>
+  <data name="ListRole" xml:space="preserve">
+    <value>Role list</value>
+  </data>
+  <data name="ListUser" xml:space="preserve">
+    <value>User list</value>
+  </data>
+  <data name="List_category" xml:space="preserve">
+    <value>Category</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="List_empty" xml:space="preserve">
+    <value>List is empty</value>
+  </data>
+  <data name="List_of_invoices" xml:space="preserve">
+    <value>Bill list</value>
+    <comment>/Store/Home/404</comment>
+  </data>
+  <data name="List_of_products_by_category" xml:space="preserve">
+    <value>List of products by category</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="LoaiSPNotChange" xml:space="preserve">
+    <value>Category name remains unchanged</value>
+  </data>
+  <data name="LockAccount" xml:space="preserve">
+    <value>temporarily locked account</value>
+  </data>
+  <data name="LockoutContent1" xml:space="preserve">
+    <value>Lock account</value>
+  </data>
+  <data name="LockoutContent2" xml:space="preserve">
+    <value>Your account has been locked due to incorrect logins more than the specified number of times. Please try again later.</value>
+  </data>
+  <data name="LockoutTitle" xml:space="preserve">
+    <value>Account is locked</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Log in</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="LoginNow" xml:space="preserve">
+    <value>Log in now</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Use your registered email address/username or by the following methods</value>
+  </data>
+  <data name="Login_request" xml:space="preserve">
+    <value>You are not logged in</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Log out</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>You have successfully signed out!</value>
+  </data>
+  <data name="Logout_Success" xml:space="preserve">
+    <value>You have successfully signed out!</value>
+    <comment>new</comment>
+  </data>
+  <data name="LoiNhaCungCap" xml:space="preserve">
+    <value>Error from external provider</value>
+  </data>
+  <data name="LoiTaiThongTin" xml:space="preserve">
+    <value>Error loading external credentials.</value>
+  </data>
+  <data name="LoiTaiThongTinBenNgoai" xml:space="preserve">
+    <value>Error loading external credentials during validation.</value>
+  </data>
+  <data name="LoLoiXacNhanEmaiLoiXacNhanEmail" xml:space="preserve">
+    <value>Error confirming email address</value>
+  </data>
+  <data name="LSP" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="MaCaptChaKhongHopLe" xml:space="preserve">
+    <value>Invalid captcha code</value>
+  </data>
+  <data name="MaGiamGia" xml:space="preserve">
+    <value>Discount code</value>
+  </data>
+  <data name="MaHD" xml:space="preserve">
+    <value>Bill code</value>
+  </data>
+  <data name="MaKH" xml:space="preserve">
+    <value>User code</value>
+  </data>
+  <data name="MaKM" xml:space="preserve">
+    <value>Discount code</value>
+    <comment>new</comment>
+  </data>
+  <data name="MaKMCreate" xml:space="preserve">
+    <value>Discount code</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="MaLoaiSP" xml:space="preserve">
+    <value>Category code</value>
+  </data>
+  <data name="MaMau" xml:space="preserve">
+    <value>Color code</value>
+  </data>
+  <data name="ManageAccount" xml:space="preserve">
+    <value>Account Management</value>
+  </data>
+  <data name="MaNSX" xml:space="preserve">
+    <value>Producer code</value>
+  </data>
+  <data name="MaPTTT" xml:space="preserve">
+    <value>Payment method code</value>
+  </data>
+  <data name="MaSP" xml:space="preserve">
+    <value>Product code</value>
+  </data>
+  <data name="MatKhauDaThayDoi" xml:space="preserve">
+    <value>Your password has been changed</value>
+  </data>
+  <data name="MatKhauSai" xml:space="preserve">
+    <value>Incorrect password</value>
+  </data>
+  <data name="MauSac" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="MauSacSP" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Method_pay" xml:space="preserve">
+    <value>Payment method</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+    <comment>new</comment>
+  </data>
+  <data name="MoTa" xml:space="preserve">
+    <value>Product description</value>
+  </data>
+  <data name="NewEmail" xml:space="preserve">
+    <value>New email address</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Enter your new password</value>
+  </data>
+  <data name="NewPasswordChange" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NgayBD" xml:space="preserve">
+    <value>Start day</value>
+  </data>
+  <data name="NgayBuy" xml:space="preserve">
+    <value>Date of invoice</value>
+  </data>
+  <data name="NgayInHD" xml:space="preserve">
+    <value>Date of printing</value>
+  </data>
+  <data name="NgayKT" xml:space="preserve">
+    <value>End day</value>
+  </data>
+  <data name="NgayThangNam" xml:space="preserve">
+    <value>Date-month-year</value>
+  </data>
+  <data name="NgayXuat" xml:space="preserve">
+    <value>Date of invoice</value>
+  </data>
+  <data name="NgayXuatHD" xml:space="preserve">
+    <value>Date of invoice</value>
+  </data>
+  <data name="NormalAccount" xml:space="preserve">
+    <value>normal account</value>
+  </data>
+  <data name="NotChange" xml:space="preserve">
+    <value>Do not change</value>
+  </data>
+  <data name="Note1" xml:space="preserve">
+    <value>* Note: Units for each product are pieces.</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Notification_Content" xml:space="preserve">
+    <value>Please select the product to proceed with the payment!</value>
+  </data>
+  <data name="Not_apply" xml:space="preserve">
+    <value>Do not apply</value>
+  </data>
+  <data name="No_payment_history" xml:space="preserve">
+    <value>No payment history</value>
+  </data>
+  <data name="NSX" xml:space="preserve">
+    <value>Producer</value>
+  </data>
+  <data name="NSXNotChange" xml:space="preserve">
+    <value>Producer name has not changed</value>
+  </data>
+  <data name="NumberCancelBill" xml:space="preserve">
+    <value>Invoice canceled</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="Order_confirmation" xml:space="preserve">
+    <value>Order confirmation</value>
+    <comment>/Store/Checkout/Confirm</comment>
+  </data>
+  <data name="Order_Status" xml:space="preserve">
+    <value>Order status</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Password_confirm" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Pay</value>
+    <comment>/Store/Checkout/_Info</comment>
+  </data>
+  <data name="PayByUser" xml:space="preserve">
+    <value>Invoices are paid by customers or visitors</value>
+  </data>
+  <data name="PaymentExcel" xml:space="preserve">
+    <value>Confirm export of payment method list in excel format</value>
+  </data>
+  <data name="PaymentMethodList" xml:space="preserve">
+    <value>Payment methods</value>
+  </data>
+  <data name="PaymentPdf" xml:space="preserve">
+    <value>Confirm export of payment method list in pdf format</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="Payment_history" xml:space="preserve">
+    <value>Payment history</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="Payment_methods" xml:space="preserve">
+    <value>Payment methods</value>
+    <comment>/Store/Checkout/Confirm</comment>
+  </data>
+  <data name="Payment_status" xml:space="preserve">
+    <value>Payment status</value>
+  </data>
+  <data name="Paymethod_request1" xml:space="preserve">
+    <value>Please enter last name.</value>
+  </data>
+  <data name="Paymethod_request2" xml:space="preserve">
+    <value>Please enter first name.</value>
+  </data>
+  <data name="Paymethod_request3" xml:space="preserve">
+    <value>Please enter email address.</value>
+  </data>
+  <data name="Paymethod_request4" xml:space="preserve">
+    <value>Please enter the phone number.</value>
+  </data>
+  <data name="Pay_error" xml:space="preserve">
+    <value>Payment failed</value>
+  </data>
+  <data name="Pay_Error_Bill" xml:space="preserve">
+    <value>An error occurred during invoice processing</value>
+  </data>
+  <data name="Pay_success" xml:space="preserve">
+    <value>Payment success</value>
+  </data>
+  <data name="Pay_Success_Bill" xml:space="preserve">
+    <value>Successful bill payment</value>
+  </data>
+  <data name="PdfReport" xml:space="preserve">
+    <value>Confirm export of invoice list in pdf format</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Personal data</value>
+  </data>
+  <data name="PersonalDataTitle" xml:space="preserve">
+    <value>Your account contains the personal data you have provided to us. This page allows you to download or delete such data.</value>
+  </data>
+  <data name="Personal_information" xml:space="preserve">
+    <value>Personal information</value>
+    <comment>/Store/Checkout/Confirm</comment>
+  </data>
+  <data name="PhaiThanhToan" xml:space="preserve">
+    <value>Remaining</value>
+  </data>
+  <data name="PhaiTren18Tuoi" xml:space="preserve">
+    <value>You must be over 18 to register an account!</value>
+  </data>
+  <data name="PhanTramGiaGia" xml:space="preserve">
+    <value>Percent discount</value>
+  </data>
+  <data name="Phonenumber" xml:space="preserve">
+    <value>Phone number</value>
+    <comment>/Store/Account/Info &amp; /Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Price_high_to_low" xml:space="preserve">
+    <value>Price from high to low</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Price_low_to_high" xml:space="preserve">
+    <value>Price from low to high</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="PrintBill" xml:space="preserve">
+    <value>Export files now</value>
+  </data>
+  <data name="ProducerExcel" xml:space="preserve">
+    <value>Confirm export of manufacturer list in excel format</value>
+  </data>
+  <data name="ProducerList" xml:space="preserve">
+    <value>Producer</value>
+  </data>
+  <data name="ProducerPdf" xml:space="preserve">
+    <value>Confirm export of manufacturer list in pdf format</value>
+  </data>
+  <data name="ProductByCategory" xml:space="preserve">
+    <value>Products by category</value>
+  </data>
+  <data name="ProductByProducer" xml:space="preserve">
+    <value>Products by brand</value>
+  </data>
+  <data name="ProductExcel" xml:space="preserve">
+    <value>Confirm export of product list in excel format</value>
+  </data>
+  <data name="ProductList" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ProductPdf" xml:space="preserve">
+    <value>Confirm export of product list in pdf format</value>
+  </data>
+  <data name="Products_belonging_to" xml:space="preserve">
+    <value>Products belonging to</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Products_Discount" xml:space="preserve">
+    <value>Products on sale</value>
+  </data>
+  <data name="ProductType" xml:space="preserve">
+    <value>Category</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="ProductTypeExcel" xml:space="preserve">
+    <value>Confirm export of product category list in excel format</value>
+  </data>
+  <data name="ProductTypeList" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ProductTypePdf" xml:space="preserve">
+    <value>Confirm export of product category list in pdf format</value>
+  </data>
+  <data name="Product_description" xml:space="preserve">
+    <value>Product description</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Product_info" xml:space="preserve">
+    <value>Product information</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Product_name" xml:space="preserve">
+    <value>Product name</value>
+  </data>
+  <data name="Product_Type" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Discount</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Promotion_amount" xml:space="preserve">
+    <value>Discount amount</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="PTTT" xml:space="preserve">
+    <value>Payment methods</value>
+  </data>
+  <data name="PTTTCode" xml:space="preserve">
+    <value>Payment methods code</value>
+  </data>
+  <data name="PTTTName" xml:space="preserve">
+    <value>Payment methods</value>
+  </data>
+  <data name="PTTTNotChange" xml:space="preserve">
+    <value>Payment method name unchanged</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Quantity_error" xml:space="preserve">
+    <value>Invalid quantity</value>
+  </data>
+  <data name="Quy" xml:space="preserve">
+    <value>Quarterly</value>
+    <comment>new</comment>
+  </data>
+  <data name="Redirect_to_Admin" xml:space="preserve">
+    <value>Redirect to Admin Page</value>
+  </data>
+  <data name="Redirect_to_Editor" xml:space="preserve">
+    <value>Redirect to Editor Page</value>
+  </data>
+  <data name="Redirect_to_Test" xml:space="preserve">
+    <value>Redirect to Test Page</value>
+  </data>
+  <data name="Refund" xml:space="preserve">
+    <value>Refund</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>/Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="RegisterConfirmation" xml:space="preserve">
+    <value>Verify email address</value>
+  </data>
+  <data name="RegisterConfirmationContent" xml:space="preserve">
+    <value>Please make a request according to the email sent to you to confirm the account.</value>
+  </data>
+  <data name="RegisterContent" xml:space="preserve">
+    <value>Provide the necessary information to create a new account or by the following methods</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Register now</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Register for an account now</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember information</value>
+  </data>
+  <data name="ResendEmailConfirmation" xml:space="preserve">
+    <value>Resend your account verification email now.</value>
+  </data>
+  <data name="ResendEmailConfirmationContent1" xml:space="preserve">
+    <value>Use your registered email to resend confirmation information</value>
+  </data>
+  <data name="ResendEmailConfirmationTitle" xml:space="preserve">
+    <value>Reconfirm email address</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Update password</value>
+  </data>
+  <data name="ResetPasswordConfirmation" xml:space="preserve">
+    <value>Confirm password update</value>
+  </data>
+  <data name="ResetPasswordConfirmationContent1" xml:space="preserve">
+    <value>Password has been updated. You can</value>
+  </data>
+  <data name="ResetPasswordConfirmationContent2" xml:space="preserve">
+    <value>log in now</value>
+  </data>
+  <data name="ResetPasswordConfirmationTitle" xml:space="preserve">
+    <value>Update password</value>
+  </data>
+  <data name="ResetPasswordTitle" xml:space="preserve">
+    <value>Update new password</value>
+  </data>
+  <data name="Results_for" xml:space="preserve">
+    <value>Results for</value>
+    <comment>/Store/Product/Search</comment>
+  </data>
+  <data name="RevenueByDate" xml:space="preserve">
+    <value>Revenue by day</value>
+  </data>
+  <data name="RevenueByMonth" xml:space="preserve">
+    <value>Revenue by month</value>
+  </data>
+  <data name="RevenueByQuarter" xml:space="preserve">
+    <value>Quarterly revenue</value>
+  </data>
+  <data name="RevenueByWeek" xml:space="preserve">
+    <value>Revenue by week</value>
+  </data>
+  <data name="RevenueByYear" xml:space="preserve">
+    <value>Revenue by year</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="RoleExcel" xml:space="preserve">
+    <value>Confirm export of role list in excel format</value>
+  </data>
+  <data name="RoleID" xml:space="preserve">
+    <value>Role code</value>
+  </data>
+  <data name="RoleList" xml:space="preserve">
+    <value>Role list</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Role name</value>
+    <comment>new</comment>
+  </data>
+  <data name="RoleNameUser" xml:space="preserve">
+    <value>Role name</value>
+  </data>
+  <data name="RolePdf" xml:space="preserve">
+    <value>Confirm export of role list in pdf format</value>
+  </data>
+  <data name="RolesAddForUser" xml:space="preserve">
+    <value>Roles assigned to users</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="SaiUsernameMatKhau" xml:space="preserve">
+    <value>Username/ Email or password is incorrect</value>
+  </data>
+  <data name="SanPham" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="SaveInfo" xml:space="preserve">
+    <value>Save information</value>
+  </data>
+  <data name="SearchBill" xml:space="preserve">
+    <value>Search for bill code</value>
+  </data>
+  <data name="SearchBillCode" xml:space="preserve">
+    <value>Search for bill code</value>
+  </data>
+  <data name="SearchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchCategory" xml:space="preserve">
+    <value>Search category name</value>
+  </data>
+  <data name="SearchColorName" xml:space="preserve">
+    <value>Search color name</value>
+  </data>
+  <data name="SearchDiscountName" xml:space="preserve">
+    <value>Search discount name</value>
+  </data>
+  <data name="SearchNSX" xml:space="preserve">
+    <value>Search producer name</value>
+  </data>
+  <data name="SearchProductName" xml:space="preserve">
+    <value>Search product name</value>
+  </data>
+  <data name="SearchPTTTName" xml:space="preserve">
+    <value>Search payment method code </value>
+  </data>
+  <data name="SearchRoleName" xml:space="preserve">
+    <value>Search role name</value>
+  </data>
+  <data name="SearchUsernameEmail" xml:space="preserve">
+    <value>Search username/email</value>
+  </data>
+  <data name="Search_bill" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_bill_error" xml:space="preserve">
+    <value>Error connecting to server.</value>
+  </data>
+  <data name="Search_bill_request" xml:space="preserve">
+    <value>Please enter the bill code.</value>
+  </data>
+  <data name="Search_bill_success" xml:space="preserve">
+    <value>Find bill with code</value>
+  </data>
+  <data name="Search_placeholder" xml:space="preserve">
+    <value>Search for your product</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Search_product" xml:space="preserve">
+    <value>Search product</value>
+    <comment>/Store/Product/Search</comment>
+  </data>
+  <data name="Search_your_bill" xml:space="preserve">
+    <value>Search your bill</value>
+  </data>
+  <data name="Select_way_sorting" xml:space="preserve">
+    <value>Sort </value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="SendVerificationEmail" xml:space="preserve">
+    <value>Send confirmation email</value>
+  </data>
+  <data name="Send_email_bill" xml:space="preserve">
+    <value>Bill information sent to email address:</value>
+  </data>
+  <data name="Send_mail_error" xml:space="preserve">
+    <value>Email sending failed!</value>
+  </data>
+  <data name="Send_mail_success" xml:space="preserve">
+    <value>Email sent successfully!</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="SetPasswordTitle" xml:space="preserve">
+    <value>Set a password for your account so you can log in to the website with your email address and password quickly</value>
+  </data>
+  <data name="SetPasswordUser" xml:space="preserve">
+    <value>Set password for user</value>
+  </data>
+  <data name="SetPasswordUserTitle" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="SoDienThoai" xml:space="preserve">
+    <value>0388544031</value>
+  </data>
+  <data name="SoDienThoaiDaTonTai" xml:space="preserve">
+    <value>Phone number already exists!</value>
+  </data>
+  <data name="SoLuong" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="SoLuongConLai" xml:space="preserve">
+    <value>Remaining discount quantity</value>
+  </data>
+  <data name="SoLuongThanhCong" xml:space="preserve">
+    <value>Number of successful invoices</value>
+  </data>
+  <data name="SoLuongThatBai" xml:space="preserve">
+    <value>Number of failed invoices</value>
+  </data>
+  <data name="SoLuongTon" xml:space="preserve">
+    <value>Quantity in stock</value>
+  </data>
+  <data name="Sorted" xml:space="preserve">
+    <value>Sort</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="SoTienGiamGia" xml:space="preserve">
+    <value>Discount amount</value>
+  </data>
+  <data name="StartDateHD" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="StatusAccountChange" xml:space="preserve">
+    <value>Your account status has changed</value>
+  </data>
+  <data name="StatusAccountContent1" xml:space="preserve">
+    <value>Your status has been changed from</value>
+  </data>
+  <data name="StatusLocked" xml:space="preserve">
+    <value>Blocked</value>
+  </data>
+  <data name="StatusNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="StatusNotChange" xml:space="preserve">
+    <value>Bill status has not changed.</value>
+  </data>
+  <data name="StatusUserAccount" xml:space="preserve">
+    <value>Account status</value>
+  </data>
+  <data name="STT" xml:space="preserve">
+    <value>STT</value>
+    <comment>/Store/Receipt/List</comment>
+  </data>
+  <data name="Sttnotchange" xml:space="preserve">
+    <value>Status unchanged</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="TacVu" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="TaiKhoanBiKhoa" xml:space="preserve">
+    <value>Account is locked.</value>
+  </data>
+  <data name="TaiKhoanBiKhoa2" xml:space="preserve">
+    <value>Account is locked</value>
+  </data>
+  <data name="TaiKhoanDaDuocDatMatKhau" xml:space="preserve">
+    <value>Your account has been set a password</value>
+  </data>
+  <data name="TaiKhoanTamKhoa" xml:space="preserve">
+    <value>The account is temporarily locked, please contact the technical department to check if there are any errors.</value>
+  </data>
+  <data name="TaoTaiKhoanThanhCongBang" xml:space="preserve">
+    <value>Successfully created an account using a provider</value>
+  </data>
+  <data name="TenDiaChi" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="TenEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="TenLoaiSP" xml:space="preserve">
+    <value>Category name</value>
+  </data>
+  <data name="TenMau" xml:space="preserve">
+    <value>Color name</value>
+  </data>
+  <data name="TenNSX" xml:space="preserve">
+    <value>Producer name</value>
+  </data>
+  <data name="TenPTTT" xml:space="preserve">
+    <value>Payment method name</value>
+  </data>
+  <data name="TenSDT" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="TenSP" xml:space="preserve">
+    <value>Product name</value>
+  </data>
+  <data name="Thanh" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="Thanhcong" xml:space="preserve">
+    <value>success</value>
+  </data>
+  <data name="ThanhCongLuc" xml:space="preserve">
+    <value>success at</value>
+  </data>
+  <data name="ThayDoiEmailThanhCong" xml:space="preserve">
+    <value>Change email address successfully.</value>
+  </data>
+  <data name="ThemKM" xml:space="preserve">
+    <value>Add successful discount at</value>
+  </data>
+  <data name="ThemLSP" xml:space="preserve">
+    <value>Add category</value>
+  </data>
+  <data name="ThemMau" xml:space="preserve">
+    <value>Add color</value>
+  </data>
+  <data name="ThemMoi" xml:space="preserve">
+    <value>Add new</value>
+  </data>
+  <data name="ThemMS" xml:space="preserve">
+    <value>Add color</value>
+  </data>
+  <data name="ThemMSContent" xml:space="preserve">
+    <value>Add new colors to diversify product sources for the system</value>
+  </data>
+  <data name="ThemNSX" xml:space="preserve">
+    <value>Add producer</value>
+  </data>
+  <data name="ThemNSXContent" xml:space="preserve">
+    <value>Adding new brands to diversify product supply for the system</value>
+  </data>
+  <data name="ThemPhuongThucTT" xml:space="preserve">
+    <value>Add payment method</value>
+  </data>
+  <data name="ThemPTTT" xml:space="preserve">
+    <value>Add payment method</value>
+  </data>
+  <data name="ThemSanPham" xml:space="preserve">
+    <value>Add product</value>
+  </data>
+  <data name="ThemSP" xml:space="preserve">
+    <value>Add product</value>
+  </data>
+  <data name="ThemSPContent" xml:space="preserve">
+    <value>Add new products to diversify product sources for the system</value>
+  </data>
+  <data name="ThongTinCaNhanDaDuocCapNhat" xml:space="preserve">
+    <value>Your personal information has been updated.</value>
+  </data>
+  <data name="ThongTinDangNhapDaBiXoa" xml:space="preserve">
+    <value>External logins have been removed.</value>
+  </data>
+  <data name="ThongTinDangNhapKhongBiXoa" xml:space="preserve">
+    <value>External logins are not deleted.</value>
+  </data>
+  <data name="ThongTinDangNhapKhongDuocThemVao" xml:space="preserve">
+    <value>External credentials are not added. External logins can only be associated with one account.</value>
+  </data>
+  <data name="ThongTinHD" xml:space="preserve">
+    <value>Bill Information</value>
+  </data>
+  <data name="ThucHienTheoYeuCau" xml:space="preserve">
+    <value>Please follow the request in the email sent to you</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="TitleConfirmCancelBill" xml:space="preserve">
+    <value>Order cancellation confirmation</value>
+  </data>
+  <data name="TLTT" xml:space="preserve">
+    <value>Payment percentage</value>
+  </data>
+  <data name="TongDoanhThu" xml:space="preserve">
+    <value>Total revenue</value>
+    <comment>new</comment>
+  </data>
+  <data name="TongGT" xml:space="preserve">
+    <value>Total value</value>
+  </data>
+  <data name="TongHoaDon" xml:space="preserve">
+    <value>Total bill</value>
+  </data>
+  <data name="Top_selling_products" xml:space="preserve">
+    <value>Top best selling products</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Total_order" xml:space="preserve">
+    <value>Total order</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Total_value" xml:space="preserve">
+    <value>Total value</value>
+  </data>
+  <data name="TrangThaiSP" xml:space="preserve">
+    <value>Product status</value>
+  </data>
+  <data name="Transport" xml:space="preserve">
+    <value>Transport</value>
+  </data>
+  <data name="TTDH" xml:space="preserve">
+    <value>Order status</value>
+  </data>
+  <data name="TTHD" xml:space="preserve">
+    <value>Bill information</value>
+    <comment>new</comment>
+  </data>
+  <data name="TTNotChange" xml:space="preserve">
+    <value>Account status has not changed</value>
+  </data>
+  <data name="TTSP" xml:space="preserve">
+    <value>Product information</value>
+  </data>
+  <data name="TTSPHD" xml:space="preserve">
+    <value>Product Information</value>
+  </data>
+  <data name="TTTK" xml:space="preserve">
+    <value>Account status</value>
+  </data>
+  <data name="TTTT" xml:space="preserve">
+    <value>Payment status</value>
+  </data>
+  <data name="TTXN" xml:space="preserve">
+    <value>Confirmation status</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="UpdateBillSuccess" xml:space="preserve">
+    <value>Bill status updated successfully</value>
+  </data>
+  <data name="UpdateColorName" xml:space="preserve">
+    <value>Color renamed</value>
+  </data>
+  <data name="UpdateDiscountContent1" xml:space="preserve">
+    <value>Update discount</value>
+  </data>
+  <data name="UpdateDiscountContent2" xml:space="preserve">
+    <value>Discount information incorrect? Update now</value>
+  </data>
+  <data name="UpdateDiscountTitle" xml:space="preserve">
+    <value>Cập nhật thông tin chương trình khuyến mãi</value>
+  </data>
+  <data name="UpdateKM" xml:space="preserve">
+    <value>Update discount information</value>
+  </data>
+  <data name="UpdateLSPName" xml:space="preserve">
+    <value>Category renamed</value>
+  </data>
+  <data name="UpdateNSXName" xml:space="preserve">
+    <value>Producer renamed</value>
+  </data>
+  <data name="UpdatePassword" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdatePasswordChange" xml:space="preserve">
+    <value>Update password</value>
+  </data>
+  <data name="UpdatePTTTName" xml:space="preserve">
+    <value>Changed the name of the payment method</value>
+  </data>
+  <data name="UpdateRoleForUser" xml:space="preserve">
+    <value>Update roles for users</value>
+  </data>
+  <data name="UpdateRoleName" xml:space="preserve">
+    <value>You just renamed the role</value>
+  </data>
+  <data name="UpdateSanPham" xml:space="preserve">
+    <value>Product updated</value>
+  </data>
+  <data name="UpdateStatusAccount" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdateSuccessWhen" xml:space="preserve">
+    <value>Bill status updated successfully at</value>
+  </data>
+  <data name="UpdateYourInfo" xml:space="preserve">
+    <value>Update your account information</value>
+  </data>
+  <data name="Update_information" xml:space="preserve">
+    <value>Update information</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="UserAddress" xml:space="preserve">
+    <value>Address</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserBillExcel" xml:space="preserve">
+    <value>Confirm export of customer bill list in excel format</value>
+  </data>
+  <data name="UserBillPdf" xml:space="preserve">
+    <value>Confirm export of customer bill list in pdf format</value>
+  </data>
+  <data name="UserByGender" xml:space="preserve">
+    <value>Customers by gender</value>
+  </data>
+  <data name="UserDateofbirth" xml:space="preserve">
+    <value>Date of birth</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserEmail" xml:space="preserve">
+    <value>Email</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserExcel" xml:space="preserve">
+    <value>Confirm export of user list in excel format</value>
+  </data>
+  <data name="UserFirstname" xml:space="preserve">
+    <value>First name</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserFullName" xml:space="preserve">
+    <value>Full name</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserGender" xml:space="preserve">
+    <value>Gender</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserID" xml:space="preserve">
+    <value>ID</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserLastname" xml:space="preserve">
+    <value>Last name</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserList" xml:space="preserve">
+    <value>User list</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserPdf" xml:space="preserve">
+    <value>Confirm export of user list in pdf format</value>
+  </data>
+  <data name="UserPhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserRoleName" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="UserTitle" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="UserUsername" xml:space="preserve">
+    <value>Username</value>
+    <comment>new</comment>
+  </data>
+  <data name="Use_cart" xml:space="preserve">
+    <value>Login to use shopping cart</value>
+    <comment>/Store/View/Shared/_Cart</comment>
+  </data>
+  <data name="Vietnamese" xml:space="preserve">
+    <value>Vietnamese</value>
+    <comment>/Store/Home &amp; /Store/View/Shared/_Header</comment>
+  </data>
+  <data name="VuiLongThucHienTheoYeuCau" xml:space="preserve">
+    <value>Please follow the content in the email sent to you to change the email address.</value>
+  </data>
+  <data name="VuiLongXacNhan" xml:space="preserve">
+    <value>Please confirm your account by</value>
+  </data>
+  <data name="VuiLongXacThucTaiKhoan" xml:space="preserve">
+    <value>Please verify your account to be able to log in</value>
+  </data>
+  <data name="Waiting_for_delivery" xml:space="preserve">
+    <value>Waiting for delivery</value>
+  </data>
+  <data name="Waiting_for_refund" xml:space="preserve">
+    <value>Waiting for refund</value>
+  </data>
+  <data name="Warranty_Policy" xml:space="preserve">
+    <value>Warranty policy</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>Week</value>
+    <comment>new</comment>
+  </data>
+  <data name="When" xml:space="preserve">
+    <value>at </value>
+  </data>
+  <data name="XacNhanDoiEmail" xml:space="preserve">
+    <value>to confirm email change.</value>
+  </data>
+  <data name="XacNhanEmail" xml:space="preserve">
+    <value>Verify email address</value>
+  </data>
+  <data name="XacNhanEmailMoi" xml:space="preserve">
+    <value>Confirm new email address</value>
+  </data>
+  <data name="XacNhanEmailThanhCong" xml:space="preserve">
+    <value>Email address confirmation successful</value>
+  </data>
+  <data name="XacNhanXoa" xml:space="preserve">
+    <value>Confirm delete role</value>
+  </data>
+  <data name="XacNhanXoaHD" xml:space="preserve">
+    <value>Confirm delete bill</value>
+  </data>
+  <data name="XacNhanXoaLSP" xml:space="preserve">
+    <value>Confirm delete category</value>
+  </data>
+  <data name="XacNhanXoaLSP1" xml:space="preserve">
+    <value>Are you sure delete</value>
+  </data>
+  <data name="XacNhanXoaPTTT" xml:space="preserve">
+    <value>Payment method deletion confirmation</value>
+  </data>
+  <data name="XacNhanXoaRole" xml:space="preserve">
+    <value>Are you sure delete</value>
+  </data>
+  <data name="XacNhanXoaSP" xml:space="preserve">
+    <value>Confirm delete product</value>
+  </data>
+  <data name="XemTruoc" xml:space="preserve">
+    <value>Preview image</value>
+  </data>
+  <data name="Xoa" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="XoaHD" xml:space="preserve">
+    <value>Delete bill</value>
+  </data>
+  <data name="XoaMauSac" xml:space="preserve">
+    <value>Delete color</value>
+  </data>
+  <data name="XoaMSContent" xml:space="preserve">
+    <value>Confirm delete color</value>
+  </data>
+  <data name="XoaNSX" xml:space="preserve">
+    <value>Delete producer</value>
+  </data>
+  <data name="XoaNSXConfirm" xml:space="preserve">
+    <value>Confirm delete producer</value>
+  </data>
+  <data name="XoaNSXContent" xml:space="preserve">
+    <value>Are you sure delete</value>
+  </data>
+  <data name="XoaPTTT" xml:space="preserve">
+    <value>Delete payment method</value>
+  </data>
+  <data name="XoaTKThanhCong" xml:space="preserve">
+    <value>Your account has been deleted successfully</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+    <comment>new</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Agree</value>
+  </data>
+</root>

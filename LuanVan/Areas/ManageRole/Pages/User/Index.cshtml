@@ -1,0 +1,35 @@
+﻿@page
+@model LuanVan.Areas.ManageRole.Pages.User.IndexModel
+@{
+    ViewData["Title"]= "Danh sách các thành viên";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<table>
+    <tr>
+        <th colspan="6">Tên user</th>
+        <th colspan="4">Vai trò (role)</th>
+        <th colspan="6">Tác vụ</th>
+    </tr>
+    @foreach(var user  in Model.users)
+    {
+        <tr>
+            <td colspan="6">@user.UserName</td>
+            <td colspan="4">
+                @if (string.IsNullOrEmpty(user.RoleNames))
+                {
+                    <a asp-page="./AddRole" asp-route-id="@user.Id">Thêm role</a>
+                }else{
+                    <a asp-page="./AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                    
+                }
+            </td>
+            <td colspan="6">
+                <a asp-page="./SetPassword" asp-route-id="@user.Id">Đặt mật khẩu</a>
+            </td>
+        </tr>
+    }
+</table>

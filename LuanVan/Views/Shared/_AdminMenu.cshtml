@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+@inject IAuthorizationService authorizationService
+
+@{
+    var resultAuthorize = await authorizationService.AuthorizeAsync(this.User, "IsAdmin");
+    var resultAuthorize2 = await authorizationService.AuthorizeAsync(this.User, "IsEditor");
+    var resultAuthorize3 = await authorizationService.AuthorizeAsync(this.User, "IsTest");
+}
+@if (resultAuthorize.Succeeded){
+    <li style="color:white;"><i class="fa-solid fa-share"></i> <a href="/AdminManage/Home/Index" style="color:white" class="link-hover"> @_localization.Getkey("Redirect_to_Admin")</a></li>
+
+}else if(resultAuthorize2.Succeeded){
+    <li style="color:white;"><i class="fa-solid fa-share"></i> <a href="/AdminManage/Home/Index" style="color:white" class="link-hover"> @_localization.Getkey("Redirect_to_Editor")</a></li>
+}
+else if (resultAuthorize3.Succeeded)
+{
+    <li style="color:white;"><i class="fa-solid fa-share"></i> <a href="/AdminManage/Home/Index" style="color:white" class="link-hover"> @_localization.Getkey("Redirect_to_Test")</a></li>
+}

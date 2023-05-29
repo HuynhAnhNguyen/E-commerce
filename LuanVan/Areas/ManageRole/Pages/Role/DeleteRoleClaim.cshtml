@@ -1,0 +1,73 @@
+﻿@page
+@model LuanVan.Areas.ManageRole.Pages.Role.DeleteRoleClaimModel
+@{
+    ViewData["Title"] = "Danh sách các Role (Vai trò)";
+}
+
+
+
+<h2>@ViewData["Title"]: @Model.role.Name</h2>
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+
+@*<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">Xác nhận lại địa chỉ email</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home" asp-area="Store"><i class="lni lni-home"></i> Trang chủ</a>
+                    </li>
+                    <li>Xác nhận lại địa chỉ email</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>*@
+<div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+
+
+                <form class="card login-form" method="post">
+
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>Thêm role mới</h3>
+                            <p>
+                                Thêm role mới
+                            </p>
+                        </div>
+                        <div class="form-floating">
+                            Bạn có chắc chắn xóa <strong>@Model.claim.ClaimType : @Model.claim.ClaimValue</strong>
+                        </div>
+
+
+                        <div class="button">
+                            <button class="btn" type="submit">Xóa</button>
+                        </div>
+                        <hr />
+                        <a class="btn btn-primary" asp-page="./Index">Danh sách các role</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

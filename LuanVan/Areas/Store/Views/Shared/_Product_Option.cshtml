@@ -1,0 +1,16 @@
+﻿@model string
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<KhachHang> SignInManager
+@inject UserManager<KhachHang> UserManager
+<div class="button">
+    
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="btn btn-sm btn-success m-2" data-masp="@Model" onclick="shop_now(event.currentTarget)">@_localization.Getkey("Buy_now")</div>
+        <div class="btn btn-sm btn-success m-2" id="@Model" onclick="add_to_cart(event.currentTarget)"><i class="fa fa-shopping-cart"></i></div>
+    }
+    else
+    {
+        <div class="btn btn-sm btn-success m-2" data-masp="@Model" onclick="shop_now(event.currentTarget)">@_localization.Getkey("Buy_now")</div>
+    }
+</div>

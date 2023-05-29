@@ -1,0 +1,1213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="404" xml:space="preserve">
+    <value>Không tìm thấy trang được yêu cầu!</value>
+    <comment>/Store/Home/404</comment>
+  </data>
+  <data name="404Content" xml:space="preserve">
+    <value>Trang bạn đang tìm kiếm không tồn tại. Nó có thể đã được đã di chuyển hoặc xóa.</value>
+    <comment>/Store/Home/404</comment>
+  </data>
+  <data name="About_the_website" xml:space="preserve">
+    <value>Giới thiệu về website</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="Accept_payment" xml:space="preserve">
+    <value>Chấp nhận thanh toán</value>
+  </data>
+  <data name="AccessDeniedContent1" xml:space="preserve">
+    <value>Quyền truy cập bị từ chối</value>
+  </data>
+  <data name="AccessDeniedContent2" xml:space="preserve">
+    <value>Hạn chế truy cập</value>
+  </data>
+  <data name="AccessDeniedContent3" xml:space="preserve">
+    <value>Tài khoản của bạn không có quyền truy cập vào tài nguyên này. Vui lòng thực hiện lại sau.</value>
+  </data>
+  <data name="AccessDeniedTitle" xml:space="preserve">
+    <value>Từ chối truy cập</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+    <comment>/Store/Account/Info </comment>
+  </data>
+  <data name="Add_to_cart" xml:space="preserve">
+    <value>Thêm vào giỏ hàng</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Add_to_cart_request" xml:space="preserve">
+    <value>Bạn cần đăng nhập để dùng giỏ hàng!</value>
+  </data>
+  <data name="Add_to_cart_success" xml:space="preserve">
+    <value>Thêm vào giỏ hàng thành công!</value>
+  </data>
+  <data name="AlertCancelBillError" xml:space="preserve">
+    <value>Không thể hủy đơn hàng.</value>
+  </data>
+  <data name="AlertCancelBillSuccess" xml:space="preserve">
+    <value>Hủy đơn hàng thành công.</value>
+  </data>
+  <data name="All_products" xml:space="preserve">
+    <value>Tất cả</value>
+    <comment>/Store/Home/Index</comment>
+  </data>
+  <data name="All_product_type" xml:space="preserve">
+    <value>Tất cả loại</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Alphabetically_A_Z" xml:space="preserve">
+    <value>Theo chữ cái từ A đến Z</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Alphabetically_Z_A" xml:space="preserve">
+    <value>Theo chữ cái từ Z đến A</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Áp dụng</value>
+  </data>
+  <data name="Apply_discount" xml:space="preserve">
+    <value>Áp dụng mã giảm giá ngay</value>
+  </data>
+  <data name="Asked_questions" xml:space="preserve">
+    <value>Câu hỏi thường gặp</value>
+  </data>
+  <data name="Back_home" xml:space="preserve">
+    <value>Về trang chủ</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="Bill" xml:space="preserve">
+    <value>Hóa đơn</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="Bill_info" xml:space="preserve">
+    <value>Chi tiết hóa đơn</value>
+    <comment>/Store/Receipt/Detail</comment>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Thương hiệu</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Buy_now" xml:space="preserve">
+    <value>Mua ngay</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Cancel_bill" xml:space="preserve">
+    <value>Đã hủy</value>
+  </data>
+  <data name="Cancel_Login" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Cart" xml:space="preserve">
+    <value>Giỏ hàng</value>
+    <comment>/Store/Cart/MyItems</comment>
+  </data>
+  <data name="Cart_empty" xml:space="preserve">
+    <value>Giỏ hàng trống</value>
+  </data>
+  <data name="Cart_null" xml:space="preserve">
+    <value>Giỏ hàng trống</value>
+    <comment>/Store/View/Shared/_Cart</comment>
+  </data>
+  <data name="ChangeEmail" xml:space="preserve">
+    <value>Thay đổi địa chỉ email</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Thay đổi mật khẩu</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Chọn</value>
+  </data>
+  <data name="Code_bill" xml:space="preserve">
+    <value>Mã hóa đơn</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="Code_bill_not_exits" xml:space="preserve">
+    <value>Mã hóa đơn không tồn tại.</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Màu sắc</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="ConfirmCancelBill" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn hủy đơn hàng này?</value>
+  </data>
+  <data name="ConfirmEmailChangeContent1" xml:space="preserve">
+    <value>Xác nhận thay đổi địa chỉ email</value>
+  </data>
+  <data name="ConfirmEmailChangeContent2" xml:space="preserve">
+    <value>Tài khoản của bạn đã được xác nhận thành công.</value>
+  </data>
+  <data name="ConfirmEmailChangeTitle" xml:space="preserve">
+    <value>Xác nhận email thay đổi</value>
+  </data>
+  <data name="ConfirmEmailContent1" xml:space="preserve">
+    <value>Tài khoản của bạn đã được xác nhận thành công.</value>
+  </data>
+  <data name="ConfirmEmailContent2" xml:space="preserve">
+    <value>Đăng nhập ngay</value>
+  </data>
+  <data name="ConfirmEmailTitle" xml:space="preserve">
+    <value>Xác nhận địa chỉ email</value>
+  </data>
+  <data name="ConfirmPasswordChange" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Liên hệ</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Contact_us" xml:space="preserve">
+    <value>Liên hệ với chúng tôi</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Contact_with_us" xml:space="preserve">
+    <value>Liên hệ với chúng tôi</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Nội dung</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Continue_shopping" xml:space="preserve">
+    <value>Tiếp tục mua sắm</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Mật khẩu hiện tại</value>
+  </data>
+  <data name="Customer_info" xml:space="preserve">
+    <value>Họ và tên khách hàng</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="Customer_service" xml:space="preserve">
+    <value>Dịch vụ khách hàng</value>
+  </data>
+  <data name="DateEnd" xml:space="preserve">
+    <value>Ngày hết hạn khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="Dateofbirth" xml:space="preserve">
+    <value>Ngày sinh</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="DateStart" xml:space="preserve">
+    <value>Ngày bắt đầu áp dụng</value>
+    <comment>new</comment>
+  </data>
+  <data name="Date_of_payment" xml:space="preserve">
+    <value>Ngày thanh toán</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+    <comment>/Store/View/Shared/_Cart_Full</comment>
+  </data>
+  <data name="DeleteData" xml:space="preserve">
+    <value>Xóa dữ liệu</value>
+  </data>
+  <data name="DeletePersonalData" xml:space="preserve">
+    <value>Xóa dữ liệu cá nhân</value>
+  </data>
+  <data name="DeletePersonalDataConfirm" xml:space="preserve">
+    <value>Xóa dữ liệu và đóng tài khoản của tôi</value>
+  </data>
+  <data name="DeletePersonalDataTitle" xml:space="preserve">
+    <value>Việc xóa dữ liệu này sẽ xóa vĩnh viễn tài khoản của bạn và dữ liệu này không thể khôi phục được.</value>
+  </data>
+  <data name="Delivery_charges" xml:space="preserve">
+    <value>Phí giao hàng</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Delivery_in_progress" xml:space="preserve">
+    <value>Đang giao hàng</value>
+  </data>
+  <data name="Delivery_successful" xml:space="preserve">
+    <value>Giao hàng thành công</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Khuyến mãi</value>
+  </data>
+  <data name="Discount_Error" xml:space="preserve">
+    <value>Lỗi kết nối đến server.</value>
+  </data>
+  <data name="Discount_has_expired" xml:space="preserve">
+    <value>Mã giảm giá đã hết hạn.</value>
+  </data>
+  <data name="Discount_not_exist" xml:space="preserve">
+    <value>Mã giảm giá không tồn tại.</value>
+  </data>
+  <data name="Discount_request" xml:space="preserve">
+    <value>Vui lòng nhập mã giảm giá.</value>
+  </data>
+  <data name="Discount_Success" xml:space="preserve">
+    <value>Áp dụng mã giảm giá thành công.</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Tải xuống</value>
+  </data>
+  <data name="DownloadPersonalData" xml:space="preserve">
+    <value>Tải xuống dữ liệu cá nhân</value>
+  </data>
+  <data name="DSHDCTKM" xml:space="preserve">
+    <value>Tên chương trình khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDCTKMPDF" xml:space="preserve">
+    <value>Chương trình khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDKhachHang" xml:space="preserve">
+    <value>Họ và tên khách hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDMaHD" xml:space="preserve">
+    <value>Mã hóa đơn</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDNgayXuat" xml:space="preserve">
+    <value>Ngày xuất hóa đơn</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDPTTT" xml:space="preserve">
+    <value>Tên phương thức thanh toán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDPTTTPDF" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDStt" xml:space="preserve">
+    <value>STT</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTitle" xml:space="preserve">
+    <value>Danh sách hóa đơn</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTong" xml:space="preserve">
+    <value>Tổng giá trị</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTDH" xml:space="preserve">
+    <value>Trạng thái đơn hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTDHPDF" xml:space="preserve">
+    <value>Trạng thái đơn hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTTT" xml:space="preserve">
+    <value>Trạng thái thanh toán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSHDTTTTPDF" xml:space="preserve">
+    <value>Trạng thái thanh toán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSKM" xml:space="preserve">
+    <value>Danh sách khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSLSP" xml:space="preserve">
+    <value>Danh sách loại sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSLSPMa" xml:space="preserve">
+    <value>Mã loại sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSLSPName" xml:space="preserve">
+    <value>Tên loại sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSMS" xml:space="preserve">
+    <value>Danh sách màu sắc</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSMSMaMau" xml:space="preserve">
+    <value>Mã màu sắc</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSMSTenMau" xml:space="preserve">
+    <value>Tên màu sắc</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProducer" xml:space="preserve">
+    <value>Danh sách nhà sản xuất</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProducerMa" xml:space="preserve">
+    <value>Mã nhà sản xuất</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProducerName" xml:space="preserve">
+    <value>Tên nhà sản xuất</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProduct" xml:space="preserve">
+    <value>Danh sách sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductDVT" xml:space="preserve">
+    <value>Tên đơn vị tính</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductGia" xml:space="preserve">
+    <value>Giá bán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductLSP" xml:space="preserve">
+    <value>Tên loại sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductMa" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductMS" xml:space="preserve">
+    <value>Tên màu sắc</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductName" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductNSX" xml:space="preserve">
+    <value>Tên nhà sản xuất</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSProductTT" xml:space="preserve">
+    <value>Trạng thái</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSPTTT" xml:space="preserve">
+    <value>Danh sách PTTT</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSPTTTMa" xml:space="preserve">
+    <value>Mã phương thức thanh toán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSPTTTTen" xml:space="preserve">
+    <value>Tên phương thức thanh toán</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSRole" xml:space="preserve">
+    <value>Danh sách role</value>
+    <comment>new</comment>
+  </data>
+  <data name="DSUser" xml:space="preserve">
+    <value>Danh sách user</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTMonth" xml:space="preserve">
+    <value>Doanh thu theo tháng</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTN" xml:space="preserve">
+    <value>Doanh thu theo ngày</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTN_Ngay" xml:space="preserve">
+    <value>Ngày tháng năm</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTQ" xml:space="preserve">
+    <value>Doanh thu theo quý</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTT" xml:space="preserve">
+    <value>Doanh thu theo tuần</value>
+    <comment>new</comment>
+  </data>
+  <data name="DTTYear" xml:space="preserve">
+    <value>Doanh thu theo năm</value>
+    <comment>new</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Địa chỉ email</value>
+    <comment>/Store/Account/Info &amp; /Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>Xác nhận email</value>
+  </data>
+  <data name="EmailManage" xml:space="preserve">
+    <value>Quản lý email</value>
+  </data>
+  <data name="Email_Username" xml:space="preserve">
+    <value>Email/Username</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Tiếng Anh</value>
+    <comment>/Store/Home &amp; /Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Enter_code" xml:space="preserve">
+    <value>Nhập mã tại đây</value>
+  </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>Đổi, trả hàng</value>
+  </data>
+  <data name="ExternalLoginContent1" xml:space="preserve">
+    <value>Tạo hoặc liên kết với dịch vụ ngoài</value>
+  </data>
+  <data name="ExternalLoginContent2" xml:space="preserve">
+    <value>Liên kết với tài khoản</value>
+  </data>
+  <data name="ExternalLoginContent3" xml:space="preserve">
+    <value>Bạn đã xác thực thành công từ</value>
+  </data>
+  <data name="ExternalLoginContent4" xml:space="preserve">
+    <value>Hãy nhập địa chỉ email để tạo hoặc liên kết</value>
+  </data>
+  <data name="ExternalLoginContent5" xml:space="preserve">
+    <value>Liên kết</value>
+  </data>
+  <data name="ExternalLogins" xml:space="preserve">
+    <value>Liên kết ứng dụng ngoài</value>
+  </data>
+  <data name="ExternalLoginsTitle" xml:space="preserve">
+    <value>Dịch vụ ngoài đã đăng ký</value>
+  </data>
+  <data name="ExternalLoginsTitle2" xml:space="preserve">
+    <value>Thêm một dịch vụ khác để đăng nhập.</value>
+  </data>
+  <data name="ExternalLoginTitle" xml:space="preserve">
+    <value>Liên kết với dịch vụ ngoài</value>
+  </data>
+  <data name="Featured_Products" xml:space="preserve">
+    <value>Sản phẩm nổi bật</value>
+    <comment>/Store/Home/Index</comment>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Phản hồi cho chúng tôi về các lỗi mà bạn gặp phải nhé!</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="Firstname" xml:space="preserve">
+    <value>Tên</value>
+    <comment>/Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Follow_us" xml:space="preserve">
+    <value>Theo dõi chúng tôi trên</value>
+  </data>
+  <data name="Footer_Contact" xml:space="preserve">
+    <value>Liên hệ với chúng tôi</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Quên mật khẩu?</value>
+  </data>
+  <data name="ForgotPasswordConfirmationContent1" xml:space="preserve">
+    <value>Xác nhận tài khoản</value>
+  </data>
+  <data name="ForgotPasswordConfirmationContent2" xml:space="preserve">
+    <value>Vui lòng thực hiện theo yêu cầu trong email đã được gửi đến bạn để tiến hành khôi phục mật khẩu.</value>
+  </data>
+  <data name="ForgotPasswordConfirmationTitle" xml:space="preserve">
+    <value>Xác nhận quên mật khẩu</value>
+  </data>
+  <data name="ForgotPasswordContent1" xml:space="preserve">
+    <value>Đặt lại mật khẩu</value>
+  </data>
+  <data name="ForgotPasswordContent2" xml:space="preserve">
+    <value>Sử dụng email đã đăng ký để đặt lại mật khẩu</value>
+  </data>
+  <data name="ForgotPasswordTitle" xml:space="preserve">
+    <value>Quên mật khẩu</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Miễn phí</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>Tiếng Pháp</value>
+    <comment>/Store/Home &amp; /Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Giới tính</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="GiaTriKM" xml:space="preserve">
+    <value>Giá trị khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="Have_an_account" xml:space="preserve">
+    <value>Bạn đã có tài khoản?</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Xin chào</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Trợ giúp</value>
+  </data>
+  <data name="HH" xml:space="preserve">
+    <value>Sản phẩm hết hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Trang chủ</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="HOT" xml:space="preserve">
+    <value>Sản phẩm hot</value>
+    <comment>new</comment>
+  </data>
+  <data name="Hot_products" xml:space="preserve">
+    <value>Sản phẩm hot</value>
+  </data>
+  <data name="IDRole" xml:space="preserve">
+    <value>ID</value>
+    <comment>new</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Hình ảnh</value>
+  </data>
+  <data name="Info_account" xml:space="preserve">
+    <value>Thông tin tài khoản</value>
+    <comment>/Store/Account/Info </comment>
+  </data>
+  <data name="Info_website" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="Intro" xml:space="preserve">
+    <value>Giới thiệu</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="IntroContent1" xml:space="preserve">
+    <value>Sự lựa chọn hoàn hảo cho mua sắm trực tuyến</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="IntroContent2" xml:space="preserve">
+    <value>Website là đề tài luận văn tốt nghiệp của sinh viên Nguyễn Huỳnh Anh B1910186</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="Invoice_information" xml:space="preserve">
+    <value>Thông tin hóa đơn</value>
+    <comment>/Store/Checkout/_Cart_checkout &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Invoice_issue_date" xml:space="preserve">
+    <value>Ngày xuất hóa đơn</value>
+    <comment>/Store/Checkout/Receipt</comment>
+  </data>
+  <data name="ISHOPPING" xml:space="preserve">
+    <value>ISHOPPING</value>
+    <comment>/Store/Intro/Index</comment>
+  </data>
+  <data name="KAD" xml:space="preserve">
+    <value>Không áp dụng</value>
+    <comment>new</comment>
+  </data>
+  <data name="KHVL" xml:space="preserve">
+    <value>Khách hàng vãng lai</value>
+    <comment>new</comment>
+  </data>
+  <data name="KKD" xml:space="preserve">
+    <value>Sản phẩm không còn kinh doanh</value>
+    <comment>new</comment>
+  </data>
+  <data name="KM" xml:space="preserve">
+    <value>Sản phẩm khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="KMName" xml:space="preserve">
+    <value>Tên chương trình khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="Lastname" xml:space="preserve">
+    <value>Họ lót</value>
+    <comment>/Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Lastname_firstname" xml:space="preserve">
+    <value>Họ và tên</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="List_category" xml:space="preserve">
+    <value>Danh mục</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="List_empty" xml:space="preserve">
+    <value>Danh sách trống</value>
+  </data>
+  <data name="List_of_invoices" xml:space="preserve">
+    <value>Danh sách hóa đơn</value>
+    <comment>/Store/Home/404</comment>
+  </data>
+  <data name="List_of_products_by_category" xml:space="preserve">
+    <value>Danh sách sản phẩm theo loại</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="LockoutContent1" xml:space="preserve">
+    <value>Khóa tài khoản</value>
+  </data>
+  <data name="LockoutContent2" xml:space="preserve">
+    <value>Tài khoản của bạn đã bị khóa do đăng nhập sai quá số lần quy định. Vui lòng thực hiện lại sau.</value>
+  </data>
+  <data name="LockoutTitle" xml:space="preserve">
+    <value>Tài khoản bị khóa</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="LoginNow" xml:space="preserve">
+    <value>Đăng nhập ngay</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Sử dụng địa chỉ email/ username đã đăng ký hoặc bằng các phương thức sau</value>
+  </data>
+  <data name="Login_request" xml:space="preserve">
+    <value>Bạn chưa đăng nhập</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>Bạn đã đăng xuất thành công.</value>
+  </data>
+  <data name="Logout_Success" xml:space="preserve">
+    <value>Bạn đã đăng xuất thành công!</value>
+    <comment>new</comment>
+  </data>
+  <data name="MaKM" xml:space="preserve">
+    <value>Mã khuyến mãi</value>
+    <comment>new</comment>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="ManageAccount" xml:space="preserve">
+    <value>Quản lý tài khoản</value>
+  </data>
+  <data name="Method_pay" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Tháng</value>
+    <comment>new</comment>
+  </data>
+  <data name="NewEmail" xml:space="preserve">
+    <value>Địa chỉ email mới</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nhập mật khẩu mới</value>
+  </data>
+  <data name="NewPasswordChange" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="Note1" xml:space="preserve">
+    <value>* Lưu ý: Đơn vị tính cho mỗi sản phẩm là cái.</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="Notification_Content" xml:space="preserve">
+    <value>Vui lòng chọn sản phẩm để tiến hành thanh toán!</value>
+  </data>
+  <data name="Not_apply" xml:space="preserve">
+    <value>Không áp dụng</value>
+  </data>
+  <data name="No_payment_history" xml:space="preserve">
+    <value>Không có lịch sử thanh toán</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>Hoặc</value>
+  </data>
+  <data name="Order_confirmation" xml:space="preserve">
+    <value>Xác nhận đơn hàng</value>
+    <comment>/Store/Checkout/Confirm</comment>
+  </data>
+  <data name="Order_Status" xml:space="preserve">
+    <value>Trạng thái đơn hàng</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="Password_confirm" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Thanh toán</value>
+    <comment>/Store/Checkout/_Info</comment>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Hình thức thanh toán</value>
+  </data>
+  <data name="Payment_history" xml:space="preserve">
+    <value>Lịch sử thanh toán</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="Payment_methods" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
+    <comment>/Store/Checkout/Confirm</comment>
+  </data>
+  <data name="Payment_status" xml:space="preserve">
+    <value>Trạng thái thanh toán</value>
+  </data>
+  <data name="Paymethod_request1" xml:space="preserve">
+    <value>Vui lòng nhập họ lót.</value>
+  </data>
+  <data name="Paymethod_request2" xml:space="preserve">
+    <value>Vui lòng nhập tên.</value>
+  </data>
+  <data name="Paymethod_request3" xml:space="preserve">
+    <value>Vui lòng nhập địa chỉ email.</value>
+  </data>
+  <data name="Paymethod_request4" xml:space="preserve">
+    <value>Vui lòng nhập số điện thoại.</value>
+  </data>
+  <data name="Pay_error" xml:space="preserve">
+    <value>Thanh toán thất bại</value>
+  </data>
+  <data name="Pay_Error_Bill" xml:space="preserve">
+    <value>Có lỗi xảy ra trong quá trình xử lý hóa đơn</value>
+  </data>
+  <data name="Pay_success" xml:space="preserve">
+    <value>Thanh toán thành công</value>
+  </data>
+  <data name="Pay_Success_Bill" xml:space="preserve">
+    <value>Thanh toán thành công hóa đơn</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Dữ liệu cá nhân</value>
+  </data>
+  <data name="PersonalDataTitle" xml:space="preserve">
+    <value>Tài khoản của bạn chứa dữ liệu cá nhân mà bạn đã cung cấp cho chúng tôi. Trang này cho phép bạn tải xuống hoặc xóa dữ liệu đó.</value>
+  </data>
+  <data name="Personal_information" xml:space="preserve">
+    <value>Thông tin cá nhân</value>
+    <comment>/Store/Checkout/Confirm</comment>
+  </data>
+  <data name="Phonenumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+    <comment>/Store/Account/Info &amp; /Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Giá</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Price_high_to_low" xml:space="preserve">
+    <value>Giá từ cao đến thấp</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Price_low_to_high" xml:space="preserve">
+    <value>Giá từ thấp đến cao</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Products_belonging_to" xml:space="preserve">
+    <value>Sản phẩm thuộc</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="Products_Discount" xml:space="preserve">
+    <value>Sản phẩm đang khuyến mãi</value>
+  </data>
+  <data name="ProductType" xml:space="preserve">
+    <value>Loại sản phẩm</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Product_description" xml:space="preserve">
+    <value>Mô tả sản phẩm</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Product_info" xml:space="preserve">
+    <value>Thông tin sản phẩm</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="Product_name" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="Product_Type" xml:space="preserve">
+    <value>Loại sản phẩm</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Hồ sơ cá nhân</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Khuyến mãi</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Promotion_amount" xml:space="preserve">
+    <value>Số tiền khuyến mãi</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Quantity_error" xml:space="preserve">
+    <value>Số lượng không hợp lệ</value>
+  </data>
+  <data name="Quy" xml:space="preserve">
+    <value>Quý</value>
+    <comment>new</comment>
+  </data>
+  <data name="Refund" xml:space="preserve">
+    <value>Hoàn tiền</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Đăng kí tài khoản</value>
+    <comment>/Store/Checkout/_Info &amp; /Store/Checkout/Index</comment>
+  </data>
+  <data name="RegisterConfirmation" xml:space="preserve">
+    <value>Xác nhận địa chỉ email</value>
+  </data>
+  <data name="RegisterConfirmationContent" xml:space="preserve">
+    <value>Vui lòng thực hiện yêu cầu theo email được gửi đến bạn để xác nhận tài khoản.</value>
+  </data>
+  <data name="RegisterContent" xml:space="preserve">
+    <value>Cung cấp các thông tin cần thiết để tạo tài khoản mới hoặc bằng các phương thức sau</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Đăng ký ngay</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Đăng ký tài khoản ngay</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Ghi nhớ thông tin đăng nhập</value>
+  </data>
+  <data name="ResendEmailConfirmation" xml:space="preserve">
+    <value>Gửi lại email xác thực tài khoản ngay.</value>
+  </data>
+  <data name="ResendEmailConfirmationContent1" xml:space="preserve">
+    <value>Sử dụng email đã đăng ký để gửi lại thông tin xác nhận</value>
+  </data>
+  <data name="ResendEmailConfirmationTitle" xml:space="preserve">
+    <value>Xác nhận lại địa chỉ email</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Cập nhật lại mật khẩu</value>
+  </data>
+  <data name="ResetPasswordConfirmation" xml:space="preserve">
+    <value>Xác nhận cập nhật lại mật khẩu</value>
+  </data>
+  <data name="ResetPasswordConfirmationContent1" xml:space="preserve">
+    <value>Mật khẩu đã được cập nhật. Bạn có thể</value>
+  </data>
+  <data name="ResetPasswordConfirmationContent2" xml:space="preserve">
+    <value>đăng nhập ngay</value>
+  </data>
+  <data name="ResetPasswordConfirmationTitle" xml:space="preserve">
+    <value>Cập nhật mật khẩu</value>
+  </data>
+  <data name="ResetPasswordTitle" xml:space="preserve">
+    <value>Cập nhật lại mật khẩu mới</value>
+  </data>
+  <data name="Results_for" xml:space="preserve">
+    <value>Kết quả cho</value>
+    <comment>/Store/Product/Search</comment>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Tên role</value>
+    <comment>new</comment>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Điều khoản</value>
+  </data>
+  <data name="SaveInfo" xml:space="preserve">
+    <value>Lưu thông tin</value>
+  </data>
+  <data name="Search_bill" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Search_bill_error" xml:space="preserve">
+    <value>Lỗi kết nối đến server.</value>
+  </data>
+  <data name="Search_bill_request" xml:space="preserve">
+    <value>Vui lòng nhập mã hóa đơn.</value>
+  </data>
+  <data name="Search_bill_success" xml:space="preserve">
+    <value>Tìm thấy hóa đơn với mã</value>
+  </data>
+  <data name="Search_placeholder" xml:space="preserve">
+    <value>Tìm kiếm sản phẩm của bạn</value>
+    <comment>/Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Search_product" xml:space="preserve">
+    <value>Tìm kiếm sản phẩm</value>
+    <comment>/Store/Product/Search</comment>
+  </data>
+  <data name="Search_your_bill" xml:space="preserve">
+    <value>Tìm kiếm hóa đơn của bạn</value>
+  </data>
+  <data name="Select_way_sorting" xml:space="preserve">
+    <value>Chọn cách sắp xếp</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="SendVerificationEmail" xml:space="preserve">
+    <value>Gửi email xác nhận</value>
+  </data>
+  <data name="Send_email_bill" xml:space="preserve">
+    <value>Đã gửi thông tin hóa đơn đến địa chỉ email:</value>
+  </data>
+  <data name="Send_mail_error" xml:space="preserve">
+    <value>Gửi email không thành công!</value>
+  </data>
+  <data name="Send_mail_success" xml:space="preserve">
+    <value>Gửi email thành công!</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Đặt mật khẩu</value>
+  </data>
+  <data name="SetPasswordTitle" xml:space="preserve">
+    <value>Đặt mật khẩu cho tài khoản để có thể đăng nhập vào website với địa chỉ email và mật khẩu nhanh chóng</value>
+  </data>
+  <data name="Sorted" xml:space="preserve">
+    <value>Sắp xếp</value>
+    <comment>/Store/Product/List_product</comment>
+  </data>
+  <data name="STT" xml:space="preserve">
+    <value>STT</value>
+    <comment>/Store/Receipt/List</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Gửi</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+    <comment>/Store/Contact/Index</comment>
+  </data>
+  <data name="TitleConfirmCancelBill" xml:space="preserve">
+    <value>Xác nhận hủy đơn hàng</value>
+  </data>
+  <data name="TongDoanhThu" xml:space="preserve">
+    <value>Tổng doanh thu</value>
+    <comment>new</comment>
+  </data>
+  <data name="Top_selling_products" xml:space="preserve">
+    <value>Top sản phẩm bán chạy nhất</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Tổng cộng</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Total_order" xml:space="preserve">
+    <value>Tổng đơn hàng</value>
+    <comment>/Store/Checkout/_Cart_checkout</comment>
+  </data>
+  <data name="Total_value" xml:space="preserve">
+    <value>Tổng giá trị</value>
+  </data>
+  <data name="Transport" xml:space="preserve">
+    <value>Vận chuyển</value>
+  </data>
+  <data name="TTHD" xml:space="preserve">
+    <value>Thông tin hóa đơn</value>
+    <comment>new</comment>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Đơn vị tính</value>
+    <comment>/Store/Product/Detail</comment>
+  </data>
+  <data name="UpdatePassword" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="UpdatePasswordChange" xml:space="preserve">
+    <value>Cập nhật mật khẩu</value>
+  </data>
+  <data name="UpdateYourInfo" xml:space="preserve">
+    <value>Cập nhật thông tin tài khoản của bạn</value>
+  </data>
+  <data name="Update_information" xml:space="preserve">
+    <value>Cập nhật thông tin</value>
+    <comment>/Store/Account/Info</comment>
+  </data>
+  <data name="UserAddress" xml:space="preserve">
+    <value>Địa chỉ</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserDateofbirth" xml:space="preserve">
+    <value>Ngày sinh</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserEmail" xml:space="preserve">
+    <value>Email</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserFirstname" xml:space="preserve">
+    <value>Tên khách hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserFullName" xml:space="preserve">
+    <value>Họ và tên khách hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserGender" xml:space="preserve">
+    <value>Giới tính</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserID" xml:space="preserve">
+    <value>ID</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserLastname" xml:space="preserve">
+    <value>Họ khách hàng</value>
+    <comment>new</comment>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserPhoneNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+    <comment>new</comment>
+  </data>
+  <data name="UserUsername" xml:space="preserve">
+    <value>Username</value>
+    <comment>new</comment>
+  </data>
+  <data name="Use_cart" xml:space="preserve">
+    <value>Đăng nhập để sử dụng giỏ hàng</value>
+    <comment>/Store/View/Shared/_Cart</comment>
+  </data>
+  <data name="Vietnamese" xml:space="preserve">
+    <value>Tiếng Việt</value>
+    <comment>/Store/Home &amp; /Store/View/Shared/_Header</comment>
+  </data>
+  <data name="Waiting_for_delivery" xml:space="preserve">
+    <value>Đang chờ lấy hàng</value>
+  </data>
+  <data name="Waiting_for_refund" xml:space="preserve">
+    <value>Đang chờ hoàn tiền</value>
+  </data>
+  <data name="Warranty_Policy" xml:space="preserve">
+    <value>Chính sách bảo hành</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>Tuần</value>
+    <comment>new</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Năm</value>
+    <comment>new</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Đồng ý</value>
+  </data>
+</root>

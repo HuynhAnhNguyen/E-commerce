@@ -1,0 +1,55 @@
+﻿@*@model IEnumerable<LuanVan.Models.GioHang>
+@{
+    ViewData["Title"] = @_localization.Getkey("List_of_invoices");
+    Layout = "~/Areas/Store/Views/Shared/_Layout.cshtml";
+}
+
+<h1>getListCartItem</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaSanPham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuongDat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KhachHangId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KhachHangId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaGioHang">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MaGioHang">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaGioHang">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+*@

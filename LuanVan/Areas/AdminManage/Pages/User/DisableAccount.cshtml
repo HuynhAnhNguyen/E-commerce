@@ -1,0 +1,83 @@
+﻿@page
+@model DisableAccountModel
+@{
+    ViewData["Title"] = @_localization.Getkey("ChangeStatusAccount");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+
+@*<h3>Đặt mật khẩu cho thành viên @Model.user.UserName</h3>*@
+
+@*<h2>@ViewData["Title"]</h2>*@
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("ChangeStatusAccount")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>
+                        <a asp-page="Index" asp-area="AdminManage"><i class="lni lni-list"></i> @_localization.Getkey("ListUser")</a>
+                    </li>
+                    <li>@_localization.Getkey("ChangeStatusAccount")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="account-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                <form class="card login-form" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="card-body">
+                        <div class="title">
+                            <h3>@_localization.Getkey("ChangeStatusAccount")</h3>
+                            <p>
+                                @_localization.Getkey("ChangeStatusAccount") <strong>@Model.user.UserName</strong>
+                            </p>
+                        </div>
+                        <div class="form-floating">
+                            <input asp-for="Input.KhachHangID" class="form-control" aria-required="true" disabled/>
+                            <label asp-for="Input.KhachHangID">@_localization.Getkey("MaKH") <span class="text-danger">*</span></label>
+                            <span asp-validation-for="Input.KhachHangID" class="text-danger p-2"></span>
+                        </div>
+                        <div class="form-floating">
+                            <select asp-for="Input.DisableAccount" class="form-control" aria-required="true">
+                                <option value="-1">@_localization.Getkey("StatusLocked")</option>
+                                <option value="0">@_localization.Getkey("StatusNormal")</option>
+                            </select>
+                            <label asp-for="Input.DisableAccount">@_localization.Getkey("TTTK") <span class="text-danger">*</span></label>
+                            <span asp-validation-for="Input.DisableAccount" class="text-danger p-2"></span>
+                        </div>
+                        <div class="button">
+                            <button class="btn" type="submit">@_localization.Getkey("UpdateStatusAccount")</button>
+                            <hr />
+                            <a class="btn btn-primary" asp-page="./Index">@_localization.Getkey("BackTo")</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,805 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = @_localization.Getkey("Home");
+    var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+    Console.WriteLine(currentCulture);
+    if (currentCulture == "vi-VN")
+        ViewData["language"] = _localization.Getkey("Vietnamese");
+    else if (currentCulture == "en-US")
+        ViewData["language"] = _localization.Getkey("English");
+    else ViewData["language"] = "";
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">@_localization.Getkey("Home")</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-nav">
+                    <li>
+                        <a asp-page="../Home/Index"><i class="lni lni-home"></i> @_localization.Getkey("AdminPage")</a>
+                    </li>
+                    <li>@_localization.Getkey("Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="contact-us" class="contact-us section" style="padding: 0px">
+    <div class="container">
+        <div class="contact-head">
+            <div class="contact-info">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-stats-up"></i>
+                                <h3>@_localization.Getkey("RevenueByDate")</h3>
+                            </div>
+                            <canvas id="revenueByDate"></canvas>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByDateExcel">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-excel"></i></button>
+                            </form>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByDatePdf">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-pdf"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-stats-up"></i>
+                                <h3>@_localization.Getkey("RevenueByWeek")</h3>
+                            </div>
+                            <canvas id="revenueByWeek"></canvas>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByWeekExcel">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-excel"></i></button>
+                            </form>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByWeekPdf">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-pdf"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-stats-up"></i>
+                                <h3>@_localization.Getkey("RevenueByMonth")</h3>
+                            </div>
+                            <canvas id="revenueByMonth"></canvas>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByMonthExcel">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-excel"></i></button>
+                            </form>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByMonthPdf">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-pdf"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-stats-up"></i>
+                                <h3>@_localization.Getkey("RevenueByQuarter")</h3>
+                            </div>
+                            <canvas id="revenueByQuarter"></canvas>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByQuarterExcel">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-excel"></i></button>
+                            </form>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByQuarterPdf">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-pdf"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-stats-up"></i>
+                                <h3>@_localization.Getkey("RevenueByYear")</h3>
+                            </div>
+                            <canvas id="revenueByYear"></canvas>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByYearExcel">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-excel"></i></button>
+                            </form>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/RevenueByYearPdf">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-pdf"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-bar-chart"></i>
+                                <h3>@_localization.Getkey("BillSuccessOrFail")</h3>
+                            </div>
+                            <canvas id="invoiceSuccessOrFailure"></canvas>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/BillSuccessOrFailExcel">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-excel"></i></button>
+                            </form>
+                            <form class="form-inline" style="display: inline;" asp-area="AdminManage" asp-page="/Home/BillSuccessOrFailPdf">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fa-regular fa-file-pdf"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-stats-up"></i>
+                                <h3>@_localization.Getkey("PayByUser")</h3>
+                            </div>
+                            <canvas id="payByUsers"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-pulse"></i>
+                                <h3>@_localization.Getkey("UserByGender")</h3>
+                            </div>
+                            <canvas id="usersByGender"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-pie-chart"></i>
+                                <h3>@_localization.Getkey("ProductByCategory")</h3>
+                            </div>
+                            <canvas id="productByType"></canvas>
+                        </div>
+                    </div>
+                    @*
+                    <div class="col-lg-4 col-md-12 col-12">
+                    <div class="single-info-head">
+                    <div class="single-info">
+                    <i class="lni lni-pie-chart"></i>
+                    <h3>@_localization.Getkey("ProductByProducer")</h3>
+                    </div>
+                    <canvas id="productByProducer"></canvas>
+                    </div>
+                    </div>
+                    *@
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-pie-chart"></i>
+                                <h3>@_localization.Getkey("TLTT")</h3>
+                            </div>
+                            <canvas id="percentByPayment"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="single-info-head">
+                            <div class="single-info">
+                                <i class="lni lni-pie-chart"></i>
+                                <h3>@_localization.Getkey("AgeUser")</h3>
+                            </div>
+                            <canvas id="ageUsers"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script>
+        //RevenueByDate : Tổng hóa đơn theo ngày : Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/RevenueByDate',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                //var labelsArray = dataArray.map(function (element) {
+                //    return element.NgayThangNam;
+                //});
+
+                var labelsArray = dataArray.map(function (element) {
+                    return moment(element.NgayThangNam).format('DD-MM-YYYY');
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.DoanhThu;
+                });
+                //console.log(labelsArray);
+
+                var ctx = document.getElementById("revenueByDate");
+                var revenueByDate = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            label: "Triệu VND đồng",
+                            backgroundColor: "#00CC00",
+                            borderColor: "#00CC00",
+                            data: labelsData,
+                        }],
+                    }
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //RevenueByWeek : Tổng hóa đơn theo tuần : Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/RevenueByWeek',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.Tuan;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.DoanhThu;
+                });
+                //console.log(labelsArray);
+
+                var ctx = document.getElementById("revenueByWeek");
+                var revenueByWeek = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            label: "Triệu VND đồng",
+                            backgroundColor: "#79CDCD",
+                            borderColor: "#79CDCD",
+                            data: labelsData,
+                        }],
+                    }
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //RevenueByMonth : Doanh thu theo tháng : Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/RevenueByMonth',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.Thang;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.DoanhThu;
+                });
+                //console.log(labelsArray);
+
+                var ctx = document.getElementById("revenueByMonth");
+                var revenueByMonth = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            label: "Triệu VND đồng",
+                            backgroundColor: "#CDC9C9",
+                            borderColor: "#CDC9C9",
+                            data: labelsData,
+                        }],
+                    }
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //RevenueByQuarter : Doanh thu theo quý : Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/RevenueByQuarter',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.Quy;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.DoanhThu;
+                });
+                //console.log(labelsArray);
+
+                var ctx = document.getElementById("revenueByQuarter");
+                var revenueByQuarter = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            label: "Triệu VND đồng",
+                            backgroundColor: "#CDC8B1",
+                            borderColor: "#CDC8B1",
+                            data: labelsData,
+                        }],
+                    }
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //RevenueByYear : Doanh thu theo năm : Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/RevenueByYear',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.Nam;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.DoanhThu;
+                });
+                //console.log(labelsArray);
+
+                var ctx = document.getElementById("revenueByYear");
+                var revenueByYear = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            label: "Triệu VND đồng",
+                            backgroundColor: "#FFE4E1",
+                            borderColor: "#FFE4E1",
+                            data: labelsData,
+                        }],
+                    }
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //invoiceSuccessOrFailure: Số lượng hóa đơn thanh toán thành công / thất bại trong ngày: Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/InvoiceSuccessOrFailure',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                //var labelsArray = dataArray.map(function (element) {
+                //    var date = new Date(element.NgayThangNam);
+                //    return date.toLocaleDateString('en-US');
+                //});
+
+                var labelsArray = dataArray.map(function (element) {
+                    return moment(element.NgayThangNam).format('DD-MM-YYYY');
+                });
+
+                var labelsDataSuccess = dataArray.map(function (element) {
+                    return element.SoLuongThanhCong;
+                });
+
+                var labelsDataFail = dataArray.map(function (element) {
+                    return element.SoLuongThatBai;
+                });
+
+                var labelsDataSum = dataArray.map(function (element) {
+                    return element.TongHoaDon;
+                });
+
+                //console.log(labelsArray);
+                const dataChart = {
+                    labels: labelsArray,
+                    datasets: [{
+                        label: 'Đơn hàng thành công',
+                        backgroundColor: 'MediumSpringGreen',
+                        borderColor: 'MediumSpringGreen',
+                        data: labelsDataSuccess
+                    }, {
+                        label: 'Đơn hàng thất bại',
+                        backgroundColor: 'LightPink',
+                        borderColor: 'LightPink',
+                        data: labelsDataFail
+                    }, {
+                        label: 'Tổng hóa đơn',
+                        backgroundColor: 'Silver',
+                        borderColor: 'Silver',
+                        data: labelsDataSum
+                    }]
+                };
+
+                var ctx = document.getElementById("invoiceSuccessOrFailure");
+                var invoiceSuccessOrFailure = new Chart(ctx, {
+                    type: 'bar',
+                    data: dataChart,
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //payByUsers: Số lượng hóa đơn thanh toán bởi khách hàng hay guest trong ngày: Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/GetPayByUsers',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                //var labelsArray = dataArray.map(function (element) {
+                //    return element.NgayThangNam;
+                //});
+                var labelsArray = dataArray.map(function (element) {
+                    return moment(element.NgayThangNam).format('DD-MM-YYYY');
+                });
+
+
+                var labelsDataPayByUser = dataArray.map(function (element) {
+                    return element.ThanhToanBoiKH;
+                });
+
+                var labelsDataPayByGuest = dataArray.map(function (element) {
+                    return element.ThanhToanBoiGuest;
+                });
+
+                var labelsDataSum = dataArray.map(function (element) {
+                    return element.TongHoaDon;
+                });
+
+                //console.log(labelsArray);
+                const dataChart = {
+                    labels: labelsArray,
+                    datasets: [{
+                        label: 'Đơn hàng thanh toán bằng tài khoản khách hàng',
+                        backgroundColor: 'rgba(244 164 96)',
+                        borderColor: 'rgb(244 164 96)',
+                        data: labelsDataPayByUser
+                    }, {
+                        label: 'Đơn hàng thanh toán bằng tài khoản khách (Không đăng ký tài khoản)',
+                        backgroundColor: 'rgba(139 131 120)',
+                        borderColor: 'rgb(139 131 120)',
+                        data: labelsDataPayByGuest
+                    }, {
+                        label: 'Tổng hóa đơn',
+                        backgroundColor: 'rgba(230 230 250)',
+                        borderColor: 'rgb(230 230 250)',
+                        data: labelsDataSum
+                    }]
+                };
+
+                var ctx = document.getElementById("payByUsers");
+                var payByUsers = new Chart(ctx, {
+                    type: 'bar',
+                    data: dataChart,
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //UsersByGender: Số lượng khách hàng theo giới tính: Biểu đồ cột
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/GetUsersByGender',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.GioiTinh;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.SoLuong;
+                });
+                //console.log(labelsArray);
+
+                var ctx = document.getElementById("usersByGender");
+                var usersByGender = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            label: "Giới tính",
+                            backgroundColor: "rgba(162 181 205)",
+                            borderColor: "rgba(162 181 205)",
+                            data: labelsData,
+                        }],
+                    }
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //productByType: Số lượng sản phẩm theo loại: Biểu đồ tròn
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/GetProductByType',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.TenLoaiSp;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.SoLuong;
+                });
+                //console.log(labelsArray);
+                // Pie Chart Example
+                var ctx = document.getElementById("productByType");
+                var productByType = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            data: labelsData,
+                            backgroundColor: ['#D3D3D3',
+                                '#C6E2FF',
+                                '#FFEFD5',
+                                '#EEE9BF',
+                                '#E6E6FA',
+                                '#6495ED',
+                                '#009ACD',
+                                '#00E5EE',
+                                '#9AFF9A',
+                                '#90EE90',
+                                '#CAFF70',
+                                '#EEB4B4',
+                                '#FFE7BA',
+                                '#FA8072',
+                                '#FF69B4',
+                                '#FF82AB',
+                                '#FFBBFF',
+                                '#AB82FF',
+                                '#DDC488',
+                                '#C0C0C0'],
+                        }],
+                    },
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    //<script>
+          //    //productByProducer: Số lượng sản phẩm theo nhà sản xuất: Biểu đồ tròn
+          //    var dataArray;
+          //    var label;
+
+          //    $.ajax({
+          //        url: '/Admin/Report/GetProductByProducer',
+          //        type: 'GET',
+          //        success: function (data) {
+          //            // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+          //            dataArray = data;
+          //            console.log(dataArray);
+          //            var labelsArray = dataArray.map(function (element) {
+          //                return element.TenNsx;
+          //            });
+          //            var labelsData = dataArray.map(function (element) {
+          //                return element.SoLuong;
+          //            });
+          //            console.log(labelsArray);
+          //            // Pie Chart Example
+          //            var ctx = document.getElementById("productByProducer");
+          //            var productByProducer = new Chart(ctx, {
+          //                type: 'pie',
+          //                data: {
+          //                    labels: labelsArray,
+          //                    datasets: [{
+          //                        data: labelsData,
+          //                        backgroundColor: ['#FFCC99',
+          //                            '#CDB5CD',
+          //                            '#EE82EE',
+          //                            '#DDA0DD',
+          //                            '#DA70D6',
+          //                            '#FF3E96',
+          //                            '#8B5F65',
+          //                            '#FFC0CB',
+          //                            '#FF1493',
+          //                            '#EE5C42',
+          //                            '#F08080',
+          //                            '#EE9A00',
+          //                            '#FF8C69',
+          //                            '#FF7F24',
+          //                            '#EED8AE',
+          //                            '#FFD39B',
+          //                            '#FFC1C1',
+          //                            '#EEEE00',
+          //                            '#CAFF70',
+          //                            '#00FA9A'],
+          //                    }],
+          //                },
+          //            });
+          //        },
+          //        error: function () {
+          //            alert('Lỗi khi lấy dữ liệu từ server!');
+          //        }
+          //    });
+          //</script>
+
+    <script>
+        //productByProducer: Số lượng hóa đơn thanh toán bằng phương thức nào: Biểu đồ tròn
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/PercentByPayment',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.TenPTTT;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.PhanTram;
+                });
+                //console.log(labelsArray);
+                // Pie Chart Example
+                var ctx = document.getElementById("percentByPayment");
+                var percentByPayment = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            data: labelsData,
+                            backgroundColor: ['#FFCC99',
+                                '#CDB5CD',
+                                '#EE82EE',
+                                '#DDA0DD',
+                                '#DA70D6',
+                                '#FF3E96',
+                                '#8B5F65',
+                                '#FFC0CB',
+                                '#FF1493',
+                                '#EE5C42',
+                                '#F08080',
+                                '#EE9A00',
+                                '#FF8C69',
+                                '#FF7F24',
+                                '#EED8AE',
+                                '#FFD39B',
+                                '#FFC1C1',
+                                '#EEEE00',
+                                '#CAFF70',
+                                '#00FA9A'],
+                        }],
+                    },
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+    <script>
+        //GetAgeUsers: Khách hàng theo độ tuổi: Biểu đồ doughnut
+        var dataArray;
+        var label;
+
+        $.ajax({
+            url: '/Admin/Report/GetAgeUsers',
+            type: 'GET',
+            success: function (data) {
+                // Dữ liệu đã được lấy về, có thể sử dụng trong mảng
+                dataArray = data;
+                //console.log(dataArray);
+                var labelsArray = dataArray.map(function (element) {
+                    return element.DoTuoi;
+                });
+                var labelsData = dataArray.map(function (element) {
+                    return element.SoLuong;
+                });
+                //console.log(labelsArray);
+                // Doughnut Chart Example
+                var ctx = document.getElementById("ageUsers");
+                var ageUsers = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labelsArray,
+                        datasets: [{
+                            data: labelsData,
+                            backgroundColor: ['#FF99CC',
+                                '#0099FF',
+                                '#00DD00',
+                                '#0000FF',
+                                '#F5F5F5',
+                                '#9FB6CD',
+                                '#FFFAF0',
+                                '#EEE9E9',
+                                '#FF1493',
+                                '#EE5C42',
+                                '#F08080',
+                                '#EE9A00',
+                                '#FF8C69',
+                                '#FF7F24',
+                                '#EED8AE',
+                                '#FFD39B',
+                                '#FFC1C1',
+                                '#EEEE00',
+                                '#CAFF70',
+                                '#00FA9A'],
+                        }],
+                    },
+                });
+            },
+            error: function () {
+                alert('Lỗi khi lấy dữ liệu từ server!');
+            }
+        });
+    </script>
+
+}
