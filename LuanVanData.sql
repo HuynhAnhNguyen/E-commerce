@@ -77,7 +77,8 @@ INSERT INTO [KhuyenMai] VALUES
 
 
 
-INSERT INTO SanPham VALUES 
+INSERT INTO SanPham(MaSanPham, TenSanPham, TenDvt, MaNsx, MaLoaiSp, MaMau, HinhAnh, GiaBan, TrangThai, MoTa, SoLuongDaBan)  
+VALUES  
 ('1003202313146161',  N'iPhone 13 Pro Max 256GB',   N'Cái', '1003202313144261', '1003202313143591', '1003202313143451', 'iphone13-pro-max-xanh-la.jpg', '28999000', '1', N'iPhone 13 Pro Max 256GB - siêu phẩm mang trên mình bộ vi xử lý Apple A15 Bionic hàng đầu, màn hình Super Retina XDR 120 Hz, cụm camera khẩu độ f/1.5 cực lớn, tất cả sẽ mang lại cho bạn những trải nghiệm tuyệt vời chưa từng có.', '2'),
 ('10032023221016121', N'iPhone 14 Pro Max 256GB',   N'Cái', '1003202313144261', '1003202313143591', '1003202313143331', 'iphone-14-pro-max-den.jpg', '31990000', '2', N'Mới đây thì chiếc điện thoại iPhone 14 Pro Max 256GB cũng đã được chính thức lộ diện trên toàn cầu và đập tan bao lời đồn đoán bấy lâu nay, bên trong máy sẽ được trang bị con chip hiệu năng khủng cùng sự nâng cấp về camera đến từ nhà Apple.', '9'),
 ('10032023221018561', N'Laptop Apple MacBook Air M2 2022 8GB/256GB',    N'Cái', '1003202313144261', '1003202313144031', '1003202313143261', 'apple-macbook-air-m2-2022-01.jpg', '27090000', '-1', N'Sau 14 năm, ba lần sửa đổi và hai kiến trúc bộ vi xử lý khác nhau, kiểu dáng mỏng dần mang tính biểu tượng của MacBook Air đã đi vào lịch sử. Thay vào đó là một chiếc MacBook Air M2 với thiết kế hoàn toàn mới, độ dày không thay đổi tương tự như MacBook Pro, đánh bật mọi rào cản với con chip Apple M2 đầy mạnh mẽ.', '1'),
