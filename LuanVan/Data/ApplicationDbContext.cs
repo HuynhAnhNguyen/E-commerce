@@ -30,7 +30,7 @@ namespace LuanVan.Data
         {
             base.OnConfiguring(optionsBuilder);
             //optionsBuilder.UseSqlServer("Server=tcp:server-ct554-luanvan.database.windows.net,1433;Initial Catalog=LuanVan;Persist Security Info=False;User ID=HuynhAnhAdmin;Password=Huynhanh18+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-VCL1NL6;Initial Catalog=LuanVan;TrustServerCertificate=True; Integrated Security=True");
+            // optionsBuilder.UseSqlServer("Data Source=DESKTOP-VCL1NL6;Initial Catalog=LuanVan;TrustServerCertificate=True; Integrated Security=True");
             // Vesion Test
             //optionsBuilder.UseSqlServer("Data Source=DESKTOP-VCL1NL6;Initial Catalog=LuanVan_Test;TrustServerCertificate=True; Integrated Security=True");
         }
